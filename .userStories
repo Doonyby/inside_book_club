@@ -1,0 +1,36 @@
+Inside Book Club
+
+This is an app that allows you to be able to create and host online book clubs and book club meetings.
+It is designed to be a little more private and intimate than other online social sites. 
+
+----As a user, I should be able to sign up and create an account with a short bio w/ reading preferences.
+----As a user, I should be able to start a book club and become a club owner by giving it a name.
+
+----As a user club owner, I should be able to declare a cap of how many members can join.
+-As a user club owner, I should be able to invite others into my club.
+-As a user club owner, I should be able to accept or reject requests to be in my club.
+-As a user club owner, I should be able to open a comment string to discuss books to decide on a book as a group.
+----As a user club owner, I should be able to declare a current book for the book club.
+----As a user club owner, I should be able to declare a certain date and time for the specific book club meetings.
+----As a user club owner, I should be able to cancel the club.
+
+----As a user, I should only be able to own one club and join one club at a time.
+----As a user, I should be able to browse other clubs by current club book.
+----As a user, I should be able to view the browsed club's meeting date and available space in club.
+----As a user, I should be able to request to be in a club (if they have available space).
+----As a user, I should be able to view the clubs I have requested and if I have been accepted into their club.
+----As a user, I should be able to see those who are in my current club.
+----As a user, I should be able to comment into a feed managed only by that club.
+----As a user, I should be able to enter into a live chat room only available to that club.
+-As a user, I should be able to enter the live chat room on the date/time previously determined by club owner.
+----As a user, I should be able to use a goodreads.com api to read reviews on certain books.
+-As a user, I should be able to see other club members from past clubs.
+-As a user, I should be able to see a history of my read books.
+
+Page - Landing Page
+Page - Owned Club
+Page - Joined Club
+Page - Chat Room
+
+Modal - Browse Clubs
+Modal - Create Club

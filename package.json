@@ -1,0 +1,29 @@
+{
+  "name": "inside_book_club",
+  "version": "1.0.0",
+  "description": "react capstone project",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive --compilers js:babel-core/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Doonyby/inside_book_club.git"
+  },
+  "author": "Dan Riding",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Doonyby/inside_book_club/issues"
+  },
+  "homepage": "https://github.com/Doonyby/inside_book_club#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.2.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.7.1"
+  }
+}

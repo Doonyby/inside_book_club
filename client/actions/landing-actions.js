@@ -1,4 +1,3 @@
-require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
 //change state to caps
@@ -13,7 +12,6 @@ export const addLower = () => ({
 });
 
 export const signUpRequest = (userData) => {
-	console.log("action userdata", userData);
 	return dispatch => {
 		const url = '/api/signup';
 			fetch(url, {
@@ -21,28 +19,43 @@ export const signUpRequest = (userData) => {
 				headers: {'Content-Type': 'application/json'},
 				body: JSON.stringify(userData)
 			})
-		    .then(function(data){
-		    	console.log('action data', data);
-		    })
-		    .catch(function(error){
-		    	console.log('action error', error);
+		    .then(response => response.json())
+		    .then(data => {
+		    	if (data.message) {
+		    		console.log('error', data.message);
+		    		//dispatch(signUpRequestError(data.message));
+		    	}
+		    	else {
+		    		console.log('data', data);
+		    		//dispatch(sighUpRequestSuccess(data));
+		    	}	
 		    });
 	}
 }
 
 export const loginRequest = (userData) => {
 	return dispatch => {
-		const url = '/api/login';
-			fetch(url, {
+			fetch('/api/login', {
 				method: 'POST',
 				headers: {'Content-Type': 'application/json'},
 				body: JSON.stringify(userData)
 			})
-		    .then(function(data){
-		    	console.log('action data', data);
+		    .then(response => {
+		    	if (!response.ok) {
+		    		const error = new Error(response.statusText);
+		    		error.response = response;
+		    		throw error;
+		    	}
+		    	return response;
 		    })
-		    .catch(function(error){
-		    	console.log('action error', error);
+		    .then(response => response.json())
+		    .then(data => {
+		    	console.log('data', data);
+		    	// dispatch(loginRequestSuccess(data));
+		    })
+		    .catch(error => {
+		    	console.log('error', error);
+		    	// dispatch(loginRequestError(error));
 		    });
 	}
 }

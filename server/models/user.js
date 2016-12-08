@@ -17,6 +17,12 @@ let UserSchema = new mongoose.Schema({
 	},
 	email: {
 		type: String
+	},
+	myClub: {
+		type: Array,
+	},
+	joinedClub: {
+		type: Array,
 	}
 });
 

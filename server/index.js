@@ -143,6 +143,13 @@ app.post('/api/signup', jsonParser, function(req, res) {
     		message: "Missing field: email"
     	});
     }
+    var passwordConfirm = req.body.passwordConfirm;
+    passwordConfirm = passwordConfirm.trim();
+    if (passwordConfirm != password) {
+        return res.status(422).json({
+            message: "Passwords do not match"
+        });
+    }
     bcrypt.genSalt(10, function(err, salt) {
         if (err) {
             return res.status(500).json({

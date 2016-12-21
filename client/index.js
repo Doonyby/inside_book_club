@@ -6,8 +6,8 @@ import store from "./store";
 import App from "./components/App";
 import Welcome from "./components/landing/Welcome";
 import Instructions from "./components/landing/Instructions";
-import LoginPage from "./components/landing/LoginPage";
-import SignupPage from "./components/landing/SignupPage";
+import LoginContainer from "./components/landing/LoginContainer";
+import SignupContainer from "./components/landing/SignupContainer";
 import Home from "./components/user/HomePage";
 import Navigation from "./components/user/Navigation";
 import MyClub from "./components/user/myClub/MyClub";
@@ -20,8 +20,8 @@ render(
 		<Router history={browserHistory}>
 			<Route path="/" component={App}>
 				<Route path="/instructions" component={Instructions} />
-				<Route path="/signup" component={SignupPage} />
-				<Route path="/login" component={LoginPage} />
+				<Route path="/signup" component={SignupContainer} />
+				<Route path="/login" component={LoginContainer} />
 			</Route>
 			<Route path="/home" component={Home}>
 				<Route path="/myclub" component={MyClub}>

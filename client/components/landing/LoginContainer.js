@@ -1,9 +1,10 @@
 import React from "react";
 import { connect } from 'react-redux';
-import SignupPage from './SignupPage';
-//import { deleteBlog } from '../actions';
+import Login from './LoginPage';
+import { loginRequest } from '../../actions/landing-actions';
 
 const mapStateToProps = (state) => {
+	console.log('state', state);
   return {
     user: state.homeReducer
   }
@@ -11,13 +12,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		onSubmit
+		login: (userData) => {
+			return dispatch(loginRequest(userData))
+		}
 	}
 }
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onDelete: (index) => dispatch(deleteBlog(index))
-  }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(BlogListView)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

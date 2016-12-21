@@ -12,6 +12,7 @@ import Home from "./components/user/HomePage";
 import Navigation from "./components/user/Navigation";
 import MyClub from "./components/user/myClub/MyClub";
 import JoinClub from "./components/user/joinClub/JoinClub";
+import Chatroom from "./components/user/Chatroom";
 
 
 render(
@@ -23,7 +24,12 @@ render(
 				<Route path="/login" component={LoginPage} />
 			</Route>
 			<Route path="/home" component={Home}>
-
+				<Route path="/myclub" component={MyClub}>
+					<Route path="/chatroom" component={Chatroom} />
+				</Route>
+				<Route path="/joinclub" component={JoinClub}> 
+					<Route path="/chatroom" component={Chatroom} />
+				</Route>
 			</Route>	
 		</Router>
 	</Provider>, document.getElementById('app'));

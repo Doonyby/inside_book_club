@@ -1,10 +1,11 @@
 import { redux, combineReducers, createStore, applyMiddleware, compose } from 'redux'
-import landingReducer from "./reducers/landing-reducer";
-import userReducer from "./reducers/user-reducer";
+import homeReducer from "./reducers/home-reducer";
+import myClubReducer from "./reducers/my-club-reducer";
+import joinClubReducer from "./reducers/join-club-reducer";
 import thunk from "redux-thunk";
 
 
-const reducers = combineReducers({ landingReducer, userReducer})
+const reducers = combineReducers({ homeReducer, myClubReducer, joinClubReducer })
 
 const store = createStore(reducers, compose (
 		applyMiddleware(thunk),

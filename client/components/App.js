@@ -7,7 +7,7 @@ import Welcome from "./landing/Welcome";
 class App extends React.Component {
 	render() {
 		return (
-			<div className="appDiv">
+			<div className="appDiv container">
 				<Welcome className="welcome" key="welcomeKey" />
 				{this.props.children}
 			</div>
@@ -15,9 +15,7 @@ class App extends React.Component {
 	} 
 }
 
+export default App;
 
-const mapStateToProps = (state) => ({ club: state });
-
-export default connect(mapStateToProps)(App);
 
 

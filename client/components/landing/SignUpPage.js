@@ -34,6 +34,9 @@ class Signup extends React.Component {
 	}
 	
 	render() {
+		if (this.props.error) {
+			return <h4>{this.state.error}</h4>;	
+		}
 		return (
 			<div className="signupDiv">
 				<form onSubmit={this.onSubmit} >

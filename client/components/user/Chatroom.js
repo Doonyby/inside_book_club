@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 
-class MyClub extends React.Component {
+class Chatroom extends React.Component {
 	render () {
 		return (
-			<h1>MyClub</h1>
+			<h1>Chatroom</h1>
 		);
 	}
 }
 
-export default connect()(MyClub);
+export default connect()(Chatroom);

@@ -24,11 +24,9 @@ render(
 				<Route path="/login" component={LoginContainer} />
 			</Route>
 			<Route path="/home" component={Home}>
-				<Route path="/myclub" component={MyClub}>
-					<Route path="/chatroom" component={Chatroom} />
+				<Route path="/home/myclub" component={MyClub}>
 				</Route>
-				<Route path="/joinclub" component={JoinClub}> 
-					<Route path="/chatroom" component={Chatroom} />
+				<Route path="/home/joinclub" component={JoinClub}> 
 				</Route>
 			</Route>	
 		</Router>

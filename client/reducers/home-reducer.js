@@ -16,6 +16,7 @@ let nextState = Object.assign({}, state);
       nextState.username = action.userData.username;
       nextState.email = action.userData.email;
       nextState.id = action.userData._id;
+      nextState.error = null;
       return nextState;
     case 'SIGN_UP_REQUEST_ERROR':
       nextState.error = action.message;

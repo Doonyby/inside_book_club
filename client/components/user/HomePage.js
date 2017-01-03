@@ -8,7 +8,6 @@ class Home extends React.Component {
 		return (
 			<div>
 				<Navigation className="navigation" />
-				<h1>Hi</h1>
 				{this.props.children}
 			</div>
 		);

@@ -49,7 +49,6 @@ export const loginRequest = (userData) => {
 				body: JSON.stringify(userData)
 			})
 		    .then(response => {
-		    	console.log(response);
 		    	if (!response.ok) {
 		    		const error = new Error(response.statusText);
 		    		error.response = response;

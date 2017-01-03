@@ -8,8 +8,7 @@ import thunk from "redux-thunk";
 const reducers = combineReducers({ homeReducer, myClubReducer, joinClubReducer })
 
 const store = createStore(reducers, compose (
-		applyMiddleware(thunk),
-		window.devToolsExtension ? window.devToolsExtension() : f => f
+		applyMiddleware(thunk)
 	));
 console.log("store", store.getState());
 

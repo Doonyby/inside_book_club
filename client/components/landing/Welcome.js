@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
+import { Button, ButtonToolbar } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 
 class Welcome extends React.Component {
 	render() {
@@ -12,8 +14,14 @@ class Welcome extends React.Component {
 					control the amount of people in your club to make it a conversation/discussion 
 					promoting size.  Please click <Link to={"/instructions"}><strong>HERE</strong></Link> for 
 					further information and instructions on how Inside Book Club works.</p> 
-				<button><Link to={"/signup"}>Signup</Link></button>
-				<button><Link to={"/login"}>Login</Link></button>
+				<ButtonToolbar>
+				  <LinkContainer to={'/signup'}>
+				    <Button bsStyle="primary">Signup</Button>
+				  </LinkContainer>
+				  <LinkContainer to={'/login'}>
+				    <Button>Login</Button>
+				  </LinkContainer>
+			    </ButtonToolbar>
 			</div>
 		);	
 	}

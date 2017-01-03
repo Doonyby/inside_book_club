@@ -4,7 +4,6 @@ import Login from './LoginPage';
 import { loginRequest } from '../../actions/landing-actions';
 
 const mapStateToProps = (state) => {
-	console.log('state', state);
   return {
     user: state.homeReducer
   }

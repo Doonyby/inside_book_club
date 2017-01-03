@@ -4,7 +4,6 @@ import Signup from './SignupPage';
 import { signUpRequest } from '../../actions/landing-actions';
 
 const mapStateToProps = (state) => {
-	console.log('state', state);
   return {
     user: state.homeReducer
   }

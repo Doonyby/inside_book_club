@@ -2,12 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 
 
-import Welcome from "./landing/Welcome";
+import Welcome from "./Welcome";
 
 class App extends React.Component {
 	render() {
 		return (
-			<div className="appDiv container">
+			<div className="appDiv container main">
 				<Welcome className="welcome" key="welcomeKey" />
 				{this.props.children}
 			</div>

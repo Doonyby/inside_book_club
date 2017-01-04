@@ -2,11 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import Navigation from "./Navigation";
 
+
 class Home extends React.Component {
 	render () {
 		console.log('home component: ', this.props.club);
 		return (
-			<div>
+			<div className="main">
 				<Navigation className="navigation" />
 				{this.props.children}
 			</div>

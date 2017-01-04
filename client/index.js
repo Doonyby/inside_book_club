@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import { Router, Route, browserHistory, IndexRoute } from "react-router";
 import { Provider } from "react-redux";
 import store from "./store";
-import App from "./components/App";
+import App from "./components/landing/App";
 import Welcome from "./components/landing/Welcome";
 import Instructions from "./components/landing/Instructions";
 import LoginContainer from "./components/landing/LoginContainer";
@@ -24,10 +24,9 @@ render(
 				<Route path="/login" component={LoginContainer} />
 			</Route>
 			<Route path="/home" component={Home}>
-				<Route path="/home/myclub" component={MyClub}>
-				</Route>
-				<Route path="/home/joinclub" component={JoinClub}> 
-				</Route>
+				<IndexRoute component={MyClub} />
+				<Route path="/home/joinclub" component={JoinClub} />
+				<Route path="/home/chatroom" component={Chatroom} /> 
 			</Route>	
 		</Router>
 	</Provider>, document.getElementById('app'));

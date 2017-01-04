@@ -8,3 +8,10 @@ addons:
     - mongodb-3.2-precise
     packages:
     - mongodb-org-server
+deploy:
+  provider: heroku
+  api_key:
+    secure: jtgZYT4ov4GBSaEeLtNxp2pm0+ZeS5y33ZueCrmnHG9Qyya8+MzS84SkfdhWgan3zm1gPSszTxFYbc4j5aTi+RpoE5ZDG6TmuD4QjdwVVOC3k2IdIXQuXFOsbt/OGXDDI8R9w9jpqbsdHQmuJPBtyWV3w2QqTA4XmBrbhkX8vpksVuwlkpSwzFVeC/zl+S5dsMIB6WTyYo/MK7289BW9ERwIPi9nRRNDjFAStlUznl/0jQbjoH4SZkRBHRLrHVlp8A2Vagkatv298UEcnjYrErDuaPfGXp4QSDZOTJTMOZvIK9KBEReAOtCnVId/x7w5kjllOEiu5J4Z/5eoeDezMX2O8ZkHY5GnqpdW+J0NgPAVCTJPimeLgbw2XZJW+uiLg1QPqAv7A7CFuoB9M4YXLd7P2ffOfru9Y7ZiuerrRztULWDxK/hepZb+OXK9QMvN5ueFvxl6TzPTBUsuMHBOn92BfP77E3T3sFsMJiBDSQ5+sXRgYFWW37XQJ+z9nPRVQl4m20M/FJLmnw6AMQb2hfDmvRKGfcKA/Cp9JtPYCAoTM/lb0a5sdVFprvXlKEr3bza7zpjia6glWd1D03cbRYwP0y2MDOEE4A+wfeHa2ZHLbcJpf6A0L+oWjLEwerzPSnBOrZkA18cjz6KbPSb/2GQXZsTJ79YM4CsaaHN0RZs=
+  app: mighty-anchorage-70654
+  on:
+    repo: Doonyby/inside_book_club

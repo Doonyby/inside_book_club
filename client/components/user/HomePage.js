@@ -7,7 +7,7 @@ class Home extends React.Component {
 	render () {
 		console.log('home component: ', this.props.club);
 		return (
-			<div className="main">
+			<div className="container">
 				<Navigation className="navigation" />
 				{this.props.children}
 			</div>

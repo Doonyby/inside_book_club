@@ -2,7 +2,7 @@
   "name": "inside_book_club",
   "version": "1.0.0",
   "description": "react capstone project",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
     "start": "nodemon --watch server --exec babel-node -- server/index.js",
     "test": "mocha --recursive --compilers js:babel-core/register"

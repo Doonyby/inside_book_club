@@ -2,3 +2,20 @@ body {
 	background-color: red
 }
 
+div {
+	text-align: center;
+}
+
+.boxContainer {
+	background-color: white;
+	border: 1px solid black;
+}
+
+.clubRow2,
+.clubRow3 {
+	margin-top: 20px;
+}
+
+.clubRow4 {
+	margin-top: 10px;
+}

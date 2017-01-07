@@ -7,10 +7,7 @@ import { LinkContainer } from "react-router-bootstrap";
 
 class Navigation extends React.Component {
 	render () {
-		let homeTitle = {
-			textAlign: "center"
-		};
-
+		console.log('club', this.props.club);
 		return (
 			<div>
 			  <Navbar inverse>
@@ -43,9 +40,9 @@ class Navigation extends React.Component {
 					       Inside Book Club
 					    </Navbar.Brand>
 				      </Col>
-				      <Col md={2} mdOffset={3}>
+				      <Col md={3} mdOffset={2}>
 					    <Nav>
-					      <NavDropdown noCaret eventKey={2} title="My Name" id="menuDropdown">
+					      <NavDropdown noCaret pullRight eventKey={2} title={this.props.club.homeReducer.name.toUpperCase() + "'s Home Page"} id="menuDropdown">
 					        <MenuItem eventKey={2.1}>Profile</MenuItem>
 					        <MenuItem eventKey={2.2}>Information</MenuItem>
 					        <MenuItem divider />

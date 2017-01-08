@@ -7,7 +7,6 @@ import { LinkContainer } from "react-router-bootstrap";
 
 class Navigation extends React.Component {
 	render () {
-		console.log('club', this.props.club);
 		return (
 			<div>
 			  <Navbar inverse>

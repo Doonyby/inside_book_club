@@ -5,11 +5,13 @@ let initialState = {
 	username: '',
 	email: '',
 	id: '',
+  myClub: '',
+  joinedClub: '',
   error: null
 }
 
 export default function homeReducer(state = initialState, action) {
-let nextState = Object.assign({}, state);
+  let nextState = Object.assign({}, state);
   switch (action.type) {
     case 'SIGN_IN_SUCCESS':
       nextState.name = action.userData.name;

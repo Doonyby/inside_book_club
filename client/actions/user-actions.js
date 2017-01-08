@@ -1,10 +1,16 @@
-//change state to caps
-export const ADD_CAPS = 'ADD_CAPS';
-export const addCaps = () => ({
-	type: ADD_CAPS
-});
+require('isomorphic-fetch');
 
-export const ADD_LOWER = 'ADD_LOWER';
-export const addLower = () => ({
-	type: ADD_LOWER
-});
+export const SHOW_NEW_CLUB_MODAL = "SHOW_NEW_CLUB_MODAL";
+export const showNewClubModal = () => {
+	type: SHOW_NEW_CLUB_MODAL
+}
+
+export const HIDE_NEW_CLUB_MODAL = "HIDE_NEW_CLUB_MODAL";
+export const hideNewClubModal = () => {
+	type: HIDE_NEW_CLUB_MODAL
+}
+
+export const submitNewMyClub = (newClubData) => {
+
+}
+

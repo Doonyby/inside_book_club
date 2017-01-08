@@ -23,21 +23,21 @@ export const loginRequestError = (message) => ({
 export const signUpRequest = (userData) => {
 	return dispatch => {
 		const url = '/api/signup';
-			fetch(url, {
-				method: 'POST',
-				headers: {'Content-Type': 'application/json'},
-				body: JSON.stringify(userData)
-			})
-		    .then(response => response.json())
-		    .then(data => {
-		    	if (data.message) {
-		    		dispatch(signUpRequestError(data.message));
-		    	}
-		    	else {
-		    		dispatch(signInSuccess(data));
-		    		browserHistory.push('/home');
-		    	}	
-		    });
+		fetch(url, {
+			method: 'POST',
+			headers: {'Content-Type': 'application/json'},
+			body: JSON.stringify(userData)
+		})
+	    .then(response => response.json())
+	    .then(data => {
+	    	if (data.message) {
+	    		dispatch(signUpRequestError(data.message));
+	    	}
+	    	else {
+	    		dispatch(signInSuccess(data));
+	    		browserHistory.push('/home');
+	    	}	
+	    });
 	}
 }
 

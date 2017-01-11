@@ -18,7 +18,7 @@ export const LOGIN_REQUEST_ERROR = 'LOGIN_REQUEST_ERROR';
 export const loginRequestError = (message) => ({
 	type: LOGIN_REQUEST_ERROR,
 	message
-})
+});
 
 export const signUpRequest = (userData) => {
 	return dispatch => {

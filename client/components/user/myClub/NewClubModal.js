@@ -1,18 +1,33 @@
 import React from "react";
 import { Modal, Button } from "react-bootstrap";
 import { connect } from "react-redux";
+import { hideNewClubModal } from "../../../actions/user-actions";
 
-const NewClubModal = () => {
+const NewClubModal = ({ club, hideNewClubModal }) => {
+	console.log('modal', club);
 	return (
-		<Modal show={this.club.showNewClubModal} onHide={this.close}>
+		<Modal  show={club.showNewClubModal} onHide={() => { return hideNewClubModal() }}>
           <Modal.Header closeButton>
             <Modal.Title>Create your book club!</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <p>This is my new club modal</p>
+            <form onSubmit={(e) => {
+				e.preventDefault();
+				let clubData = {
+					clubName: e.target.clubName.value,
+					password: e.target.password.value
+				}
+				submitNewMyClub(clubData);
+			}} >
+	    	    <FormGroup controlId="clubName">
+			      <ControlLabel>Textarea</ControlLabel>
+			      <FormControl componentClass="textarea" placeholder="textarea" />
+			    </FormGroup>
+            </form>
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={this.close}>Close</Button>
+          	<Button>Submit</Button>
+            <Button onClick={() => { return hideNewClubModal() }}>Close</Button>
           </Modal.Footer>
         </Modal>
 	);
@@ -23,6 +38,11 @@ const mapStateToProps = (state) => {
 		club: state.myClubReducer
 	}
 }
-export default connect(mapStateToProps)(NewClubModal);
+const mapDispatchToProps = (dispatch) => {
+	return{
+		hideNewClubModal: () => { dispatch(hideNewClubModal()) },
+		submitNewMyClub: () => { dispatch(submitNewMyClub(clubData)) }
+	}
+}
+export default connect(mapStateToProps, mapDispatchToProps)(NewClubModal);
 
-ReactDOM.render(<NewClubModal />, mountNode);

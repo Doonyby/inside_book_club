@@ -1,8 +1,9 @@
 import React from "react";
 import MyClub from "./MyClub";
-import { Button } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import { connect } from "react-redux";
 import { showNewClubModal } from "../../../actions/user-actions";
+import NewClubModal from "./NewClubModal";
 
 
 
@@ -12,6 +13,7 @@ class MyClubEntrance extends React.Component{
 		return (
 		     <div>
 		         { queryOrClub }
+		         <NewClubModal />
 		     </div>
 	    );		
 	}

@@ -12,7 +12,7 @@ let ClubSchema = new mongoose.Schema({
 	memberCap: {
 		type: Number,
 		required: true
-	}
+	},
 	members: {
 		type: Array
 	},

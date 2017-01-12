@@ -1,5 +1,6 @@
 require('isomorphic-fetch');
 import { browserHistory } from "react-router";
+import { createNewMyClub } from "./user-actions";
 
 //add user to state upon successful sign in with login or signup
 export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS';
@@ -17,6 +18,18 @@ export const signUpRequestError = (message) => ({
 export const LOGIN_REQUEST_ERROR = 'LOGIN_REQUEST_ERROR';
 export const loginRequestError = (message) => ({
 	type: LOGIN_REQUEST_ERROR,
+	message
+});
+
+export const SUBMIT_NEW_MYCLUB_SUCCESS = "SUBMIT_NEW_MYCLUB_SUCCESS";
+export const submitNewMyClubSuccess = (data) => ({
+	type: SUBMIT_NEW_MYCLUB_SUCCESS,
+	myClubName: data.myClub
+});
+
+export const SUBMIT_NEW_MYCLUB_ERROR = "SUBMIT_NEW_MYCLUB_ERROR";
+export const submitNewMyClubError = (message) => ({
+	type: SUBMIT_NEW_MYCLUB_ERROR,
 	message
 });
 
@@ -67,4 +80,26 @@ export const loginRequest = (userData) => {
 	}
 }
 
+export const submitNewMyClub = (newClubData) => {
+	return dispatch => {
+		const url = '/api/submitNewMyClub';
+		fetch(url, {
+			method: 'PUT',
+			headers: {'Content-Type': 'application/json'},
+			body: JSON.stringify(newClubData)
+		})
+		.then(response => response.json())
+		.then(data => {
+			if (data.message) {
+				(console.log('submitDataMessage', data.message));
+				dispatch(submitNewMyClubError(data.message));
+			}
+			else {
+				console.log('submitData', data);
+				dispatch(submitNewMyClubSuccess(data));				
+				dispatch(createNewMyClub(newClubData));
+			}
+		})
+	}
+}
 

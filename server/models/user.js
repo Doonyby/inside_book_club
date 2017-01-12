@@ -19,10 +19,10 @@ let UserSchema = new mongoose.Schema({
 		type: String
 	},
 	myClub: {
-		type: Array,
+		type: String,
 	},
 	joinedClub: {
-		type: Array,
+		type: String,
 	}
 });
 

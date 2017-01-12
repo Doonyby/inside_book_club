@@ -11,6 +11,7 @@ import passport from "passport";
 import LocalStrategy from "passport-local";
 import config from "../config";
 import { User } from "./models/user";
+import { Club } from "./models/club";
 
 var runServer = function(callback) {
     console.log('database_url: ' + config.DATABASE_URL);
@@ -41,8 +42,6 @@ let app = express();
 let router = express.Router();
 let jsonParser = bodyParser.json();
 app.use(bodyParser.json());
-
-// app.use('/api/users', users)
 
 const compiler = webpack(webpackConfig);
 
@@ -90,15 +89,13 @@ app.post('/api/login', passport.authenticate('local', {session: false}), functio
 });
 
 app.put('/api/submitNewMyClub', function(req, res) {
-    console.log('req.body', req.body);
-    User.findById({_id: req.body.id}, function(err, item){
+    User.findById({_id: req.body.organizerId}, function(err, item){
         if (err) {
             console.log(err);
             return res.status(500).json({
                 message: 'Internal Server Error'
             });
         }
-        console.log('item', item);
         item.myClub = req.body.clubName;
         item.save(function(err) {
             if (err) {
@@ -107,6 +104,23 @@ app.put('/api/submitNewMyClub', function(req, res) {
                 res.status(201).json(item);
             }
         });
+    });
+});
+
+app.post('/api/createNewMyClub', function(req, res) {
+    var club = {};
+    club.clubName = req.body.clubName;
+    club.currentBook = req.body.currentBook;
+    club.meetupDate = req.body.meetupDate;
+    club.memberCap = req.body.memberCap;
+    club.organizer = req.body.organizer;
+    Club.create(club, function(err, item) {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Serer Error'
+            });
+        }
+        return res.status(201).json(item);
     });
 });
 

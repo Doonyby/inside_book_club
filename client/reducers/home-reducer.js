@@ -1,4 +1,4 @@
-import actions from "../actions/landing-actions.js";
+import action from "../actions/landing-actions.js";
 
 let initialState = {
 	name: '',
@@ -7,7 +7,9 @@ let initialState = {
 	id: '',
   myClub: '',
   joinedClub: '',
-  error: null
+  error: null,
+  myClubError: null,
+  joinedClubError: null
 }
 
 export default function homeReducer(state = initialState, action) {
@@ -25,6 +27,12 @@ export default function homeReducer(state = initialState, action) {
       return nextState;
     case 'LOGIN_REQUEST_ERROR':
       nextState.error = action.message;
+    case 'SUBMIT_NEW_MYCLUB_SUCCESS':
+      nextState.myClub = action.myClubName;
+      nextState.myClubError = null;
+      return nextState;
+    case 'SUBMIT_NEW_MYCLUB_ERROR':
+      nextState.myClubError = action.message;
     default:
       return nextState;
   }

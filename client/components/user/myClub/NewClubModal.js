@@ -1,7 +1,8 @@
 import React from "react";
 import { Modal, Button, FormGroup, ControlLabel, FormControl, HelpBlock } from "react-bootstrap";
 import { connect } from "react-redux";
-import { hideNewClubModal, submitNewMyClub } from "../../../actions/user-actions";
+import { hideNewClubModal } from "../../../actions/user-actions";
+import { submitNewMyClub } from "../../../actions/landing-actions";
 
 const NewClubModal = ({ club, hideNewClubModal, submitNewMyClub }) => {
 	console.log('modal', club);
@@ -66,7 +67,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return{
 		hideNewClubModal: () => { dispatch(hideNewClubModal()) },
-		submitNewMyClub: () => { dispatch(submitNewMyClub(newClubData)) }
+		submitNewMyClub: (newClubData) => { dispatch(submitNewMyClub(newClubData)) }
 	}
 }
 export default connect(mapStateToProps, mapDispatchToProps)(NewClubModal);

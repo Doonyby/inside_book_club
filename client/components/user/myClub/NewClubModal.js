@@ -1,32 +1,57 @@
 import React from "react";
-import { Modal, Button } from "react-bootstrap";
+import { Modal, Button, FormGroup, ControlLabel, FormControl, HelpBlock } from "react-bootstrap";
 import { connect } from "react-redux";
-import { hideNewClubModal } from "../../../actions/user-actions";
+import { hideNewClubModal, submitNewMyClub } from "../../../actions/user-actions";
 
-const NewClubModal = ({ club, hideNewClubModal }) => {
+const NewClubModal = ({ club, hideNewClubModal, submitNewMyClub }) => {
 	console.log('modal', club);
+	let modalDivStyle = {
+		textAlign: "left"
+	}
 	return (
-		<Modal  show={club.showNewClubModal} onHide={() => { return hideNewClubModal() }}>
+		<Modal show={club.myClubReducer.showNewClubModal} onHide={() => { return hideNewClubModal() }}>
           <Modal.Header closeButton>
             <Modal.Title>Create your book club!</Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body style={modalDivStyle}>
             <form onSubmit={(e) => {
 				e.preventDefault();
 				let clubData = {
 					clubName: e.target.clubName.value,
-					password: e.target.password.value
+					organizer: club.homeReducer.username,
+					organizerId: club.homeReducer.id,
+					memberCap: e.target.memberCap.value,
+					currentBook: e.target.currentBook.value,
+					meetupDate: e.target.meetupDate.value
 				}
+				console.log(clubData);
 				submitNewMyClub(clubData);
 			}} >
-	    	    <FormGroup controlId="clubName">
-			      <ControlLabel>Textarea</ControlLabel>
-			      <FormControl componentClass="textarea" placeholder="textarea" />
+	    	    <FormGroup style={modalDivStyle} controlId="clubName">
+			      <ControlLabel>Club Name</ControlLabel>
+			      <FormControl type="text" name="clubName" placeholder="club name"/>
+			      <HelpBlock>Try to make it original.</HelpBlock>
 			    </FormGroup>
+			    <FormGroup style={modalDivStyle} controlId="memberCap">
+			      <ControlLabel>Club Size</ControlLabel>
+			      <FormControl type="number" name="memberCap" placeholder="1"/>
+			      <HelpBlock>This is the maximum members that you will allow in your club.  
+			      Remember that group conversations are often easiest with smaller groups. (i.e. less than 10)</HelpBlock>
+			    </FormGroup>
+			    <FormGroup style={modalDivStyle} controlId="currentBook">
+			      <ControlLabel>Current Club Book</ControlLabel>
+			      <FormControl type="text" name="currentBook" placeholder="current club book"/>
+			      <HelpBlock>If you haven not decided on a book yet, leave this blank for now.</HelpBlock>
+			    </FormGroup>
+			    <FormGroup style={modalDivStyle} controlId="meetupDate">
+			      <ControlLabel>Club Meetup Date/Time</ControlLabel>
+			      <FormControl type="datetime-local" name="meetupDate" />
+			      <HelpBlock>Also okay to leave this blank until you have a decided book and appropriate time length to read it in.</HelpBlock>
+			    </FormGroup>
+			    <Button type="submit">Submit</Button>
             </form>
           </Modal.Body>
           <Modal.Footer>
-          	<Button>Submit</Button>
             <Button onClick={() => { return hideNewClubModal() }}>Close</Button>
           </Modal.Footer>
         </Modal>
@@ -35,13 +60,13 @@ const NewClubModal = ({ club, hideNewClubModal }) => {
 
 const mapStateToProps = (state) => {
 	return {
-		club: state.myClubReducer
+		club: state
 	}
 }
 const mapDispatchToProps = (dispatch) => {
 	return{
 		hideNewClubModal: () => { dispatch(hideNewClubModal()) },
-		submitNewMyClub: () => { dispatch(submitNewMyClub(clubData)) }
+		submitNewMyClub: () => { dispatch(submitNewMyClub(newClubData)) }
 	}
 }
 export default connect(mapStateToProps, mapDispatchToProps)(NewClubModal);

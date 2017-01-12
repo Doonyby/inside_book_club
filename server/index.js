@@ -89,6 +89,27 @@ app.post('/api/login', passport.authenticate('local', {session: false}), functio
     res.json(req.user);
 });
 
+app.put('/api/submitNewMyClub', function(req, res) {
+    console.log('req.body', req.body);
+    User.findById({_id: req.body.id}, function(err, item){
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        console.log('item', item);
+        item.myClub = req.body.clubName;
+        item.save(function(err) {
+            if (err) {
+                return res.status(500).send(err);
+            } else {
+                res.status(201).json(item);
+            }
+        });
+    });
+});
+
 app.post('/api/signup', jsonParser, function(req, res) {
 	console.log("server", req.body)
     if (!req.body) {

@@ -34,6 +34,16 @@ export default function myClubReducer(state = initialState, action) {
 			return nextState;
 		case 'CREATE_NEW_MYCLUB_ERROR':
 			nextState.myClubError = action.message;
+		case 'GET_MYCLUB_DATA_SUCCESS':
+			nextState.clubName = action.data.clubName;
+			nextState.organizer = action.data.organizer;
+			nextState.memberCap = action.data.memberCap;
+			nextState.members = nextState.members.concat(action.data.organizer);
+			nextState.currentBook = action.data.currentBook;
+			nextState.meetupDate = action.data.meetupDate;
+			nextState.showNewClubModal = false;
+		case 'GET_MYCLUB_DATA_ERROR':
+			nextState.myClubError = action.message;
 		default:
 			return nextState;
 	}

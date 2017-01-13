@@ -2,7 +2,6 @@ import React from "react";
 import { Button } from "react-bootstrap";
 
 const Control = ({ club, showNewClubModal, hideNewClubModal, submitNewMyClub }) => {
-	console.log('club: ', club);
 	return (
 		<div>
 			<h4><u>Control</u></h4>

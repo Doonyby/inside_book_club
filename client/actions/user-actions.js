@@ -1,5 +1,6 @@
 require('isomorphic-fetch');
 import { browserHistory } from "react-router";
+import axios from "axios";
 
 
 export const SHOW_NEW_CLUB_MODAL = "SHOW_NEW_CLUB_MODAL";
@@ -24,6 +25,30 @@ export const createNewMyClubError = (message) => ({
 	message
 });
 
+export const GET_MYCLUB_DATA_SUCCESS = "GET_MYCLUB_DATA_SUCCESS";
+export const getMyClubDataSuccess = (data) => ({
+	type: GET_MYCLUB_DATA_SUCCESS,
+	data
+});
+
+export const GET_MYCLUB_DATA_ERROR = "GET_MYCLUB_DATA_ERROR";
+export const getMyClubDataError = (message) => ({
+	type: GET_MYCLUB_DATA_ERROR,
+	message
+});
+
+export const getMyClubData = (clubName) => {
+	return dispatch => {
+		axios.get('/api/getMyClubData/' + clubName)
+		  .then(function (response) {
+		    dispatch(getMyClubDataSuccess(response.data));
+		  })
+		  .catch(function (error) {
+		    dispatch(getMyClubDataError(error.message));
+		  });
+	}
+}
+
 export const createNewMyClub = (newClubData) => {
 	return dispatch => {
 		const url = '/api/createNewMyClub';
@@ -35,15 +60,30 @@ export const createNewMyClub = (newClubData) => {
 		.then(response => response.json())
 		.then(data => {
 			if (data.message) {
-				(console.log('createDataMessage', data.message));
+				console.log('createDataMessage', data.message);
 				dispatch(createNewMyClubError(data.message));
 			}
 			else {
-				console.log('createData', data);
 				dispatch(createNewMyClubSuccess(data));
 				browserHistory.push('/home');
 			}			
 		})
 	}
 }
+
+		// const url = '/api/getMyClubData/' + clubName;
+		// fetch(url, {
+		// 	method: 'GET'
+		// })
+		// .then(response => response.json())
+		// .then(data => {
+		// 	if (data.message) {
+		// 		console.log('getMyClubDataMessage', data.message);
+		// 		dispatch(getMyClubDataError(data.message));	
+		// 	}
+		// 	else {
+		// 		console.log('getMyClubData', data);
+		// 		dispatch(getMyClubDataSuccess(data));
+		// 	}
+		// })
 

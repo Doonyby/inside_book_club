@@ -2,14 +2,14 @@ import React from "react";
 import MyClub from "./MyClub";
 import { Button, Modal } from "react-bootstrap";
 import { connect } from "react-redux";
-import { showNewClubModal } from "../../../actions/user-actions";
+import { showNewClubModal, getMyClubData } from "../../../actions/user-actions";
 import NewClubModal from "./NewClubModal";
 
 
 
-class MyClubEntrance extends React.Component{
+class MyClubEntrance extends React.Component {
 	render () {
-		let queryOrClub = this.props.club.homeReducer.myClub ? <MyClub /> : <Query onClick={() => {this.props.showNewClubModal()}}/>
+		let queryOrClub = this.props.club.homeReducer.myClub ? <MyClub getMyClubData={(clubName) => {this.props.getMyClubData(clubName)}} club={this.props.club} /> : <Query onClick={() => {this.props.showNewClubModal()}}/>
 		return (
 		     <div>
 		         { queryOrClub }
@@ -35,7 +35,8 @@ const Query = (props) => {
 const mapStateToProps = (state) => ({ club: state });
 const mapDispatchToProps = (dispatch) => { 
 	return { 
-		showNewClubModal: () => { dispatch(showNewClubModal()); }
+		showNewClubModal: () => { dispatch(showNewClubModal()); },
+		getMyClubData: (clubName) => { dispatch(getMyClubData(clubName)); }
 	}
 }
 

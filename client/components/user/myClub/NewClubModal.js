@@ -5,7 +5,6 @@ import { hideNewClubModal } from "../../../actions/user-actions";
 import { submitNewMyClub } from "../../../actions/landing-actions";
 
 const NewClubModal = ({ club, hideNewClubModal, submitNewMyClub }) => {
-	console.log('modal', club);
 	let modalDivStyle = {
 		textAlign: "left"
 	}

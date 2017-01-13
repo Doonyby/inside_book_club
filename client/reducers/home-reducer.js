@@ -20,7 +20,11 @@ export default function homeReducer(state = initialState, action) {
       nextState.username = action.userData.username;
       nextState.email = action.userData.email;
       nextState.id = action.userData._id;
+      nextState.myClub = action.userData.myClub;
+      nextState.joinedClub = action.userData.joinedClub;
       nextState.error = null;
+      nextState.myClubError = null;
+      nextState.joinedClubError = null;
       return nextState;
     case 'SIGN_UP_REQUEST_ERROR':
       nextState.error = action.message;

@@ -53,9 +53,7 @@ app.use(webpackMiddleware(compiler, {
 app.use(webpackHotMiddleware(compiler));
 
 app.use('/client', express.static(path.join(__dirname, '../client')));
-app.get('/*', (req, res) => {
-	res.sendFile(path.join(__dirname, './index.html'));
-});
+
 
 passport.use(new LocalStrategy(function(username, password, callback) {
     User.findOne({username: username}, function(err, user) {
@@ -86,6 +84,18 @@ app.use(passport.initialize());
 
 app.post('/api/login', passport.authenticate('local', {session: false}), function(req, res) {
     res.json(req.user);
+});
+
+app.get('/api/getMyClubData/:clubName', function(req, res) {
+    Club.findOne({clubName: req.params.clubName}, function(err, item) {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        res.status(201).json(item);
+    });
 });
 
 app.put('/api/submitNewMyClub', function(req, res) {
@@ -221,6 +231,9 @@ app.post('/api/signup', jsonParser, function(req, res) {
     });
 });
 
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, './index.html'));
+});
 
 exports.app = app;
 exports.runServer = runServer;

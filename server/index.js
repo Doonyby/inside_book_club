@@ -99,20 +99,29 @@ app.get('/api/getMyClubData/:clubName', function(req, res) {
 });
 
 app.put('/api/submitNewMyClub', function(req, res) {
-    User.findById({_id: req.body.organizerId}, function(err, item){
-        if (err) {
-            console.log(err);
+    Club.findOne({clubName: req.body.clubName}, function(err, item) {
+        if (item) {
+            console.log('item was found....not original');
             return res.status(500).json({
-                message: 'Internal Server Error'
+                message: 'Club name already exists. Please choose another club name.'
             });
         }
-        item.myClub = req.body.clubName;
-        item.save(function(err) {
+        User.findById({_id: req.body.organizerId}, function(err, item){
             if (err) {
-                return res.status(500).send(err);
-            } else {
-                res.status(201).json(item);
+                console.log(err);
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
             }
+            item.myClub = req.body.clubName;
+            item.save(function(err) {
+                if (err) {
+                    return res.status(500).json({
+                        message: 'Internal Server Error'
+                    });
+                }
+                return res.status(201).json(item);
+            });
         });
     });
 });
@@ -135,7 +144,6 @@ app.post('/api/createNewMyClub', function(req, res) {
 });
 
 app.post('/api/signup', jsonParser, function(req, res) {
-	console.log("server", req.body)
     if (!req.body) {
         return res.status(400).json({
             message: "No request body"

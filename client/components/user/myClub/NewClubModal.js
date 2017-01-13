@@ -8,6 +8,16 @@ const NewClubModal = ({ club, hideNewClubModal, submitNewMyClub }) => {
 	let modalDivStyle = {
 		textAlign: "left"
 	}
+	let validate = null;
+	let isError = "";
+	let errorStyle = null;
+	let errorMessage = "Try to make it original";
+	if (club.homeReducer.myClubError) {
+		validate = "error"
+		isError = "Error";
+		errorMessage = club.homeReducer.myClubError;
+		errorStyle = "danger";
+	}
 	return (
 		<Modal show={club.myClubReducer.showNewClubModal} onHide={() => { return hideNewClubModal() }}>
           <Modal.Header closeButton>
@@ -24,13 +34,12 @@ const NewClubModal = ({ club, hideNewClubModal, submitNewMyClub }) => {
 					currentBook: e.target.currentBook.value,
 					meetupDate: e.target.meetupDate.value
 				}
-				console.log(clubData);
 				submitNewMyClub(clubData);
 			}} >
-	    	    <FormGroup style={modalDivStyle} controlId="clubName">
+	    	    <FormGroup style={modalDivStyle} controlId="clubName" validationState={validate}>
 			      <ControlLabel>Club Name</ControlLabel>
 			      <FormControl type="text" name="clubName" placeholder="club name"/>
-			      <HelpBlock>Try to make it original.</HelpBlock>
+			      <HelpBlock bsStyle={errorStyle}>{errorMessage}</HelpBlock>
 			    </FormGroup>
 			    <FormGroup style={modalDivStyle} controlId="memberCap">
 			      <ControlLabel>Club Size</ControlLabel>
@@ -48,6 +57,7 @@ const NewClubModal = ({ club, hideNewClubModal, submitNewMyClub }) => {
 			      <FormControl type="datetime-local" name="meetupDate" />
 			      <HelpBlock>Also okay to leave this blank until you have a decided book and appropriate time length to read it in.</HelpBlock>
 			    </FormGroup>
+			    <h5 className="text-danger">{isError}</h5>
 			    <Button type="submit">Submit</Button>
             </form>
           </Modal.Body>

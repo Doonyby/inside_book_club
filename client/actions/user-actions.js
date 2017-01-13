@@ -71,19 +71,4 @@ export const createNewMyClub = (newClubData) => {
 	}
 }
 
-		// const url = '/api/getMyClubData/' + clubName;
-		// fetch(url, {
-		// 	method: 'GET'
-		// })
-		// .then(response => response.json())
-		// .then(data => {
-		// 	if (data.message) {
-		// 		console.log('getMyClubDataMessage', data.message);
-		// 		dispatch(getMyClubDataError(data.message));	
-		// 	}
-		// 	else {
-		// 		console.log('getMyClubData', data);
-		// 		dispatch(getMyClubDataSuccess(data));
-		// 	}
-		// })
 

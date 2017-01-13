@@ -3,7 +3,7 @@ import React from "react";
 const Login = ({ user, login }) => {
 	let error = "";
 	if (user.error) {
-		error = user.error.message;
+		error = "Login failed. If you don't have an account with us, please press the 'signup' button. Otherwise, try again.";
 	}
 	return (
 		<div className="loginDiv">

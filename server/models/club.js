@@ -3,7 +3,8 @@ import mongoose from "mongoose";
 let ClubSchema = new mongoose.Schema({
 	clubName: {
 		type: String,
-		required: true
+		required: true,
+		unique: true
 	},
 	organizer: {
 		type: String,

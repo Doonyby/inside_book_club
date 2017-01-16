@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 import ClubControl from './ClubControl';
-import { showNewClubModal, hideNewClubModal, submitNewMyClub } from "../../../actions/user-actions";
+import { showEditClubModal, hideEditClubModal, submitEditClub } from "../../../actions/user-actions";
 
 const mapStateToProps = (state) => {
 	return {
@@ -11,9 +11,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		showNewClubModal: () => { dispatch(showNewClubModal()); },
-		hideNewClubModal: () => { dispatch(hideNewClubModal()); },
-		submitNewMyClub: (newClubData) => { dispatch(submitNewMyClub(newClubData)); }
+		showEditClubModal: () => { dispatch(showEditClubModal()); },
+		hideEditClubModal: () => { dispatch(hideEditClubModal()); },
+		submitEditClub: (editClubData) => { dispatch(submitEditClub(editClubData)); }
 	}
 }
 

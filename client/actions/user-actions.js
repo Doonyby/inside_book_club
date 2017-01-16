@@ -2,6 +2,15 @@ require('isomorphic-fetch');
 import { browserHistory } from "react-router";
 import axios from "axios";
 
+export const SHOW_EDIT_CLUB_MODAL = "SHOW_EDIT_CLUB_MODAL";
+export const showEditClubModal = () => ({
+	type: SHOW_EDIT_CLUB_MODAL
+});
+
+export const HIDE_EDIT_CLUB_MODAL = "HIDE_EDIT_CLUB_MODAL";
+export const hideEditClubModal = () => ({
+	type: HIDE_EDIT_CLUB_MODAL
+});
 
 export const SHOW_NEW_CLUB_MODAL = "SHOW_NEW_CLUB_MODAL";
 export const showNewClubModal = () => ({

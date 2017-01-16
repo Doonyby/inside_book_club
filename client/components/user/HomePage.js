@@ -5,7 +5,6 @@ import Navigation from "./Navigation";
 
 class Home extends React.Component {
 	render () {
-		console.log('home component: ', this.props.club);
 		return (
 			<div>
 				<Navigation className="navigation" club={this.props.club} />

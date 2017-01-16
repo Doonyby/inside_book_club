@@ -91,11 +91,9 @@ export const submitNewMyClub = (newClubData) => {
 		.then(response => response.json())
 		.then(data => {
 			if (data.message) {
-				(console.log('submitDataMessage', data.message));
 				dispatch(submitNewMyClubError(data.message));
 			}
 			else {
-				console.log('submitData', data);
 				dispatch(submitNewMyClubSuccess(data));				
 				dispatch(createNewMyClub(newClubData));
 			}

@@ -23,3 +23,11 @@ div {
 .errorText {
 	color: red;
 }
+
+.clubInfo {
+	color: blue;
+}
+
+.textLeft {
+	text-align: left;
+}

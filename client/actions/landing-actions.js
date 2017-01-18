@@ -33,6 +33,12 @@ export const submitNewMyClubError = (message) => ({
 	message
 });
 
+export const DELETE_MYCLUB_SUCCESS = "DELETE_MYCLUB_SUCCESS";
+export const deleteMyClubSuccess = (data) => ({
+	type: DELETE_MYCLUB_SUCCESS,
+	data
+});
+
 export const signUpRequest = (userData) => {
 	return dispatch => {
 		const url = '/api/signup';

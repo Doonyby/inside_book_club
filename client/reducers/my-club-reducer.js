@@ -1,4 +1,5 @@
 import action from "../actions/user-actions.js";
+import {REHYDRATE} from 'redux-persist/constants'
 
 let  initialState = {
 	clubName: '',
@@ -18,6 +19,10 @@ let  initialState = {
 export default function myClubReducer(state = initialState, action) {
 	let nextState = Object.assign({}, state);
 	switch (action.type) {
+		case REHYDRATE:
+		  var incoming = action.payload.myClubReducer
+		  if (incoming) return { ...state, ...incoming }
+		    return state
 		case 'SHOW_NEW_CLUB_MODAL': 
 			nextState.showNewClubModal = true;
 			return nextState;
@@ -34,7 +39,6 @@ export default function myClubReducer(state = initialState, action) {
 			nextState.clubName = action.data.clubName;
 			nextState.organizer = action.data.organizer;
 			nextState.memberCap = action.data.memberCap;
-			nextState.members = nextState.members.concat(action.data.organizer);
 			nextState.currentBook = action.data.currentBook;
 			nextState.meetupDate = action.data.meetupDate;
 			nextState.showNewClubModal = false;
@@ -42,17 +46,21 @@ export default function myClubReducer(state = initialState, action) {
 			return nextState;
 		case 'CREATE_NEW_MYCLUB_ERROR':
 			nextState.myClubError = action.message;
+			return nextState;
 		case 'GET_MYCLUB_DATA_SUCCESS':
 			nextState.clubName = action.data.clubName;
 			nextState.organizer = action.data.organizer;
 			nextState.memberCap = action.data.memberCap;
-			nextState.members = nextState.members.concat(action.data.organizer);
 			nextState.currentBook = action.data.currentBook;
 			nextState.meetupDate = action.data.meetupDate;
 			nextState.showNewClubModal = false;
 			nextState.showEditClubModal = false;
 		case 'GET_MYCLUB_DATA_ERROR':
 			nextState.myClubError = action.message;
+			return nextState;
+		case 'DELETE_CLUB_SUCCESS':
+			nextState = initialState;
+			return nextState;
 		default:
 			return nextState;
 	}

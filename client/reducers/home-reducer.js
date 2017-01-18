@@ -16,6 +16,10 @@ let initialState = {
 export default function homeReducer(state = initialState, action) {
   let nextState = Object.assign({}, state);
   switch (action.type) {
+    case REHYDRATE:
+      var incoming = action.payload.homeReducer
+      if (incoming) return { ...state, ...incoming }
+        return state
     case 'SIGN_IN_SUCCESS':
       nextState.name = action.userData.name;
       nextState.username = action.userData.username;
@@ -32,12 +36,17 @@ export default function homeReducer(state = initialState, action) {
       return nextState;
     case 'LOGIN_REQUEST_ERROR':
       nextState.error = action.message;
+      return nextState;
     case 'SUBMIT_NEW_MYCLUB_SUCCESS':
       nextState.myClub = action.myClubName;
       nextState.myClubError = null;
       return nextState;
     case 'SUBMIT_NEW_MYCLUB_ERROR':
       nextState.myClubError = action.message;
+      return nextState;
+    case 'DELETE_MYCLUB_SUCCESS':
+      nextState.myClub = "";
+      return nextState;
     default:
       return nextState;
   }

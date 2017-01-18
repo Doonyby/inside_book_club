@@ -1,8 +1,7 @@
 import React from "react";
 import { Modal, Button, FormGroup, ControlLabel, FormControl, HelpBlock } from "react-bootstrap";
 
-const EditClubModal = ({club, hideEditClubModal, submitEditClub}) => {
-	console.log("editClub", club);
+const EditClubModal = ({club, hideEditClubModal, submitEditClubModal, deleteClubModal}) => {
 	let modalDivStyle = {
 		textAlign: "left"
 	}
@@ -28,7 +27,7 @@ const EditClubModal = ({club, hideEditClubModal, submitEditClub}) => {
 					currentBook: e.target.currentBook.value,
 					meetupDate: e.target.meetupDate.value
 				}
-				submitEditClub(clubData);
+				submitEditClubModal(clubData);
 			}} >
 				<h5>Club Name: {club.clubName}</h5>
 				<h5>Club Size: {club.memberCap}</h5>
@@ -44,7 +43,9 @@ const EditClubModal = ({club, hideEditClubModal, submitEditClub}) => {
 			    </FormGroup>
 			    <h5 className="text-danger">{isError}</h5>
 			    <Button bsStyle="primary" type="submit">Submit</Button>
-			    <a className="text-danger" style={deleteStyle} type="submit">Delete club</a>
+			    <a className="text-danger" style={deleteStyle} onClick={() => { 
+			    	if (confirm("Are you sure you want to delete this Club? Any club info and members you have will be lost.") == true) {
+            		deleteClubModal({clubName: club.clubName}) }}} >Delete club</a>
             </form>
           </Modal.Body>
           <Modal.Footer>

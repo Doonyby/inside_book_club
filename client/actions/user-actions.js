@@ -1,9 +1,11 @@
 require('isomorphic-fetch');
 import { browserHistory } from "react-router";
 import axios from "axios";
+import { deleteMyClubSuccess } from "./landing-actions";
+
 
 export const SHOW_EDIT_CLUB_MODAL = "SHOW_EDIT_CLUB_MODAL";
-export const showEditClubModal = () => ({
+export const showEditClubModalAction = () => ({
 	type: SHOW_EDIT_CLUB_MODAL
 });
 
@@ -46,7 +48,30 @@ export const getMyClubDataError = (message) => ({
 	message
 });
 
-export const submitEditClub = (clubData) => {
+export const DELETE_CLUB_SUCCESS = "DELETE_CLUB_SUCCESS";
+export const deleteClubSuccess = (data) => ({
+	type: DELETE_CLUB_SUCCESS,
+	data
+});
+
+export const deleteClubAction = (clubName) => {
+	return dispatch => {
+		function deleteClub() {
+		  return axios.delete('/api/deleteClub/' + clubName.clubName);
+		}
+		function deleteMyClub() {
+		  return axios.put('/api/removeMyClub', clubName)
+		}
+		axios.all([deleteClub(), deleteMyClub()])
+			.then(axios.spread(function (acct, perms) {
+				console.log('perms', perms.data);
+				dispatch(deleteMyClubSuccess(perms.data));
+				dispatch(deleteClubSuccess(perms.data));
+			}));	 
+	}
+}
+
+export const submitEditClubAction = (clubData) => {
 	return dispatch => {
 		axios.put('/api/submitEditClub', clubData)
 			.then(function (response) {

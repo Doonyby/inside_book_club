@@ -31,3 +31,7 @@ div {
 .textLeft {
 	text-align: left;
 }
+
+.bottomStyle {
+	margin-bottom: 15px;
+}

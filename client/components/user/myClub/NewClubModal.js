@@ -50,7 +50,7 @@ const NewClubModal = ({ club, hideNewClubModal, submitNewMyClub }) => {
 			    <FormGroup style={modalDivStyle} controlId="currentBook">
 			      <ControlLabel>Current Club Book</ControlLabel>
 			      <FormControl type="text" name="currentBook" placeholder="current club book"/>
-			      <HelpBlock>If you haven not decided on a book yet, leave this blank for now.</HelpBlock>
+			      <HelpBlock>If you have not decided on a book yet, leave this blank for now.</HelpBlock>
 			    </FormGroup>
 			    <FormGroup style={modalDivStyle} controlId="meetupDate">
 			      <ControlLabel>Club Meetup Date/Time</ControlLabel>

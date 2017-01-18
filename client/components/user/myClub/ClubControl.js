@@ -3,11 +3,7 @@ import { Button, Badge, Label } from "react-bootstrap";
 import moment from "moment";
 import EditClubModal from "./EditClubModal";
 
-const Control = ({ club, showEditClubModal, hideEditClubModal, submitEditClub }) => {
-	console.log('club control', club);
-	let bottomStyle = {
-		marginBottom: 15
-	}
+const Control = ({ club, showEditClubModalControl, hideEditClubModal, submitEditClubControl, deleteClubControl }) => {
 	let date = "No date chosen yet."
 	if (club.meetupDate) {
 		date = moment(club.meetupDate).format('LLL');
@@ -19,8 +15,8 @@ const Control = ({ club, showEditClubModal, hideEditClubModal, submitEditClub })
 			<p className="textLeft">Current book: <u className="clubInfo">{club.currentBook.toUpperCase()}</u></p>
 			<p className="textLeft">Member cap: <u className="clubInfo">{club.memberCap}</u></p>
 			<p className="textLeft">Club meetup date: <u className="clubInfo">{date}</u></p>
-			<Button bsStyle="primary" style={bottomStyle} onClick={() => { return showEditClubModal() }}>Edit Club</Button>
-			<EditClubModal club={club} hideEditClubModal={hideEditClubModal} submitEditClub={submitEditClub} />
+			<Button bsStyle="primary" className="bottomStyle" onClick={() => { showEditClubModalControl() }}>Edit Club</Button>
+			<EditClubModal club={club} hideEditClubModal={hideEditClubModal} submitEditClubModal={submitEditClubControl} deleteClubModal={deleteClubControl} />
 		</div>
 	)
 }

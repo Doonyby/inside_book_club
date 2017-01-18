@@ -1,4 +1,5 @@
 import action from "../actions/landing-actions.js";
+import {REHYDRATE} from 'redux-persist/constants';
 
 let initialState = {
 	name: '',

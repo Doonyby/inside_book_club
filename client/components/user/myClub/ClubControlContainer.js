@@ -13,7 +13,7 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		showEditClubModal: () => { dispatch(showEditClubModal()); },
 		hideEditClubModal: () => { dispatch(hideEditClubModal()); },
-		submitEditClub: (editClubData) => { dispatch(submitEditClub(editClubData)); }
+		submitEditClub: (clubData) => { dispatch(submitEditClub(clubData)); }
 	}
 }
 

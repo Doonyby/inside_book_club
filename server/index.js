@@ -12,7 +12,6 @@ import LocalStrategy from "passport-local";
 import config from "../config";
 import { User } from "./models/user";
 import { Club } from "./models/club";
-import session from "express-session";
 
 var runServer = function(callback) {
     console.log('database_url: ' + config.DATABASE_URL);
@@ -43,8 +42,7 @@ let app = express();
 let router = express.Router();
 let jsonParser = bodyParser.json();
 app.use(bodyParser.json());
-app.use(cookieParser());
-app.use(session({secret: 'sdfjasjdii3234si', resave: false, saveUninitialized: true}))
+
 
 const compiler = webpack(webpackConfig);
 
@@ -86,7 +84,6 @@ passport.use(new LocalStrategy(function(username, password, callback) {
 app.use(passport.initialize());
 
 app.post('/api/login', passport.authenticate('local', {session: false}), function(req, res) {
-    req.session.user = user;
     res.json(req.user);
 });
 
@@ -101,6 +98,28 @@ app.get('/api/getMyClubData/:clubName', function(req, res) {
         res.status(201).json(item);
     });
 });
+
+app.put('/api/submitEditClub', function(req, res) {
+    Club.findOne({clubName: req.body.clubName}, function(err, item) {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        item.currentBook = req.body.currentBook;
+        item.meetupDate = req.body.meetupDate;
+        item.save(function(err) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            }
+            console.log('new my club item', item);
+            return res.status(201).json(item);
+        });
+    })
+})
 
 app.put('/api/submitNewMyClub', function(req, res) {
     Club.findOne({clubName: req.body.clubName}, function(err, item) {

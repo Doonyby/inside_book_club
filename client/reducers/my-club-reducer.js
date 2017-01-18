@@ -24,6 +24,12 @@ export default function myClubReducer(state = initialState, action) {
 		case 'HIDE_NEW_CLUB_MODAL':
 			nextState.showNewClubModal = false;
 			return nextState;
+		case 'SHOW_EDIT_CLUB_MODAL': 
+			nextState.showEditClubModal = true;
+			return nextState;
+		case 'HIDE_EDIT_CLUB_MODAL':
+			nextState.showEditClubModal = false;
+			return nextState;
 		case 'CREATE_NEW_MYCLUB_SUCCESS':
 			nextState.clubName = action.data.clubName;
 			nextState.organizer = action.data.organizer;
@@ -47,12 +53,6 @@ export default function myClubReducer(state = initialState, action) {
 			nextState.showEditClubModal = false;
 		case 'GET_MYCLUB_DATA_ERROR':
 			nextState.myClubError = action.message;
-		case 'SHOW_EDIT_CLUB_MODAL': 
-			nextState.showEditClubModal = true;
-			return nextState;
-		case 'HIDE_EDIT_CLUB_MODAL':
-			nextState.showEditClubModal = false;
-			return nextState;
 		default:
 			return nextState;
 	}

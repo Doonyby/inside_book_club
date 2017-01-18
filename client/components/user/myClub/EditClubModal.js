@@ -1,10 +1,14 @@
 import React from "react";
 import { Modal, Button, FormGroup, ControlLabel, FormControl, HelpBlock } from "react-bootstrap";
 
-const EditClubModal = ({club, hideEditClubModal}) => {
+const EditClubModal = ({club, hideEditClubModal, submitEditClub}) => {
 	console.log("editClub", club);
 	let modalDivStyle = {
 		textAlign: "left"
+	}
+	let deleteStyle = {
+		float: "right",
+		marginTop: 10
 	}
 	let validate = null;
 	let isError = "";
@@ -20,38 +24,27 @@ const EditClubModal = ({club, hideEditClubModal}) => {
             <form onSubmit={(e) => {
 				e.preventDefault();
 				let clubData = {
-					clubName: e.target.clubName.value,
-					organizer: club.homeReducer.username,
-					organizerId: club.homeReducer.id,
-					memberCap: e.target.memberCap.value,
+					clubName: club.clubName,
 					currentBook: e.target.currentBook.value,
 					meetupDate: e.target.meetupDate.value
 				}
-				submitNewMyClub(clubData);
+				submitEditClub(clubData);
 			}} >
-	    	    <FormGroup style={modalDivStyle} controlId="clubName" validationState={validate}>
-			      <ControlLabel>Club Name</ControlLabel>
-			      <FormControl type="text" name="clubName" placeholder="club name"/>
-			      <HelpBlock bsStyle={errorStyle}>{errorMessage}</HelpBlock>
-			    </FormGroup>
-			    <FormGroup style={modalDivStyle} controlId="memberCap">
-			      <ControlLabel>Club Size</ControlLabel>
-			      <FormControl type="number" name="memberCap" placeholder="1"/>
-			      <HelpBlock>This is the maximum members that you will allow in your club.  
-			      Remember that group conversations are often easiest with smaller groups. (i.e. less than 10)</HelpBlock>
-			    </FormGroup>
+				<h5>Club Name: {club.clubName}</h5>
+				<h5>Club Size: {club.memberCap}</h5>
+				<p>If you wish to change the club name or size, then you must delete your club and start new.</p>
 			    <FormGroup style={modalDivStyle} controlId="currentBook">
 			      <ControlLabel>Current Club Book</ControlLabel>
 			      <FormControl type="text" name="currentBook" placeholder="current club book"/>
-			      <HelpBlock>If you haven not decided on a book yet, leave this blank for now.</HelpBlock>
 			    </FormGroup>
 			    <FormGroup style={modalDivStyle} controlId="meetupDate">
 			      <ControlLabel>Club Meetup Date/Time</ControlLabel>
 			      <FormControl type="datetime-local" name="meetupDate" />
-			      <HelpBlock>Also okay to leave this blank until you have a decided book and appropriate time length to read it in.</HelpBlock>
+			      <HelpBlock>Okay to leave this blank until you have a decided book and appropriate time length for reading.</HelpBlock>
 			    </FormGroup>
 			    <h5 className="text-danger">{isError}</h5>
-			    <Button type="submit">Submit</Button>
+			    <Button bsStyle="primary" type="submit">Submit</Button>
+			    <a className="text-danger" style={deleteStyle} type="submit">Delete club</a>
             </form>
           </Modal.Body>
           <Modal.Footer>

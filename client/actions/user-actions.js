@@ -46,6 +46,18 @@ export const getMyClubDataError = (message) => ({
 	message
 });
 
+export const submitEditClub = (clubData) => {
+	return dispatch => {
+		axios.put('/api/submitEditClub', clubData)
+			.then(function (response) {
+				dispatch(getMyClubDataSuccess(response.data));
+			})
+			.catch(function (error) {
+				dispatch(getMyClubDataError(error.message));
+			});
+	}
+}
+
 export const getMyClubData = (clubName) => {
 	return dispatch => {
 		axios.get('/api/getMyClubData/' + clubName)

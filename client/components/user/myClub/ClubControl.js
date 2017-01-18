@@ -8,7 +8,10 @@ const Control = ({ club, showEditClubModal, hideEditClubModal, submitEditClub })
 	let bottomStyle = {
 		marginBottom: 15
 	}
-	let date = moment(club.meetupDate).format('LLL');
+	let date = "No date chosen yet."
+	if (club.meetupDate) {
+		date = moment(club.meetupDate).format('LLL');
+	}
 	return (
 		<div>
 			<h4><u>Control</u></h4>
@@ -17,7 +20,7 @@ const Control = ({ club, showEditClubModal, hideEditClubModal, submitEditClub })
 			<p className="textLeft">Member cap: <u className="clubInfo">{club.memberCap}</u></p>
 			<p className="textLeft">Club meetup date: <u className="clubInfo">{date}</u></p>
 			<Button bsStyle="primary" style={bottomStyle} onClick={() => { return showEditClubModal() }}>Edit Club</Button>
-			<EditClubModal club={club} hideEditClubModal={hideEditClubModal} />
+			<EditClubModal club={club} hideEditClubModal={hideEditClubModal} submitEditClub={submitEditClub} />
 		</div>
 	)
 }

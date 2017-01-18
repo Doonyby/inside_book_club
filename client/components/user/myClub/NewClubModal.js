@@ -55,7 +55,7 @@ const NewClubModal = ({ club, hideNewClubModal, submitNewMyClub }) => {
 			    <FormGroup style={modalDivStyle} controlId="meetupDate">
 			      <ControlLabel>Club Meetup Date/Time</ControlLabel>
 			      <FormControl type="datetime-local" name="meetupDate" />
-			      <HelpBlock>Also okay to leave this blank until you have a decided book and appropriate time length to read it in.</HelpBlock>
+			      <HelpBlock>Also okay to leave this blank until you have a decided book and appropriate time length for reading.</HelpBlock>
 			    </FormGroup>
 			    <h5 className="text-danger">{isError}</h5>
 			    <Button type="submit">Submit</Button>

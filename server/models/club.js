@@ -29,9 +29,14 @@ let ClubSchema = new mongoose.Schema({
 	meetupDate: {
 		type: String
 	},
-	commentFeed: {
-		type: Array
-	},
+	commentFeed: [
+		{
+		    username: {type: String},
+		    comment: {type: String},
+		    date: {type: Date},
+		    clubId: {type: String},
+	    }
+	],
 });
 
 export const Club = mongoose.model('Club', ClubSchema);

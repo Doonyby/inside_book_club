@@ -110,8 +110,28 @@ app.delete('/api/deleteClub/:clubName', function(req, res) {
     });
 });
 
+app.put('/api/enterComment', function(req, res) {
+    Club.findById(req.body.clubId, function(err, item) {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        item.commentFeed.push(req.body);
+        item.save(function(err) {
+            if (err) {
+                console.log(err);
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            }
+            return res.status(201).json(item);
+        });       
+    })
+})
+
 app.put('/api/removeMyClub', function(req, res) {
-    console.log('req.body.clubName', req.body.clubName);
     User.findOne({myClub: req.body.clubName}, function(err, item) {
         if (err) {
             console.log(err);

@@ -54,6 +54,31 @@ export const deleteClubSuccess = (data) => ({
 	data
 });
 
+export const ENTER_COMMENT_SUCCESS = "ENTER_COMMENT_SUCCESS";
+export const enterCommentSuccess = (commentFeed) => ({
+	type: ENTER_COMMENT_SUCCESS,
+	commentFeed
+});
+
+export const ENTER_COMMENT_ERROR = "ENTER_COMMENT_ERROR";
+export const enterCommentError = (message) => ({
+	type: ENTER_COMMENT_ERROR,
+	message
+});
+
+export const enterCommentAction = (comment) => {
+	return dispatch => {
+		axios.put('/api/enterComment', comment)
+			.then(function (response) {
+				console.log('action', response.data);
+				dispatch(enterCommentSuccess(response.data.commentFeed));
+			})
+			.catch(function (error) {
+				dispatch(enterCommentError(error.message));
+			});			
+	}
+}
+
 export const deleteClubAction = (clubName) => {
 	return dispatch => {
 		function deleteClub() {

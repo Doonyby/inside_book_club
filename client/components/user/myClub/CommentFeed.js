@@ -1,7 +1,8 @@
 import React from "react";
-import { Media, Button, FormGroup, FormControl } from "react-bootstrap";
+import { Media, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 
-const Requests = ({ club }) => {
+const Requests = ({ club, enterComment }) => {
+	console.log('comment', club);
 	let fontTitleStyle = {
 		fontSize: 14
 	}
@@ -18,11 +19,19 @@ const Requests = ({ club }) => {
 		        <p style={fontTextStyle}>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
 		      </Media.Body>
 		    </Media>
-		    <form className="textLeft">
+		    <form className="textLeft clubRow2">
 			    <FormGroup controlId="formControlsTextarea">
-			      <FormControl componentClass="textarea" placeholder="add a comment" />
+			      <p className="textLeft">Press "enter" to submit comment.</p>
+			      <FormControl rows="4" name="commentArea" placeholder="add a comment" componentClass="textarea" onKeyDown={(e) => {
+			      		if (e.which==13) {
+			      			let comment = {
+			      				username: club.homeReducer.username,
+			      				comment: e.target.value,
+			      				date: new Date(),
+			      				clubId: club.myClubReducer.clubId
+			      			}
+			      			enterComment(comment)}}}  />
 			    </FormGroup>
-			    <Button className="bottomStyle" type="submit">Add comment</Button>
 		    </form>
 		</div>
 	)

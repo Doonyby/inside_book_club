@@ -3,6 +3,7 @@ import {REHYDRATE} from 'redux-persist/constants'
 
 let  initialState = {
 	clubName: '',
+	clubId: '',
 	organizer: '',
 	memberCap: 0,
 	members: [],
@@ -37,6 +38,7 @@ export default function myClubReducer(state = initialState, action) {
 			return nextState;
 		case 'CREATE_NEW_MYCLUB_SUCCESS':
 			nextState.clubName = action.data.clubName;
+			nextState.clubId = action.data._id;
 			nextState.organizer = action.data.organizer;
 			nextState.memberCap = action.data.memberCap;
 			nextState.currentBook = action.data.currentBook;
@@ -49,6 +51,7 @@ export default function myClubReducer(state = initialState, action) {
 			return nextState;
 		case 'GET_MYCLUB_DATA_SUCCESS':
 			nextState.clubName = action.data.clubName;
+			nextState.clubId = action.data._id;
 			nextState.organizer = action.data.organizer;
 			nextState.memberCap = action.data.memberCap;
 			nextState.currentBook = action.data.currentBook;

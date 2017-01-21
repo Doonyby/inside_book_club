@@ -8,9 +8,13 @@ let initialState = {
 	id: '',
   myClub: '',
   joinedClub: '',
+  futureBookShelf: [],
+  pastBookShelf: [],
   error: null,
   myClubError: null,
-  joinedClubError: null
+  joinedClubError: null,
+  futureError: null,
+  pastError: null,
 }
 
 export default function homeReducer(state = initialState, action) {
@@ -30,6 +34,8 @@ export default function homeReducer(state = initialState, action) {
       nextState.error = null;
       nextState.myClubError = null;
       nextState.joinedClubError = null;
+      nextState.futureError = null;
+      nextState.pastError = null;
       return nextState;
     case 'SIGN_UP_REQUEST_ERROR':
       nextState.error = action.message;
@@ -46,6 +52,9 @@ export default function homeReducer(state = initialState, action) {
       return nextState;
     case 'DELETE_MYCLUB_SUCCESS':
       nextState.myClub = "";
+      return nextState;
+    case 'SHELF_FUTURE_BOOK_SUCCESS':
+      nextState.futureBookShelf = action.bookData;
       return nextState;
     default:
       return nextState;

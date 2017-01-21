@@ -87,6 +87,27 @@ app.post('/api/login', passport.authenticate('local', {session: false}), functio
     res.json(req.user);
 });
 
+app.put('/api/shelfFutureBook', function(req,res) {
+    User.findById(req.body.userId, function(err, item) {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        item.futureBookShelf.push(req.body);
+        item.save(function(err) {
+            if (err) {
+                console.log(err);
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            }
+            return res.status(201).json(item);
+        });       
+    });
+});
+
 app.get('/api/getMyClubData/:clubName', function(req, res) {
     Club.findOne({clubName: req.params.clubName}, function(err, item) {
         if (err) {
@@ -129,7 +150,6 @@ app.put('/api/enterComment', function(req, res) {
                     message: 'Internal Server Error'
                 });
             }
-            console.log('item', item);
             return res.status(201).json(item);
         });       
     })

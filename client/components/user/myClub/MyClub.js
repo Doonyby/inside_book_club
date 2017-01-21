@@ -3,10 +3,10 @@ import { Grid, Row, Col } from "react-bootstrap";
 import MembersContainer from "./MembersContainer";
 import CommentFeedContainer from "./CommentFeedContainer";
 import MeetingContainer from "./MeetingContainer";
-import RequestsContainer from "./RequestsContainer";
-import BookReviewsContainer from "./BookReviewsContainer";
+import FutureBookShelfContainer from "./FutureBookShelfContainer";
+import PastBookShelfContainer from "./PastBookShelfContainer";
 import ClubControlContainer from "./ClubControlContainer";
-import InvitationsContainer from "./InvitationsContainer";
+import BookReviewsContainer from "./BookReviewsContainer";
 
 class MyClub extends React.Component {
 	componentWillMount() {
@@ -34,9 +34,9 @@ class MyClub extends React.Component {
 					</Col>
 				</Row>
 				<Row className="clubRow3">
-					<Col md={3}>
-						<RequestsContainer />
-						<InvitationsContainer />
+					<Col md={3} className="boxContainer">
+						<FutureBookShelfContainer />
+						<PastBookShelfContainer />
 					</Col>
 					<Col md={5} mdOffset={1} className="boxContainer">
 						<BookReviewsContainer />

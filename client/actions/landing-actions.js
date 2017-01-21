@@ -1,4 +1,5 @@
 require('isomorphic-fetch');
+import axios from "axios";
 import { browserHistory } from "react-router";
 import { createNewMyClub } from "./user-actions";
 
@@ -38,6 +39,34 @@ export const deleteMyClubSuccess = (data) => ({
 	type: DELETE_MYCLUB_SUCCESS,
 	data
 });
+
+export const SHELF_FUTURE_BOOK_SUCCESS = "SHELF_FUTURE_BOOK_SUCCESS";
+export const shelfFutureBookSuccess = (bookData) => ({
+	type: SHELF_FUTURE_BOOK_SUCCESS,
+	bookData
+});
+
+export const SHELF_FUTURE_BOOK_ERROR = "SHELF_FUTURE_BOOK_ERROR";
+export const shelfFutureBookError = (message) => ({
+	type: SHELF_FUTURE_BOOK_ERROR,
+	message
+});
+
+export const shelfFutureBookAction = (shelvedBook) => {
+	return dispatch => {
+		axios.put('/api/shelfFutureBook', shelvedBook)
+			.then(function (response) {
+				dispatch(shelfFutureBookSuccess(response.data.futureBookShelf));
+			})
+			.catch(function (error) {
+				dispatch(shelfFutureBookError(error.message));				
+			});
+	}
+};
+
+export const RemoveFutureBookAction = (bookId) => {
+	console.log(bookId);
+};
 
 export const signUpRequest = (userData) => {
 	return dispatch => {

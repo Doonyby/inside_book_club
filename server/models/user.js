@@ -22,7 +22,17 @@ let UserSchema = new mongoose.Schema({
 		type: String
 	},
 	joinedClub: {
-		type: String,
+		type: String
+	},
+	futureBookShelf: [
+		{
+		    title: {type: String},
+		    date: {type: Date},
+		    userId: {type: String}
+	    }		
+	],
+	pastBookShelf: {
+		type: Array
 	}
 });
 

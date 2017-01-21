@@ -7,8 +7,8 @@ let  initialState = {
 	organizer: '',
 	memberCap: 0,
 	members: [],
-	requestingMembers: [],
-	invitedMembers: [],
+	futureBookShelf: [],
+	pastBookShelf: [],
 	currentBook: '',
 	meetupDate: '',
 	commentFeed: [],
@@ -58,6 +58,7 @@ export default function myClubReducer(state = initialState, action) {
 			nextState.currentBook = action.data.currentBook;
 			nextState.meetupDate = action.data.meetupDate;
 			nextState.commentFeed = action.data.commentFeed;
+			nextState.members = action.data.members;
 			nextState.showNewClubModal = false;
 			nextState.showEditClubModal = false;
 		case 'GET_MYCLUB_DATA_ERROR':

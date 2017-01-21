@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
-import Requests from './Requests';
+import PastBookShelf from './PastBookShelf';
 
 const mapStateToProps = (state) => {
 	return {
@@ -8,4 +8,4 @@ const mapStateToProps = (state) => {
 	}
 }
 
-export default connect(mapStateToProps)(Requests)
+export default connect(mapStateToProps)(PastBookShelf)

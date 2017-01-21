@@ -17,12 +17,6 @@ let ClubSchema = new mongoose.Schema({
 	members: {
 		type: Array
 	},
-	requestingMembers: {
-		type: Array
-	},
-	invitedMembers: {
-		type: Array
-	},
  	currentBook: {
 		type: String
 	},

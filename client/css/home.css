@@ -35,3 +35,8 @@ div {
 .bottomStyle {
 	margin-bottom: 15px;
 }
+
+.commentDiv {
+	height: 200px;
+	overflow: auto;
+}

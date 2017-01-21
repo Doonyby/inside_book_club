@@ -43,6 +43,7 @@ export default function myClubReducer(state = initialState, action) {
 			nextState.memberCap = action.data.memberCap;
 			nextState.currentBook = action.data.currentBook;
 			nextState.meetupDate = action.data.meetupDate;
+			nextState.commentFeed = [];
 			nextState.showNewClubModal = false;
 			nextState.showEditClubModal = false;
 			return nextState;
@@ -56,6 +57,7 @@ export default function myClubReducer(state = initialState, action) {
 			nextState.memberCap = action.data.memberCap;
 			nextState.currentBook = action.data.currentBook;
 			nextState.meetupDate = action.data.meetupDate;
+			nextState.commentFeed = action.data.commentFeed;
 			nextState.showNewClubModal = false;
 			nextState.showEditClubModal = false;
 		case 'GET_MYCLUB_DATA_ERROR':
@@ -63,6 +65,9 @@ export default function myClubReducer(state = initialState, action) {
 			return nextState;
 		case 'DELETE_CLUB_SUCCESS':
 			nextState = initialState;
+			return nextState;
+		case 'ENTER_COMMENT_SUCCESS':
+			nextState.commentFeed = action.commentFeed;
 			return nextState;
 		default:
 			return nextState;

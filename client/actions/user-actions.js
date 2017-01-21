@@ -70,7 +70,6 @@ export const enterCommentAction = (comment) => {
 	return dispatch => {
 		axios.put('/api/enterComment', comment)
 			.then(function (response) {
-				console.log('action', response.data);
 				dispatch(enterCommentSuccess(response.data.commentFeed));
 			})
 			.catch(function (error) {

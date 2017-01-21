@@ -118,7 +118,10 @@ app.put('/api/enterComment', function(req, res) {
                 message: 'Internal Server Error'
             });
         }
-        item.commentFeed.push(req.body);
+        if (item.commentFeed.length == 70) {
+            item.commentFeed.pop();
+        }
+        item.commentFeed.unshift(req.body);
         item.save(function(err) {
             if (err) {
                 console.log(err);
@@ -126,6 +129,7 @@ app.put('/api/enterComment', function(req, res) {
                     message: 'Internal Server Error'
                 });
             }
+            console.log('item', item);
             return res.status(201).json(item);
         });       
     })

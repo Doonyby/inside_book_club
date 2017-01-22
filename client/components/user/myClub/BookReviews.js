@@ -2,25 +2,13 @@ import React from "react";
 import createFragment from 'react-addons-create-fragment';
 
 const Reviews = ({ reviews, getBookReview }) => {
-	console.log('reviews', reviews);
+	console.log(reviews);
+	var d = document.createElement('div');
+	d.innerHTML = reviews;
+	console.log('documentCreateElement', d);
 	var parser = new DOMParser()
 	var el = parser.parseFromString(reviews, "text/xml");
-	console.log('el', el);
-	let review = () => {
-	  let children;
-	  if (el.swapped) {
-	    children = createFragment({
-	      right: el.rightChildren,
-	      left: el.leftChildren
-	    });
-	  } else {
-	    children = createFragment({
-	      left: el.leftChildren,
-	      right: el.rightChildren
-	    });
-	  }
-	  return <div>{children}</div>;		
-	}
+	console.log('xml conversion', el);
 
 	let titleStyle = {
 		textAlign: "center"
@@ -39,7 +27,6 @@ const Reviews = ({ reviews, getBookReview }) => {
 														}}}/>
 			</span>
 			<hr/>
-			{review}
 		</div>
 	)
 }

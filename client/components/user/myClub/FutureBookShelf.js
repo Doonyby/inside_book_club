@@ -2,7 +2,6 @@ import React from "react";
 import moment from "moment";
 
 const FutureBookShelf = ({ club, shelfFutureBook }) => {
-	console.log('futureBookShelf', club);
 	let dateStyle = {
 		fontSize: 11,
 		color: "blue"

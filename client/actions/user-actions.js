@@ -66,6 +66,25 @@ export const enterCommentError = (message) => ({
 	message
 });
 
+export const GET_BOOK_REVIEW_SUCCESS = "GET_BOOK_REVIEW_SUCCESS";
+export const getBookReviewSuccess = (data) => ({
+	type: GET_BOOK_REVIEW_SUCCESS,
+	data
+});
+
+export const getBookReviewAction = (bookTitle) => {
+	return dispatch => {
+		axios.get('/api/getBookReview/' + bookTitle)
+			.then(function (response) {
+				console.log(response.data);
+				dispatch(getBookReviewSuccess(response.data));
+			})
+			.catch(function (error) {
+				console.log(error.message);
+			});
+	}
+}
+
 export const enterCommentAction = (comment) => {
 	return dispatch => {
 		axios.put('/api/enterComment', comment)

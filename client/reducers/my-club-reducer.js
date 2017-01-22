@@ -12,6 +12,7 @@ let  initialState = {
 	currentBook: '',
 	meetupDate: '',
 	commentFeed: [],
+	bookReviews: '',
 	showNewClubModal: false,
 	showEditClubModal: false,
 	myClubError: null
@@ -69,6 +70,9 @@ export default function myClubReducer(state = initialState, action) {
 			return nextState;
 		case 'ENTER_COMMENT_SUCCESS':
 			nextState.commentFeed = action.commentFeed;
+			return nextState;
+		case 'GET_BOOK_REVIEW_SUCCESS':
+			nextState.bookReviews = action.data;
 			return nextState;
 		default:
 			return nextState;

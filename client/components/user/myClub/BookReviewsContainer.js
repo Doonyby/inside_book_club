@@ -1,12 +1,21 @@
 import React from "react";
 import { connect } from 'react-redux';
 import BookReviews from './BookReviews';
+import { getBookReviewAction } from "../../../actions/user-actions";
 
 const mapStateToProps = (state) => {
+	var string = state.myClubReducer.bookReviews.reviews_widget;
+	var review = string.split('</style>').pop();
 	return {
-		club: state.myClubReducer
+		reviews: review
 	}
 }
 
-export default connect(mapStateToProps)(BookReviews)
+const mapDispatchToProps = (dispatch) => {
+	return {
+		getBookReview: (bookTitle) => { dispatch(getBookReviewAction(bookTitle)) }
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BookReviews)
 

@@ -10,6 +10,7 @@ import bcrypt from "bcryptjs";
 import passport from "passport";
 import LocalStrategy from "passport-local";
 import config from "../config";
+import axios from "axios";
 import { User } from "./models/user";
 import { Club } from "./models/club";
 
@@ -119,6 +120,19 @@ app.get('/api/getMyClubData/:clubName', function(req, res) {
         res.status(201).json(item);
     });
 });
+
+app.get('/api/getBookReview/:bookTitle', function(req, res) {
+    axios.get('https://www.goodreads.com/book/title.json?key=RXCGpZJiLibgDpDcsr6tA&title=' + req.params.bookTitle)
+        .then(function(response) {
+            res.send(response.data);
+        })
+        .catch(function(error) {
+            console.log('error', error);
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });            
+        });
+})
 
 app.delete('/api/deleteClub/:clubName', function(req, res) {
     Club.findOneAndRemove({clubName: req.params.clubName}, function(err, item) {

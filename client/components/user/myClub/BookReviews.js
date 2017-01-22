@@ -1,22 +1,29 @@
 import React from "react";
-import axios from "axios";
+import createFragment from 'react-addons-create-fragment';
 
-const Reviews = ({ club }) => {
+const Reviews = ({ reviews, getBookReview }) => {
+	console.log('reviews', reviews);
+	var parser = new DOMParser()
+	var el = parser.parseFromString(reviews, "text/xml");
+	console.log('el', el);
+	let review = () => {
+	  let children;
+	  if (el.swapped) {
+	    children = createFragment({
+	      right: el.rightChildren,
+	      left: el.leftChildren
+	    });
+	  } else {
+	    children = createFragment({
+	      left: el.leftChildren,
+	      right: el.rightChildren
+	    });
+	  }
+	  return <div>{children}</div>;		
+	}
+
 	let titleStyle = {
 		textAlign: "center"
-	}
-	let getBookReview = (bookTitle) => {		
-		axios.get('https://www.goodreads.com/book/title', {headers: {
-				'format': 'json',
-				'key': 'RXCGpZJiLibgDpDcsr6tA',
-				'title': bookTitle			
-		}})
-			.then(function(response) {
-				console.log('success', response.data);
-			})
-			.catch(function(error) {
-				console.log('error', error);
-			});
 	}
 	return (
 		<div className="textLeft">
@@ -32,13 +39,7 @@ const Reviews = ({ club }) => {
 														}}}/>
 			</span>
 			<hr/>
-			<div id="goodreads-widget">
-			  <div id="gr_header"><h1><a target="_blank" href="https://www.goodreads.com/book/show/2956.The_Adventures_of_Huckleberry_Finn">Goodreads reviews for The Adventures of Huckleberry Finn</a></h1></div>
-			  <iframe id="the_iframe" src="https://www.goodreads.com/api/reviews_widget_iframe?did=21416&format=html&header_text=Goodreads+reviews+for+The+Adventures+of+Huckleberry+Finn&isbn=0142437174&links=660&review_back=fff&stars=000&text=000" width="455" height="400" frameBorder="0"></iframe>
-			  <div id="gr_footer">
-			    <a className="gr_branding" target="_blank" href="https://www.goodreads.com/book/show/2956.The_Adventures_of_Huckleberry_Finn?utm_medium=api&utm_source=reviews_widget">Reviews from Goodreads.com</a>
-			  </div>
-			</div>
+			{review}
 		</div>
 	)
 }

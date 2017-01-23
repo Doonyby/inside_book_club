@@ -2,13 +2,13 @@ import React from "react";
 import createFragment from 'react-addons-create-fragment';
 
 const Reviews = ({ reviews, getBookReview }) => {
-	console.log(reviews);
-	var d = document.createElement('div');
-	d.innerHTML = reviews;
-	console.log('documentCreateElement', d);
-	var parser = new DOMParser()
-	var el = parser.parseFromString(reviews, "text/xml");
-	console.log('xml conversion', el);
+	// console.log(reviews);
+	// var d = document.createElement('div');
+	// d.innerHTML = reviews;
+	// console.log('documentCreateElement', d);
+	// var parser = new DOMParser()
+	// var el = parser.parseFromString(reviews, "text/xml");
+	// console.log('xml conversion', el);
 
 	let titleStyle = {
 		textAlign: "center"

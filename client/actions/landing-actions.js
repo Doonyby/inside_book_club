@@ -52,6 +52,8 @@ export const shelfFutureBookError = (message) => ({
 	message
 });
 
+
+
 export const shelfFutureBookAction = (shelvedBook) => {
 	return dispatch => {
 		axios.put('/api/shelfFutureBook', shelvedBook)
@@ -64,8 +66,16 @@ export const shelfFutureBookAction = (shelvedBook) => {
 	}
 };
 
-export const RemoveFutureBookAction = (bookId) => {
-	console.log(bookId);
+export const removeFutureBookAction = (bookObj) => {
+	return dispatch => {
+		axios.put('/api/removeFutureBook/', bookObj)
+			.then(function (response) {
+				console.log(response.data);
+			})
+			.catch(function (error) {
+				console.log(error.message);
+			}) 
+	}
 };
 
 export const signUpRequest = (userData) => {

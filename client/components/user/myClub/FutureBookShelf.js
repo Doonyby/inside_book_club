@@ -1,7 +1,8 @@
 import React from "react";
 import moment from "moment";
 
-const FutureBookShelf = ({ club, shelfFutureBook }) => {
+const FutureBookShelf = ({ club, shelfFutureBook, removeFutureBook }) => {
+	console.log('futureBook', club);
 	let dateStyle = {
 		fontSize: 11,
 		color: "blue"
@@ -13,8 +14,9 @@ const FutureBookShelf = ({ club, shelfFutureBook }) => {
 	let books = club.futureBookShelf.map((currentValue, index) => {
 		let bookTitle = currentValue.title.toUpperCase();
 		let bookDate = moment(currentValue.date).format('ll');
+		let bookId = currentValue._id;
 		return (
-			<li className="shelfUl" key={index}><span>-{bookTitle}</span> <u style={dateStyle}>Shelved: {bookDate}</u></li>
+			<li className="shelfUl" key={index}><span>-{bookTitle}</span> <u style={dateStyle}>Shelved: {bookDate} </u><strong className="text-danger"><a onClick={ () => { removeFutureBook({currentValue}) }}>X</a></strong></li>
 		);
 	})
 	return (

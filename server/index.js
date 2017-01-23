@@ -134,6 +134,27 @@ app.get('/api/getBookReview/:bookTitle', function(req, res) {
         });
 })
 
+app.put('/api/removeFutureBook', function(req, res) {
+    User.findById(req.body.currentValue.userId, function(err, item) {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        item.futureBookShelf.pull({_id: req.body.currentValue._id});
+        item.save(function(err) {
+            if (err) {
+                console.log(err);
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            }
+            return res.status(201).json(item);
+        });       
+                
+    })
+})
+
 app.delete('/api/deleteClub/:clubName', function(req, res) {
     Club.findOneAndRemove({clubName: req.params.clubName}, function(err, item) {
         if (err) {

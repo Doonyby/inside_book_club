@@ -31,9 +31,13 @@ let UserSchema = new mongoose.Schema({
 		    userId: {type: String}
 	    }		
 	],
-	pastBookShelf: {
-		type: Array
-	}
+	pastBookShelf: [
+		{
+		    title: {type: String},
+		    date: {type: Date},
+		    userId: {type: String}
+	    }		
+	],
 });
 
 UserSchema.methods.validatePassword = function(password, callback) {

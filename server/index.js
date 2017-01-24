@@ -109,6 +109,27 @@ app.put('/api/shelfFutureBook', function(req,res) {
     });
 });
 
+app.put('/api/shelfPastBook', function(req,res) {
+    User.findById(req.body.userId, function(err, item) {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        item.pastBookShelf.push(req.body);
+        item.save(function(err) {
+            if (err) {
+                console.log(err);
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            }
+            return res.status(201).json(item);
+        });       
+    });
+});
+
 app.get('/api/getMyClubData/:clubName', function(req, res) {
     Club.findOne({clubName: req.params.clubName}, function(err, item) {
         if (err) {
@@ -154,6 +175,26 @@ app.put('/api/removeFutureBook', function(req, res) {
                 
     })
 })
+
+app.put('/api/removePastBook', function(req, res) {
+    User.findById(req.body.currentValue.userId, function(err, item) {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        item.pastBookShelf.pull({_id: req.body.currentValue._id});
+        item.save(function(err) {
+            if (err) {
+                console.log(err);
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            }
+            return res.status(201).json(item);
+        });                
+    });
+});
 
 app.delete('/api/deleteClub/:clubName', function(req, res) {
     Club.findOneAndRemove({clubName: req.params.clubName}, function(err, item) {

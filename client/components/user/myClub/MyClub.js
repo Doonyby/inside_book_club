@@ -36,13 +36,17 @@ class MyClub extends React.Component {
 				<Row className="clubRow3">
 					<Col md={3} className="boxContainer">
 						<FutureBookShelfContainer />
-						<PastBookShelfContainer />
 					</Col>
 					<Col md={5} mdOffset={1} className="boxContainer">
 						<BookReviewsContainer />
 					</Col>
 					<Col md={2} mdOffset={1} className="boxContainer">
 						<ClubControlContainer />
+					</Col>
+				</Row>
+				<Row className="clubRow4">
+					<Col md={3} className="boxContainer">
+						<PastBookShelfContainer />
 					</Col>
 				</Row>
 			</Grid>	

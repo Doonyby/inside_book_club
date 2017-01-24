@@ -2,10 +2,11 @@ import React from "react";
 import moment from "moment";
 
 const FutureBookShelf = ({ club, shelfFutureBook, removeFutureBook }) => {
-	console.log('futureBook', club);
 	let dateStyle = {
 		fontSize: 11,
-		color: "blue"
+		color: "blue",
+		paddingLeft: 8,
+		paddingRight: 8
 	}
 	let shelfComment = "Books to read: ";
 	if (club.futureBookShelf.length == 0) {
@@ -16,7 +17,7 @@ const FutureBookShelf = ({ club, shelfFutureBook, removeFutureBook }) => {
 		let bookDate = moment(currentValue.date).format('ll');
 		let bookId = currentValue._id;
 		return (
-			<li className="shelfUl" key={index}><span>-{bookTitle}</span> <u style={dateStyle}>Shelved: {bookDate} </u><strong className="text-danger"><a onClick={ () => { removeFutureBook({currentValue}) }}>X</a></strong></li>
+			<li className="shelfUl" key={index}><span>-{bookTitle}</span> <u style={dateStyle}>Shelved: {bookDate}</u><strong><a  className="text-danger" onClick={ () => { removeFutureBook({currentValue}) }}>X</a></strong></li>
 		);
 	})
 	return (

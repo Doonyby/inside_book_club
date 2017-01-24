@@ -52,7 +52,17 @@ export const shelfFutureBookError = (message) => ({
 	message
 });
 
+export const REMOVE_FUTURE_BOOK_SUCCESS = "REMOVE_FUTURE_BOOK_SUCCESS";
+export const removeFutureBookSuccess = (bookData) => ({
+	type: REMOVE_FUTURE_BOOK_SUCCESS,
+	bookData
+});
 
+export const REMOVE_FUTURE_BOOK_ERROR = "REMOVE_FUTURE_BOOK_ERROR";
+export const removeFutureBookError = (message) => ({
+	type: REMOVE_FUTURE_BOOK_ERROR,
+	message
+});
 
 export const shelfFutureBookAction = (shelvedBook) => {
 	return dispatch => {
@@ -68,13 +78,61 @@ export const shelfFutureBookAction = (shelvedBook) => {
 
 export const removeFutureBookAction = (bookObj) => {
 	return dispatch => {
-		axios.put('/api/removeFutureBook/', bookObj)
+		axios.put('/api/removeFutureBook', bookObj)
 			.then(function (response) {
-				console.log(response.data);
+				dispatch(removeFutureBookSuccess(response.data.futureBookShelf));
 			})
 			.catch(function (error) {
-				console.log(error.message);
+				dispatch(removeFutureBookError(error.message));
 			}) 
+	}
+};
+
+export const SHELF_PAST_BOOK_SUCCESS = "SHELF_PAST_BOOK_SUCCESS";
+export const shelfPastBookSuccess = (bookData) => ({
+	type: SHELF_PAST_BOOK_SUCCESS,
+	bookData
+});
+
+export const SHELF_PAST_BOOK_ERROR = "SHELF_PAST_BOOK_ERROR";
+export const shelfPastBookError = (message) => ({
+	type: SHELF_PAST_BOOK_ERROR,
+	message
+});
+
+export const REMOVE_PAST_BOOK_SUCCESS = "REMOVE_PAST_BOOK_SUCCESS";
+export const removePastBookSuccess = (bookData) => ({
+	type: REMOVE_PAST_BOOK_SUCCESS,
+	bookData
+});
+
+export const REMOVE_PAST_BOOK_ERROR = "REMOVE_PAST_BOOK_ERROR";
+export const removePastBookError = (message) => ({
+	type: REMOVE_PAST_BOOK_ERROR,
+	message
+});
+
+export const shelfPastBookAction = (shelvedBook) => {
+	return dispatch => {
+		axios.put('/api/shelfPastBook', shelvedBook)
+			.then(function (response) {
+				dispatch(shelfPastBookSuccess(response.data.pastBookShelf));
+			})
+			.catch(function (error) {
+				dispatch(shelfPastBookError(error.message));				
+			});
+	}
+};
+
+export const removePastBookAction = (bookObj) => {
+	return dispatch => {
+		axios.put('/api/removePastBook', bookObj)
+			.then(function (response) {
+				dispatch(removePastBookSuccess(response.data.pastBookShelf));
+			})
+			.catch(function (error) {
+				dispatch(removePastBookError(error.message));
+			}); 
 	}
 };
 

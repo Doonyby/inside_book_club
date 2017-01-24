@@ -31,6 +31,8 @@ export default function homeReducer(state = initialState, action) {
       nextState.id = action.userData._id;
       nextState.myClub = action.userData.myClub;
       nextState.joinedClub = action.userData.joinedClub;
+      nextState.futureBookShelf = action.userData.futureBookShelf;
+      nextState.pastBookShelf = action.userData.pastBookShelf;
       nextState.error = null;
       nextState.myClubError = null;
       nextState.joinedClubError = null;
@@ -55,6 +57,15 @@ export default function homeReducer(state = initialState, action) {
       return nextState;
     case 'SHELF_FUTURE_BOOK_SUCCESS':
       nextState.futureBookShelf = action.bookData;
+      return nextState;
+    case 'REMOVE_FUTURE_BOOK_SUCCESS':
+      nextState.futureBookShelf = action.bookData;
+      return nextState;
+    case 'SHELF_PAST_BOOK_SUCCESS':
+      nextState.pastBookShelf = action.bookData;
+      return nextState;
+    case 'REMOVE_PAST_BOOK_SUCCESS':
+      nextState.pastBookShelf = action.bookData;
       return nextState;
     default:
       return nextState;

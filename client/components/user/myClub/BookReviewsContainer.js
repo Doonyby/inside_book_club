@@ -4,8 +4,11 @@ import BookReviews from './BookReviews';
 import { getBookReviewAction } from "../../../actions/user-actions";
 
 const mapStateToProps = (state) => {
-	var string = state.myClubReducer.bookReviews.reviews_widget;
-	var review = string.split('</style>').pop();
+	var review = "";
+	if (state.myClubReducer.bookReviews) {
+		var string = state.myClubReducer.bookReviews.reviews_widget;
+		review = string.split('</style>').pop();		
+	}
 	return {
 		reviews: review
 	}

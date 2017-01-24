@@ -2,7 +2,7 @@ import React from "react";
 import createFragment from 'react-addons-create-fragment';
 
 const Reviews = ({ reviews, getBookReview }) => {
-	// console.log(reviews);
+	// console.log('reviews', reviews);
 	// var d = document.createElement('div');
 	// d.innerHTML = reviews;
 	// console.log('documentCreateElement', d);

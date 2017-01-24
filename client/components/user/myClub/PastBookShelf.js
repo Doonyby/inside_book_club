@@ -1,14 +1,16 @@
 import React from "react";
 import moment from "moment";
+import { Button } from "react-bootstrap";
 
 
 const PastBookShelf = ({ club, shelfPastBook, removePastBook }) => {
-	console.log('pastBookShelf', club);
 	let dateStyle = {
 		fontSize: 11,
 		color: "blue",
-		paddingLeft: 8,
-		paddingRight: 8
+		paddingLeft: 5,
+	}
+	let xStyle = {
+		paddingLeft: 5
 	}
 	let shelfComment = "Books I have read: ";
 	if (club.pastBookShelf.length == 0) {
@@ -19,7 +21,7 @@ const PastBookShelf = ({ club, shelfPastBook, removePastBook }) => {
 		let bookDate = moment(currentValue.date).format('ll');
 		let bookId = currentValue._id;
 		return (
-			<li className="shelfUl" key={index}><span>-{bookTitle}</span> <u style={dateStyle}>Shelved: {bookDate}</u><strong><a  className="text-danger" onClick={ () => { removePastBook({currentValue}) }}>X</a></strong></li>
+			<li className="shelfUl" key={index}><span>-{bookTitle}</span> <u style={dateStyle}>Shelved: {bookDate}</u><a style={xStyle} className="text-danger btn" onClick={ () => { removePastBook({currentValue}) }}>X</a></li>
 		);
 	})
 	return (

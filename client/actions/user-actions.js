@@ -48,6 +48,18 @@ export const getMyClubDataError = (message) => ({
 	message
 });
 
+export const GET_JOINCLUB_DATA_SUCCESS = "GET_JOINCLUB_DATA_SUCCESS";
+export const getJoinClubDataSuccess = (data) => ({
+	type: GET_JOINCLUB_DATA_SUCCESS,
+	data
+});
+
+export const GET_JOINCLUB_DATA_ERROR = "GET_JOINCLUB_DATA_ERROR";
+export const getJoinClubDataError = (message) => ({
+	type: GET_JOINCLUB_DATA_ERROR,
+	message
+});
+
 export const DELETE_CLUB_SUCCESS = "DELETE_CLUB_SUCCESS";
 export const deleteClubSuccess = (data) => ({
 	type: DELETE_CLUB_SUCCESS,
@@ -134,6 +146,18 @@ export const getMyClubData = (clubName) => {
 		  })
 		  .catch(function (error) {
 		    dispatch(getMyClubDataError(error.message));
+		  });
+	}
+}
+
+export const getJoinClubData = (clubName) => {
+	return dispatch => {
+		axios.get('/api/getMyClubData/' + clubName)
+		  .then(function (response) {
+		    dispatch(getJoinClubDataSuccess(response.data));
+		  })
+		  .catch(function (error) {
+		    dispatch(getJoinClubDataError(error.message));
 		  });
 	}
 }

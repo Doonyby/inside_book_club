@@ -11,7 +11,7 @@ import SignupContainer from "./components/landing/SignupContainer";
 import Home from "./components/user/HomePage";
 import Navigation from "./components/user/Navigation";
 import MyClubEntrance from "./components/user/myClub/MyClubEntrance";
-import JoinClub from "./components/user/joinClub/JoinClub";
+import JoinClubEntrance from "./components/user/joinClub/JoinClubEntrance";
 import Chatroom from "./components/user/Chatroom";
 
 
@@ -25,7 +25,7 @@ render(
 			</Route>
 			<Route path="/home" component={Home}>
 				<IndexRoute component={MyClubEntrance} />
-				<Route path="/home/joinclub" component={JoinClub} />
+				<Route path="/home/joinclub" component={JoinClubEntrance} />
 				<Route path="/home/chatroom" component={Chatroom} /> 
 			</Route>	
 		</Router>

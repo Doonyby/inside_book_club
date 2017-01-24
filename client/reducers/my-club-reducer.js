@@ -1,5 +1,5 @@
 import action from "../actions/user-actions.js";
-import {REHYDRATE} from 'redux-persist/constants'
+import {REHYDRATE} from 'redux-persist/constants';
 
 let  initialState = {
 	clubName: '',

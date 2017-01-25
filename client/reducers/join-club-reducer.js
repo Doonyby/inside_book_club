@@ -12,8 +12,6 @@ let  initialState = {
 	commentFeed: [],
 	bookReviews: '',
 	generateClubList: '',
-	showNewClubModal: false,
-	showEditClubModal: false,
 	myClubError: null
 }
 
@@ -34,8 +32,6 @@ export default function joinClubReducer(state = initialState, action) {
 			nextState.commentFeed = action.data.commentFeed;
 			nextState.members = action.data.members;
 			nextState.generateClubList = '';
-			nextState.showNewClubModal = false;
-			nextState.showEditClubModal = false;
 			return nextState;
 		case 'GET_JOINCLUB_DATA_ERROR':
 			nextState.myClubError = action.message;
@@ -45,6 +41,9 @@ export default function joinClubReducer(state = initialState, action) {
 			return nextState;
 		case 'ENTER_JOIN_COMMENT_SUCCESS':
 			nextState.commentFeed = action.commentFeed;
+			return nextState;
+		case 'LEAVE_JOINED_CLUB_SUCCESS': 
+			nextState = initialState;
 			return nextState;
 		default:
 			return nextState;

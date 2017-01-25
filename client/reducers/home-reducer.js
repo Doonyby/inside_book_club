@@ -74,6 +74,9 @@ export default function homeReducer(state = initialState, action) {
     case 'JOIN_CLUB_ERROR':
       nextState.joinedClubError = action.message;
       return nextState;
+    case 'DELETE_JOINED_CLUB_SUCCESS':
+      nextState.joinedClub = '';
+      return nextState;
     default:
       return nextState;
   }

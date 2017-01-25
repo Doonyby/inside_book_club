@@ -311,6 +311,44 @@ app.put('/api/submitEditClub', function(req, res) {
     });
 });
 
+app.put('/api/deleteJoinedClub', function(req, res) {
+    User.findById(req.body.userId, function(err, item) {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        item.joinedClub = '';
+        item.save(function(err) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            }
+            return res.status(201).json(item);           
+        });          
+    });
+});
+
+app.put('/api/leaveJoinedClub', function(req, res) {
+    Club.findById(req.body.id, function(err, item) {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        item.members.pull(req.body.username);
+        item.save(function(err) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            }
+            return res.status(201).json(item);           
+        });          
+    });
+});
+
 app.put('/api/updateClubMembers', function(req, res) {
     Club.findOne({clubName: req.body.clubName}, function(err, item) {
         if (err) {

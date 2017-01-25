@@ -5,7 +5,6 @@ import { Button } from "react-bootstrap";
 
 
 const SelectClub = ({ club, generateClubList, joinClub }) => {
-	console.log('selectClub', club);
 	let titleStyle = {
 		marginBottom: 50
 	}

@@ -2,10 +2,10 @@ import React from "react";
 import { Grid, Row, Col } from "react-bootstrap";
 import JoinedMembersContainer from "./JoinedMembersContainer";
 import JoinedCommentContainer from "./JoinedCommentContainer";
-import MeetingContainer from "../myClub/MeetingContainer";
+import JoinMeetingContainer from "./JoinMeetingContainer";
 import FutureBookShelfContainer from "../myClub/FutureBookShelfContainer";
 import PastBookShelfContainer from "../myClub/PastBookShelfContainer";
-import ClubControlContainer from "../myClub/ClubControlContainer";
+import JoinControlContainer from "./JoinControlContainer";
 import BookReviewsContainer from "../myClub/BookReviewsContainer";
 
 class JoinClub extends React.Component {
@@ -24,29 +24,29 @@ class JoinClub extends React.Component {
 				</Row>
 				<Row className="clubRow2">
 					<Col md={3} className="boxContainer">
-						<JoinedMembersContainer />
+						<FutureBookShelfContainer />
 					</Col>
 					<Col md={5} mdOffset={1} className="boxContainer">
 						<JoinedCommentContainer />
 					</Col>
 					<Col md={2} mdOffset={1} className="boxContainer">
-						<MeetingContainer />
+						<JoinMeetingContainer />
 					</Col>
 				</Row>
 				<Row className="clubRow3">
 					<Col md={3} className="boxContainer">
-						<FutureBookShelfContainer />
+						<PastBookShelfContainer />
 					</Col>
 					<Col md={5} mdOffset={1} className="boxContainer">
 						<BookReviewsContainer />
 					</Col>
 					<Col md={2} mdOffset={1} className="boxContainer">
-						<ClubControlContainer />
+						<JoinedMembersContainer />
 					</Col>
 				</Row>
 				<Row className="clubRow4">
-					<Col md={3} className="boxContainer">
-						<PastBookShelfContainer />
+					<Col md={2} mdOffset={10} className="boxContainer">
+						<JoinControlContainer />
 					</Col>
 				</Row>
 			</Grid>	

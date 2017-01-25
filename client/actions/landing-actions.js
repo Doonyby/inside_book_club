@@ -100,6 +100,30 @@ export const joinClubError = (message) => ({
 	message
 });
 
+export const DELETE_JOINED_CLUB_SUCCESS = "DELETE_JOINED_CLUB_SUCCESS";
+export const deleteJoinedClubSuccess = (joinedClub) => ({
+	type: DELETE_JOINED_CLUB_SUCCESS,
+	joinedClub
+});
+
+export const DELETE_JOINED_CLUB_ERROR = "DELETE_JOINED_CLUB_ERROR";
+export const deleteJoinedClubError = (message) => ({
+	type: DELETE_JOINED_CLUB_ERROR,
+	message
+});
+
+export const deleteJoinedClub = (clubObj) => {
+	return dispatch => {
+		axios.put('/api/deleteJoinedClub', clubObj)
+			.then(function (response) {
+				dispatch(deleteJoinedClubSuccess(response.data.joinedClub));
+			})
+			.catch(function (error,) {
+				dispatch(deleteJoinedClubError(error.response.data.message));				
+			});	
+	}
+}
+
 export const joinClubAction = (clubObj) => {
 	return dispatch => {
 		axios.put('/api/joinClub', clubObj)

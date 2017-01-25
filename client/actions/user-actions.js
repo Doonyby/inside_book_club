@@ -78,11 +78,65 @@ export const enterCommentError = (message) => ({
 	message
 });
 
+export const ENTER_JOIN_COMMENT_SUCCESS = "ENTER_JOIN_COMMENT_SUCCESS";
+export const enterJoinCommentSuccess = (commentFeed) => ({
+	type: ENTER_JOIN_COMMENT_SUCCESS,
+	commentFeed
+});
+
+export const ENTER_JOIN_COMMENT_ERROR = "ENTER_JOIN_COMMENT_ERROR";
+export const enterJoinCommentError = (message) => ({
+	type: ENTER_JOIN_COMMENT_ERROR,
+	message
+});
+
 export const GET_BOOK_REVIEW_SUCCESS = "GET_BOOK_REVIEW_SUCCESS";
 export const getBookReviewSuccess = (data) => ({
 	type: GET_BOOK_REVIEW_SUCCESS,
 	data
 });
+
+export const GENERATE_CLUB_LIST_SUCCESS = "GENERATE_CLUB_LIST_SUCCESS";
+export const generateClubListSuccess = (data) => ({
+	type: GENERATE_CLUB_LIST_SUCCESS,
+	data
+});
+
+export const updateClubMembers = (clubObj) => {
+	return dispatch => {
+		axios.put('/api/updateClubMembers', clubObj)
+			.then(function (response) {
+				dispatch(getJoinClubDataSuccess(response.data));
+			})
+			.catch(function (error) {
+				dispatch(getJoinClubDataError(error.response.data.message));
+			});
+	}
+}
+
+export const getJoinClubDataAction = (clubName) => {
+	return dispatch => {
+		axios.get('/api/getJoinClubData/' + clubName)
+			.then(function (response) {
+				dispatch(getJoinClubDataSuccess(response.data));
+			})
+			.catch(function (error) {
+				dispatch(getJoinClubDataError(error.response.data.message));
+			});			
+	}
+}
+
+export const generateClubListAction = () => {
+	return dispatch => {
+		axios.get('/api/getClubList')
+			.then(function (response) {
+				dispatch(generateClubListSuccess(response.data));
+			})
+			.catch(function (error) {
+				console.log(error.message);
+			});
+	}
+}
 
 export const getBookReviewAction = (bookTitle) => {
 	return dispatch => {
@@ -105,6 +159,18 @@ export const enterCommentAction = (comment) => {
 			})
 			.catch(function (error) {
 				dispatch(enterCommentError(error.message));
+			});			
+	}
+}
+
+export const enterJoinCommentAction = (comment) => {
+	return dispatch => {
+		axios.put('/api/enterComment', comment)
+			.then(function (response) {
+				dispatch(enterJoinCommentSuccess(response.data.commentFeed));
+			})
+			.catch(function (error) {
+				dispatch(enterJoinCommentError(error.message));
 			});			
 	}
 }

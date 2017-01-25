@@ -55,7 +55,7 @@ app.use(webpackMiddleware(compiler, {
 app.use(webpackHotMiddleware(compiler));
 
 app.use('/client', express.static(path.join(__dirname, '../client')));
-
+app.use('/home/client/css/home.css', express.static(path.join(__dirname, '../client/css/home.css')));
 
 passport.use(new LocalStrategy(function(username, password, callback) {
     User.findOne({username: username}, function(err, user) {
@@ -130,7 +130,46 @@ app.put('/api/shelfPastBook', function(req,res) {
     });
 });
 
+app.get('/api/getClubList', function(req, res) {
+    Club.find({}, function(err, clubs) {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        var clubMap = [];
+        clubs.forEach(function(club) {
+            var clubSpec = {};
+            var positionsLeft = club.memberCap - club.members.length;
+            if (positionsLeft > 0) {
+                clubSpec.clubName = club.clubName;
+                clubSpec.memberCap = club.memberCap;
+                clubSpec.openings = positionsLeft;
+                clubSpec.currentBook = club.currentBook;
+                clubSpec.meetupDate = club.meetupDate;
+                clubMap.push(clubSpec);
+            } else {
+                return
+            }
+        });
+        res.send(clubMap);
+    })
+});
+
 app.get('/api/getMyClubData/:clubName', function(req, res) {
+    Club.findOne({clubName: req.params.clubName}, function(err, item) {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        res.status(201).json(item);
+    });
+});
+
+app.get('/api/getJoinClubData/:clubName', function(req, res) {
     Club.findOne({clubName: req.params.clubName}, function(err, item) {
         if (err) {
             console.log(err);
@@ -269,8 +308,51 @@ app.put('/api/submitEditClub', function(req, res) {
             }
             return res.status(201).json(item);
         });
-    })
-})
+    });
+});
+
+app.put('/api/updateClubMembers', function(req, res) {
+    Club.findOne({clubName: req.body.clubName}, function(err, item) {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        item.members.push(req.body.username);
+        item.save(function(err) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            }
+            return res.status(201).json(item);           
+        });          
+    });
+});
+
+app.put('/api/joinClub', function(req, res) {
+    User.findById(req.body.userId, function(err, item) {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        else if (item.myClub == req.body.clubName) {
+            return res.status(500).json({
+                message: 'You cannot join your own club...you own it. Choose another option to join a club.'
+            });
+        }
+        item.joinedClub = req.body.clubName;
+        item.save(function(err) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            }
+            return res.status(201).json(item);           
+        });
+    });
+});
 
 app.put('/api/submitNewMyClub', function(req, res) {
     Club.findOne({clubName: req.body.clubName}, function(err, item) {
@@ -414,7 +496,7 @@ app.post('/api/signup', jsonParser, function(req, res) {
 });
 
 app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, './index.html'));
+    res.sendFile(path.join(__dirname, '../client/index.html'));
 });
 
 exports.app = app;

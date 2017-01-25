@@ -7,8 +7,6 @@ let  initialState = {
 	organizer: '',
 	memberCap: 0,
 	members: [],
-	futureBookShelf: [],
-	pastBookShelf: [],
 	currentBook: '',
 	meetupDate: '',
 	commentFeed: [],

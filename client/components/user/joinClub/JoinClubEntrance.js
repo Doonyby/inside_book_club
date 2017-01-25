@@ -6,7 +6,7 @@ import { getJoinClubDataAction } from "../../../actions/user-actions";
 
 class JoinClubEntrance extends React.Component {
 	render () {
-		let selectClubOrJoinClub = this.props.club.homeReducer.joinClub ? <JoinClub club={this.props.club}/> : <SelectClubContainer />
+		let selectClubOrJoinClub = this.props.club.homeReducer.joinedClub ? <JoinClub getJoinClubData={this.props.getJoinClubDataContainer} club={this.props.club}/> : <SelectClubContainer />
 		return (
 		     <div className="container">
 		         {selectClubOrJoinClub}
@@ -18,10 +18,10 @@ class JoinClubEntrance extends React.Component {
 const mapStateToProps = (state) => ({ club: state });
 const mapDispatchToProps = (dispatch) => { 
 	return { 
-		getJoinClubData: (clubName) => { dispatch(getJoinClubDataAction(clubName)); }
+		getJoinClubDataContainer: (clubName) => { dispatch(getJoinClubDataAction(clubName)); }
 	}
 }
 
-export default connect(mapStateToProps)(JoinClubEntrance)
+export default connect(mapStateToProps, mapDispatchToProps)(JoinClubEntrance)
 
 

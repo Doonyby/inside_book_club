@@ -1,7 +1,7 @@
 require('isomorphic-fetch');
 import axios from "axios";
 import { browserHistory } from "react-router";
-import { createNewMyClub } from "./user-actions";
+import { createNewMyClub, updateClubMembers } from "./user-actions";
 
 //add user to state upon successful sign in with login or signup
 export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS';
@@ -64,30 +64,6 @@ export const removeFutureBookError = (message) => ({
 	message
 });
 
-export const shelfFutureBookAction = (shelvedBook) => {
-	return dispatch => {
-		axios.put('/api/shelfFutureBook', shelvedBook)
-			.then(function (response) {
-				dispatch(shelfFutureBookSuccess(response.data.futureBookShelf));
-			})
-			.catch(function (error) {
-				dispatch(shelfFutureBookError(error.message));				
-			});
-	}
-};
-
-export const removeFutureBookAction = (bookObj) => {
-	return dispatch => {
-		axios.put('/api/removeFutureBook', bookObj)
-			.then(function (response) {
-				dispatch(removeFutureBookSuccess(response.data.futureBookShelf));
-			})
-			.catch(function (error) {
-				dispatch(removeFutureBookError(error.message));
-			}) 
-	}
-};
-
 export const SHELF_PAST_BOOK_SUCCESS = "SHELF_PAST_BOOK_SUCCESS";
 export const shelfPastBookSuccess = (bookData) => ({
 	type: SHELF_PAST_BOOK_SUCCESS,
@@ -112,6 +88,31 @@ export const removePastBookError = (message) => ({
 	message
 });
 
+export const JOIN_CLUB_SUCCESS = "JOIN_CLUB_SUCCESS";
+export const joinClubSuccess = (joinedClub) => ({
+	type: JOIN_CLUB_SUCCESS,
+	joinedClub
+});
+
+export const JOIN_CLUB_ERROR = "JOIN_CLUB_ERROR";
+export const joinClubError = (message) => ({
+	type: JOIN_CLUB_ERROR,
+	message
+});
+
+export const joinClubAction = (clubObj) => {
+	return dispatch => {
+		axios.put('/api/joinClub', clubObj)
+			.then(function (response) {
+				dispatch(joinClubSuccess(response.data.joinedClub));
+				dispatch(updateClubMembers(clubObj));
+			})
+			.catch(function (error,) {
+				dispatch(joinClubError(error.response.data.message));				
+			});			
+	}
+}
+
 export const shelfPastBookAction = (shelvedBook) => {
 	return dispatch => {
 		axios.put('/api/shelfPastBook', shelvedBook)
@@ -133,6 +134,30 @@ export const removePastBookAction = (bookObj) => {
 			.catch(function (error) {
 				dispatch(removePastBookError(error.message));
 			}); 
+	}
+};
+
+export const shelfFutureBookAction = (shelvedBook) => {
+	return dispatch => {
+		axios.put('/api/shelfFutureBook', shelvedBook)
+			.then(function (response) {
+				dispatch(shelfFutureBookSuccess(response.data.futureBookShelf));
+			})
+			.catch(function (error) {
+				dispatch(shelfFutureBookError(error.message));				
+			});
+	}
+};
+
+export const removeFutureBookAction = (bookObj) => {
+	return dispatch => {
+		axios.put('/api/removeFutureBook', bookObj)
+			.then(function (response) {
+				dispatch(removeFutureBookSuccess(response.data.futureBookShelf));
+			})
+			.catch(function (error) {
+				dispatch(removeFutureBookError(error.message));
+			}) 
 	}
 };
 

@@ -67,6 +67,13 @@ export default function homeReducer(state = initialState, action) {
     case 'REMOVE_PAST_BOOK_SUCCESS':
       nextState.pastBookShelf = action.bookData;
       return nextState;
+    case 'JOIN_CLUB_SUCCESS': 
+      nextState.joinedClub = action.joinedClub;
+      nextState.joinedClubError = '';
+      return nextState;
+    case 'JOIN_CLUB_ERROR':
+      nextState.joinedClubError = action.message;
+      return nextState;
     default:
       return nextState;
   }

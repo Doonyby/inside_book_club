@@ -44,7 +44,7 @@ const NewClubModal = ({ club, hideNewClubModal, submitNewMyClub }) => {
 			    <FormGroup style={modalDivStyle} controlId="memberCap">
 			      <ControlLabel>Club Size</ControlLabel>
 			      <FormControl type="number" name="memberCap" placeholder="1"/>
-			      <HelpBlock>This is the maximum members that you will allow in your club.  
+			      <HelpBlock>This is the maximum members that you will allow in your club (not including you).  
 			      Remember that group conversations are often easiest with smaller groups. (i.e. less than 10)</HelpBlock>
 			    </FormGroup>
 			    <FormGroup style={modalDivStyle} controlId="currentBook">

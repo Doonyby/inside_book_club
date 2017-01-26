@@ -12,7 +12,8 @@ import Home from "./components/user/HomePage";
 import Navigation from "./components/user/Navigation";
 import MyClubEntrance from "./components/user/myClub/MyClubEntrance";
 import JoinClubEntrance from "./components/user/joinClub/JoinClubEntrance";
-import Chatroom from "./components/user/Chatroom";
+import JoinChatroomContainer from "./components/user/joinCLub/JoinChatroomContainer";
+import MyClubChatroomContainer from "./components/user/myClub/ChatroomContainer";
 
 
 render(
@@ -26,7 +27,8 @@ render(
 			<Route path="/home" component={Home}>
 				<IndexRoute component={MyClubEntrance} />
 				<Route path="/home/joinclub" component={JoinClubEntrance} />
-				<Route path="/home/chatroom" component={Chatroom} /> 
+				<Route path="/home/myClubChatroom" component={MyClubChatroomContainer} /> 
+				<Route path="/home/joinChatroom" component={JoinChatroomContainer} />
 			</Route>	
 		</Router>
 	</Provider>, document.getElementById('app'));

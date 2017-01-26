@@ -72,6 +72,21 @@ div {
 	margin-top: -652px;
 }
 
+.chatroomDiv {
+	border: 1px solid black;
+	height: 600px;
+	width: 600px;
+}
+
+.chatStats {
+	float: left;
+	margin-left: 175px;
+}
+
+.chatroom {
+	
+}
+
 #goodreads-widget {
 font-family: georgia, serif;
 padding-bottom: 15px;

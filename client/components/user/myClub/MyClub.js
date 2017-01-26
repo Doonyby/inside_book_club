@@ -19,7 +19,7 @@ class MyClub extends React.Component {
 			<Grid>
 				<Row className="clubRow1">
 					<Col md={4} mdOffset={4}>
-						<h1>My Club</h1>
+						<h1>My Club: {this.props.club.myClubReducer.clubName.toUpperCase()}</h1>
 					</Col> 
 				</Row>
 				<Row className="clubRow2">

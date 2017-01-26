@@ -15,7 +15,7 @@ const Meeting = ({ club }) => {
 			<h4><u>Current book meeting date</u></h4>
 			<h4 className="clubInfo">{date}</h4>
 			<p className="textLeft">When the meeting date and time arrive, click the button below to enter your club chatroom.</p>
-		    <LinkContainer to={'/home/chatroom'}>
+		    <LinkContainer to={'/home/myClubChatroom'}>
 		    	<Button bsStyle="primary" className="bottomStyle">Enter chatroom</Button>
 		    </LinkContainer>
 		</div>

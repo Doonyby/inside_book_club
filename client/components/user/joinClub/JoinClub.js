@@ -19,7 +19,7 @@ class JoinClub extends React.Component {
 			<Grid>
 				<Row className="clubRow1">
 					<Col md={4} mdOffset={4}>
-						<h1>Joined Club</h1>
+						<h1>Joined Club: {this.props.club.joinClubReducer.clubName.toUpperCase()}</h1>
 					</Col> 
 				</Row>
 				<Row className="clubRow2">

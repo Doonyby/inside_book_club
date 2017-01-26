@@ -1,15 +1,18 @@
 import React from "react";
 
 const Members = ({ club }) => {
-	let memberMessage = "Your club is capped at " + club.memberCap + " members. ";
+	let marginStyle = {
+		marginBottom: 3
+	}
+	let memberMessage = "Your club is capped at " + club.memberCap + ".";
 	if (club.members.length == 0) {
 		memberMessage = "You do not have any members that have joined your club yet.  Tell your friends!!!";
 	}
 	return (
-		<div className="bottomStyle">
-			<h4><u>Current club members</u></h4>
-			<p className="textLeft">{memberMessage}</p>
-			<p className="textLeft">Members: <u className="clubInfo">{club.members.join(', ')}</u></p>
+		<div className="bottomStyle membersClubHeight">
+			<h4 style={marginStyle}><u>Current club members</u></h4>
+			<p style={marginStyle} className="textLeft">{memberMessage}</p>
+			<p style={marginStyle} className="textLeft">Members: <u className="clubInfo">{club.members.join(', ')}</u></p>
 		</div>
 	)
 }

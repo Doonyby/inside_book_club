@@ -167,7 +167,6 @@ export const getBookReviewAction = (bookTitle) => {
 	return dispatch => {
 		axios.get('/api/getBookReview/' + bookTitle)
 			.then(function (response) {
-				console.log(response.data);
 				dispatch(getBookReviewSuccess(response.data));
 			})
 			.catch(function (error) {

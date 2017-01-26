@@ -17,6 +17,7 @@ export default {
 		new webpack.HotModuleReplacementPlugin()
 	],
 	module: {
+		preLoaders: [{test: /\.json$/, loader: 'json'}],
 		loaders: [
 			{
 				test: /\.js$/,
@@ -24,7 +25,8 @@ export default {
 					path.join(__dirname, 'client'),
 					path.join(__dirname, 'server/shared')
 				],
-				loaders: [ 'react-hot', 'babel' ]
+				exclude: path.resolve(__dirname, 'node_modules'),
+				loaders: [ 'react-hot', 'babel', 'babel-loader' ]
 			}
 		]
 	},

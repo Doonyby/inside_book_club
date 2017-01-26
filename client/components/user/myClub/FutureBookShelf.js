@@ -23,7 +23,7 @@ const FutureBookShelf = ({ club, shelfFutureBook, removeFutureBook }) => {
 		);
 	})
 	return (
-		<div className="textLeft">
+		<div className="textLeft tallDivHeight">
 			<h4 className="textCenter"><u>Future Book Shelf</u></h4>
 			<p>This is where you can keep a list of books you would like to get around to in the future. Feel free to keep a running list and change it as you see fit.</p>
 			<input className="shelfInput bottomStyle" type="text" placeholder="type book title here" onKeyDown={(e) => {

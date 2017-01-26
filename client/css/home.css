@@ -54,6 +54,24 @@ div {
 	padding-left: 0;
 }
 
+.tallDivHeight {
+	height: 408px;
+	overflow: auto;
+}
+
+.memberMargin {
+	margin-top: -161px;
+}
+
+.membersClubHeight {
+	height: 124px;
+	overflow: auto;
+}
+
+.controlMargin {
+	margin-top: -652px;
+}
+
 #goodreads-widget {
 font-family: georgia, serif;
 padding-bottom: 15px;

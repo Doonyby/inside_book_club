@@ -7,7 +7,7 @@ const mapStateToProps = (state) => {
 	var review = "";
 	if (state.myClubReducer.bookReviews) {
 		var string = state.myClubReducer.bookReviews.reviews_widget;
-		review = string.split('</style>').pop();		
+		review = string.split('</style>').pop();
 	}
 	return {
 		reviews: review

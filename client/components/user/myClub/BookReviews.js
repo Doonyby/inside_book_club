@@ -1,10 +1,27 @@
 import React from "react";
 import createFragment from 'react-addons-create-fragment';
+var htmlParser = require('htmlparser2');
 
 const Reviews = ({ reviews, getBookReview }) => {
-	
+	var dom = htmlParser.parseDOM(reviews);
+	let review = '';
+	let buildWidget = () => {
+		let headerTarget = dom[1].children[1].children[0].children[0].attribs.href;
+		let headerText = dom[1].children[1].children[0].children[0].children[0].data;
+		let iframeSrc = dom[1].children[3].attribs.src;
+		let footerTarget = dom[1].children[5].children[1].attribs.href;
+		return (
+			<div id="goodreads-widget">
+			  <div id="gr_header"><h1><a target="_blank" href={headerTarget}>{headerText}</a></h1></div>
+			  <iframe id="the_iframe" src={iframeSrc} width="455" height="400" frameBorder="0"></iframe>
+			  <div id="gr_footer">
+			    <a className="gr_branding" target="_blank" href={footerTarget}>Reviews from Goodreads.com</a>
+			  </div>
+			</div>
+		)
 
-
+	} 
+	console.log('review', review);
 	let titleStyle = {
 		textAlign: "center"
 	}
@@ -22,6 +39,7 @@ const Reviews = ({ reviews, getBookReview }) => {
 														}}}/>
 			</span>
 			<hr/>
+			{buildWidget()}
 		</div>
 	)
 }

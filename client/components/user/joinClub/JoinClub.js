@@ -40,12 +40,12 @@ class JoinClub extends React.Component {
 					<Col md={5} mdOffset={1} className="boxContainer">
 						<BookReviewsContainer />
 					</Col>
-					<Col md={2} mdOffset={1} className="boxContainer">
+					<Col md={2} mdOffset={1} className="boxContainer memberMargin">
 						<JoinedMembersContainer />
 					</Col>
 				</Row>
 				<Row className="clubRow4">
-					<Col md={2} mdOffset={10} className="boxContainer">
+					<Col md={2} mdOffset={10} className="boxContainer controlMargin">
 						<JoinControlContainer />
 					</Col>
 				</Row>

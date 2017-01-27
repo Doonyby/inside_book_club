@@ -1,8 +1,10 @@
 import React from "react";
 import { FormGroup, FormControl } from "react-bootstrap";
+import io from 'socket.io-client';
 
 const Chatroom = ({club}) => {
 	console.log('myClubChat', club);
+	const socket = io.connect('/home/myClubChatroom/');
 	return (
 		<div>
 			<h1>Club {club.myClubReducer.clubName.toUpperCase()} Chatroom</h1>

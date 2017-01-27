@@ -14,6 +14,7 @@ import axios from "axios";
 import { User } from "./models/user";
 import { Club } from "./models/club";
 
+
 var runServer = function(callback) {
     console.log('database_url: ' + config.DATABASE_URL);
     console.log('port: ' + config.PORT);
@@ -43,6 +44,16 @@ let app = express();
 let router = express.Router();
 let jsonParser = bodyParser.json();
 app.use(bodyParser.json());
+
+const http = require('http');
+const socketio = require('socket.io');
+const server = http.Server(app);
+const io = socketio(server);
+
+
+io.on('connection', function (socket) {
+    console.log('Client connected');
+});
 
 
 const compiler = webpack(webpackConfig);

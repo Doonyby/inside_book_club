@@ -13,6 +13,22 @@ import config from "../config";
 import axios from "axios";
 import { User } from "./models/user";
 import { Club } from "./models/club";
+let app = express();
+let router = express.Router();
+let jsonParser = bodyParser.json();
+app.use(bodyParser.json());
+const compiler = webpack(webpackConfig);
+app.use(webpackMiddleware(compiler, {
+    hot: true,
+    publicPath: webpackConfig.output.publicPath,
+    noInfo: true  //eliminates noise from webpack
+}));
+app.use(webpackHotMiddleware(compiler));
+app.use('/client', express.static(path.join(__dirname, '../client')));
+app.use('/home/client/css/home.css', express.static(path.join(__dirname, '../client/css/home.css')));
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
+
 
 
 var runServer = function(callback) {
@@ -22,8 +38,7 @@ var runServer = function(callback) {
         if (err && callback) {
             return callback(err);
         }
-
-        app.listen(config.PORT, function() {
+        server.listen(config.PORT, function() {
             console.log('Listening on localhost:' + config.PORT);
             if (callback) {
                 callback();
@@ -40,33 +55,53 @@ if (require.main === module) {
     });
 };
 
-let app = express();
-let router = express.Router();
-let jsonParser = bodyParser.json();
-app.use(bodyParser.json());
 
-const http = require('http');
-const socketio = require('socket.io');
-const server = http.Server(app);
-const io = socketio(server);
+var chatUsers = [];
 
+function getUserName(id) {
+    for (var i=0; i<users.length; i++) {
+        if (users[i].id == id) {
+            return users[i].name;
+        }
+    }
+}  
+    
+    // socket.on('message', function(message){
+    //     var sendingUser = getUserName(socket.id);
+    //     io.emit('message', sendingUser + ": " + message);
+    // });
+    
 
-io.on('connection', function (socket) {
-    console.log('Client connected');
+    
+
+var nsp = io.of('/insideBookClubChat');
+nsp.on('connection', function(socket){
+    let clubRoom = '';
+    socket.on('room', function(room, username) {
+        clubRoom = room;
+        var newUser = {};
+        newUser.username = username;
+        newUser.id = socket.id;
+        chatUsers.push(newUser);
+        socket.join(room);
+        console.log('someone connected in ' + clubRoom + ' and the name is ' + username + ' and id is ' + socket.id);
+        console.log('chatUsers', chatUsers);
+        nsp.in(clubRoom).emit('userDisplay', chatUsers);
+    });
+
+    socket.on('disconnect', function() {
+        console.log('user left', socket.id);
+        for (var i=0; i<chatUsers.length; i++) {
+            if (chatUsers[i].id == socket.id) {
+                chatUsers.splice(i, 1);
+            }
+        }
+        console.log('chatUsers', chatUsers);
+        nsp.in(clubRoom).emit('userDisplay', chatUsers);
+    });
 });
 
 
-const compiler = webpack(webpackConfig);
-
-app.use(webpackMiddleware(compiler, {
-	hot: true,
-	publicPath: webpackConfig.output.publicPath,
-	noInfo: true  //eliminates noise from webpack
-}));
-app.use(webpackHotMiddleware(compiler));
-
-app.use('/client', express.static(path.join(__dirname, '../client')));
-app.use('/home/client/css/home.css', express.static(path.join(__dirname, '../client/css/home.css')));
 
 passport.use(new LocalStrategy(function(username, password, callback) {
     User.findOne({username: username}, function(err, user) {

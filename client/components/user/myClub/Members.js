@@ -12,7 +12,7 @@ const Members = ({ club }) => {
 		<div className="bottomStyle membersClubHeight">
 			<h4 style={marginStyle}><u>Current club members</u></h4>
 			<p style={marginStyle} className="textLeft">{memberMessage}</p>
-			<p style={marginStyle} className="textLeft">Members: <u className="clubInfo">{club.members.join(', ')}</u></p>
+			<p style={marginStyle} className="textLeft">Members: <span className="clubInfo">{club.members.join(', ')}</span></p>
 		</div>
 	)
 }

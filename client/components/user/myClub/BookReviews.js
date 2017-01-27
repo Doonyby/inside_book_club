@@ -21,7 +21,6 @@ const Reviews = ({ reviews, getBookReview }) => {
 		)
 
 	} 
-	console.log('review', review);
 	let titleStyle = {
 		textAlign: "center"
 	}

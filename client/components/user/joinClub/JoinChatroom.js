@@ -4,18 +4,21 @@ import io from 'socket.io-client';
 
 class JoinChatroom extends React.Component {
 	render () {
+		let totalUsers = this.props.club.joinClubReducer.members;
+		totalUsers.push(this.props.club.joinClubReducer.organizer);
+
 		const socket = io('/insideBookClubChat');		
 		socket.connect();
-
-		const usersDisplay = (chatUsers) => {
-			console.log('users in club', chatUsers);
+		
+		const usersDisplayFunc = (userDisplay) => {
+			console.log('club', userDisplay.usersInClub);
+			console.log('chat', userDisplay.usersInChat);
 		}
 
 		socket.on('connect', () => {
-			socket.emit('room', this.props.club.joinClubReducer.clubName, this.props.club.homeReducer.username);
+			socket.emit('room', this.props.club.joinClubReducer.clubName, this.props.club.homeReducer.username, totalUsers);
 		});	
-		socket.on('userDisplay', usersDisplay);
-
+		socket.on('userDisplay', usersDisplayFunc);
 
 		return (
 			<div>

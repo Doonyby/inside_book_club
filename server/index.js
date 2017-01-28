@@ -55,11 +55,12 @@ if (require.main === module) {
     });
 };
 
-
-var chatUsers = [];
+var usersInClub = [];
+var usersInChat = [];
+var userObjInChat = [];
 
 function getUserName(id) {
-    for (var i=0; i<users.length; i++) {
+    for (var i=0; i<usersInChat.length; i++) {
         if (users[i].id == id) {
             return users[i].name;
         }
@@ -77,27 +78,41 @@ function getUserName(id) {
 var nsp = io.of('/insideBookClubChat');
 nsp.on('connection', function(socket){
     let clubRoom = '';
-    socket.on('room', function(room, username) {
+    let userDisplay = {}
+    socket.on('room', function(room, username, totalUsers) {
+        socket.join(room);
         clubRoom = room;
+        if (usersInChat.length == 0) {
+            usersInClub = totalUsers;
+        }
+        for (var i=0; i<usersInClub.length; i++) {
+            if (usersInClub[i] == username) {
+                usersInClub.splice(i, 1);
+            }
+        }
         var newUser = {};
         newUser.username = username;
         newUser.id = socket.id;
-        chatUsers.push(newUser);
-        socket.join(room);
-        console.log('someone connected in ' + clubRoom + ' and the name is ' + username + ' and id is ' + socket.id);
-        console.log('chatUsers', chatUsers);
-        nsp.in(clubRoom).emit('userDisplay', chatUsers);
+        usersInChat.push(username);
+        userObjInChat.push(newUser);
+        console.log(userObjInChat);
+        userDisplay.usersInClub = usersInClub;
+        userDisplay.usersInChat = usersInChat;
+        nsp.in(clubRoom).emit('userDisplay', userDisplay);
     });
 
     socket.on('disconnect', function() {
-        console.log('user left', socket.id);
-        for (var i=0; i<chatUsers.length; i++) {
-            if (chatUsers[i].id == socket.id) {
-                chatUsers.splice(i, 1);
+        for (var i=0; i<usersInChat.length; i++) {
+            if (usersInChat[i].id == socket.id) {
+                usersInClub.push(usersInChat[i].username);
+                usersInChat.splice(i, 1);
+                userObjInChat.splice(i, 1);
             }
         }
-        console.log('chatUsers', chatUsers);
-        nsp.in(clubRoom).emit('userDisplay', chatUsers);
+        console.log(userObjInChat);
+        userDisplay.usersInClub = usersInClub;
+        userDisplay.usersInChat = usersInChat;
+        nsp.in(clubRoom).emit('userDisplay', userDisplay);
     });
 });
 

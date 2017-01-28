@@ -4,40 +4,29 @@ import io from 'socket.io-client';
 
 class Chatroom extends React.Component {
 	render () {
-		let presentUsers = [];
-		let absentUsers = this.props.club.myClubReducer.members;
+		let inChatroom = '';
+		let outChatroom = '';
+		let totalUsers = this.props.club.myClubReducer.members;
+		totalUsers.push(this.props.club.myClubReducer.organizer);
+
 		const socket = io('/insideBookClubChat');		
 		socket.connect();
 		
-		const usersDisplay = (chatUsers) => {
-			console.log('users in club', chatUsers);
-			presentUsers = chatUsers;
+		const usersDisplayFunc = (userDisplay) => {
+			console.log('club', userDisplay.usersInClub);
+			console.log('chat', userDisplay.usersInChat);
 		}
 
 		socket.on('connect', () => {
-			socket.emit('room', this.props.club.myClubReducer.clubName, this.props.club.homeReducer.username);
+			socket.emit('room', this.props.club.myClubReducer.clubName, this.props.club.homeReducer.username, totalUsers);
 		});	
-		socket.on('userDisplay', usersDisplay);
-		const getAbsentUsers = () => {
-			for (var i=0; i<absentUsers.length; i++) {
-				for (var j=0; j<presentUsers.length; j++) {
-					if (presentUsers[j].username == absentUsers[i].username) {
-						absentUsers = absentUsers.splice(i, 1);
-					}
-				}
-			}
-			let outUsers = absentUsers.map((currentValue,index) => {
-				return (
-					<li>currentValue.username</li>
-				);
-			});
-			return outUsers
-		}
-		const getPresentUsers = presentUsers.map((currentValue, index) => {
-			return (
-				<li>currentValue.username</li>
-			);
-		})
+		socket.on('userDisplay', usersDisplayFunc);
+
+		// const getPresentUsers = presentUsers.map((currentValue, index) => {
+		// 	return (
+		// 		<li key={index}>{currentValue.username}</li>
+		// 	);
+		// })
 
  		return (
 			<div>
@@ -46,11 +35,11 @@ class Chatroom extends React.Component {
 					<div className="chatStats textLeft">
 						<p className="text-success"><strong><u>Already here:</u></strong></p>
 							<ul className="shelfUl inChatroom">
-								<li>{getPresentUsers}</li>
+								
 							</ul>
 						<p className="text-danger"><strong><u>Currently absent:</u></strong></p>
 							<ul className="shelfUl outChatroom">
-								<li>{getAbsentUsers}</li>
+								
 							</ul>
 					</div>
 					<div className="chatroomDiv container">

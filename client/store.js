@@ -12,6 +12,5 @@ const store = createStore(reducers, undefined, compose (
 		applyMiddleware(thunk), autoRehydrate()
 	))
 persistStore(store)
-console.log("store", store.getState());
 
 export default store;

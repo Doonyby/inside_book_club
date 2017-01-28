@@ -11,6 +11,10 @@ div {
 	border: 1px solid black;
 }
 
+.appDiv {
+	margin-top: 50px;
+}
+
 .clubRow2,
 .clubRow3 {
 	margin-top: 20px;
@@ -86,6 +90,10 @@ div {
 #chatMessageDisplay {
 	height: 420px;
 	overflow: auto;
+}
+
+.buttonToolBar {
+	margin: 0 auto;
 }
 
 #goodreads-widget {

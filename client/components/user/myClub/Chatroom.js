@@ -12,21 +12,18 @@ class Chatroom extends React.Component {
 
 		const socket = io('/insideBookClubChat');		
 		socket.connect();
-		
 		const usersDisplayFunc = (userDisplay) => {
 			let inChatroom = userDisplay.usersInChat.join('\n');
 			document.getElementById('inChatroom').innerText = inChatroom;
 			let outChatroom = userDisplay.usersInClub.join('\n');
 			document.getElementById('outChatroom').innerText = outChatroom;
 		}
-
 		const displayMessage = (messageDisplay) => {
 			let pTag = document.createElement("P");
 			pTag.innerText = messageDisplay;
 			let displayDiv = document.getElementById('chatMessageDisplay');
 			displayDiv.insertBefore(pTag, displayDiv.firstChild);
 		}
-
 		socket.on('connect', () => {
 			socket.emit('room', this.props.club.myClubReducer.clubName, this.props.club.homeReducer.username, totalUsers);
 		});	

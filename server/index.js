@@ -29,8 +29,6 @@ app.use('/home/client/css/home.css', express.static(path.join(__dirname, '../cli
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
-
-
 var runServer = function(callback) {
     console.log('database_url: ' + config.DATABASE_URL);
     console.log('port: ' + config.PORT);
@@ -87,7 +85,6 @@ nsp.on('connection', (socket) => {
         newUser.id = socket.id;
         usersInChat.push(username);
         userObjInChat.push(newUser);
-        console.log(userObjInChat);
         userDisplay.usersInClub = usersInClub;
         userDisplay.usersInChat = usersInChat;
         nsp.in(clubRoom).emit('userDisplay', userDisplay);
@@ -108,14 +105,11 @@ nsp.on('connection', (socket) => {
                 userObjInChat.splice(i, 1);
             }
         }
-        console.log(userObjInChat);
         userDisplay.usersInClub = usersInClub;
         userDisplay.usersInChat = usersInChat;
         nsp.in(clubRoom).emit('userDisplay', userDisplay);
     });
 });
-
-
 
 passport.use(new LocalStrategy(function(username, password, callback) {
     User.findOne({username: username}, function(err, user) {

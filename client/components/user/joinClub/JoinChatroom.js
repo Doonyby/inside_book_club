@@ -9,24 +9,21 @@ class JoinChatroom extends React.Component {
 		}
 		let totalUsers = this.props.club.joinClubReducer.members;
 		totalUsers.push(this.props.club.joinClubReducer.organizer);
-
+		
 		const socket = io('/insideBookClubChat');		
 		socket.connect();
-		
 		const usersDisplayFunc = (userDisplay) => {
-			let inChatroom = userDisplay.usersInChat.join(', ');
+			let inChatroom = userDisplay.usersInChat.join('\n');
 			document.getElementById('inChatroom').innerText = inChatroom;
-			let outChatroom = userDisplay.usersInClub.join(', ');
+			let outChatroom = userDisplay.usersInClub.join('\n');
 			document.getElementById('outChatroom').innerText = outChatroom;
 		}
-
 		const displayMessage = (messageDisplay) => {
 			let pTag = document.createElement("P");
 			pTag.innerText = messageDisplay;
 			let displayDiv = document.getElementById('chatMessageDisplay');
 			displayDiv.insertBefore(pTag, displayDiv.firstChild);
 		}
-
 		socket.on('connect', () => {
 			socket.emit('room', this.props.club.joinClubReducer.clubName, this.props.club.homeReducer.username, totalUsers);
 		});	
@@ -38,10 +35,10 @@ class JoinChatroom extends React.Component {
 				<h1>Club {this.props.club.joinClubReducer.clubName.toUpperCase()} Chatroom</h1>
 				<div className="chatroom">
 					<div className="chatStats textLeft">
-						<p className="text-success"><strong><u>Already here:</u></strong></p>
-							<p id="inChatroom"></p>					
-						<p className="text-danger"><strong><u>Currently absent:</u></strong></p>
-							<p id="outChatroom"></p>					
+						<p style={pStyle} className="text-success"><strong><u>Already here:</u></strong></p>
+							<p style={pStyle} className="text-success" id="inChatroom"></p>					
+						<p style={pStyle} className="text-danger"><strong><u>Currently absent:</u></strong></p>
+							<p style={pStyle} className="text-danger" id="outChatroom"></p>					
 					</div>
 					<div className="chatroomDiv container">
 						<form id="commentForm" className="textLeft clubRow2">

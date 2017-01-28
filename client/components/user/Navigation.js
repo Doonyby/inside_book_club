@@ -26,9 +26,9 @@ class Navigation extends React.Component {
 					          </MenuItem>
 							</LinkContainer>
 					        <MenuItem divider />
-					        <LinkContainer to={{ pathname: '' }}>
+					        <LinkContainer to={{ pathname: '/home/instruction' }}>
 					          <MenuItem eventKey={1.4}>
-					            Information
+					            Instructions
 					          </MenuItem>
 							</LinkContainer>
 					      </NavDropdown>
@@ -42,14 +42,8 @@ class Navigation extends React.Component {
 				      <Col md={3} mdOffset={2}>
 					    <Nav>
 					      <NavDropdown noCaret pullRight eventKey={2} title={this.props.club.homeReducer.name.toUpperCase() + "'s Home Page"} id="menuDropdown">
-					        <LinkContainer to={{ pathname: '' }}>
-					          <MenuItem eventKey={2.1}>
-					            Profile
-					          </MenuItem>
-							</LinkContainer>
-					        <MenuItem divider />
 					        <LinkContainer to={{ pathname: '/' }}>
-					          <MenuItem eventKey={2.3}>
+					          <MenuItem eventKey={2.1}>
 					            Sign out
 					          </MenuItem>
 							</LinkContainer>

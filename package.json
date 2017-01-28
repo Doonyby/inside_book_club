@@ -4,7 +4,7 @@
   "description": "react capstone project",
   "main": "server/index.js",
   "scripts": {
-    "start": "nodemon --watch server --exec babel-node -- server/index.js",
+    "start": "nodemon --watch server babel-node -- server/index.js",
     "test": "mocha --recursive --compilers js:babel-core/register",
     "clean-public": "npm run remove-public && mkdir public",
     "remove-public": "node_modules/.bin/rimraf ./public",

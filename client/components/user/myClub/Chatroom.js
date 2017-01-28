@@ -4,8 +4,9 @@ import io from 'socket.io-client';
 
 class Chatroom extends React.Component {
 	render () {
-		let inChatroom = '';
-		let outChatroom = '';
+		let pStyle = {
+			marginBottom: 0
+		}
 		let totalUsers = this.props.club.myClubReducer.members;
 		totalUsers.push(this.props.club.myClubReducer.organizer);
 
@@ -13,34 +14,34 @@ class Chatroom extends React.Component {
 		socket.connect();
 		
 		const usersDisplayFunc = (userDisplay) => {
-			console.log('club', userDisplay.usersInClub);
-			console.log('chat', userDisplay.usersInChat);
+			let inChatroom = userDisplay.usersInChat.join('\n');
+			document.getElementById('inChatroom').innerText = inChatroom;
+			let outChatroom = userDisplay.usersInClub.join('\n');
+			document.getElementById('outChatroom').innerText = outChatroom;
+		}
+
+		const displayMessage = (messageDisplay) => {
+			let pTag = document.createElement("P");
+			pTag.innerText = messageDisplay;
+			let displayDiv = document.getElementById('chatMessageDisplay');
+			displayDiv.insertBefore(pTag, displayDiv.firstChild);
 		}
 
 		socket.on('connect', () => {
 			socket.emit('room', this.props.club.myClubReducer.clubName, this.props.club.homeReducer.username, totalUsers);
 		});	
 		socket.on('userDisplay', usersDisplayFunc);
-
-		// const getPresentUsers = presentUsers.map((currentValue, index) => {
-		// 	return (
-		// 		<li key={index}>{currentValue.username}</li>
-		// 	);
-		// })
+		socket.on('message', displayMessage);
 
  		return (
 			<div>
 				<h1>Club {this.props.club.myClubReducer.clubName.toUpperCase()} Chatroom</h1>
 				<div className="chatroom">
 					<div className="chatStats textLeft">
-						<p className="text-success"><strong><u>Already here:</u></strong></p>
-							<ul className="shelfUl inChatroom">
-								
-							</ul>
-						<p className="text-danger"><strong><u>Currently absent:</u></strong></p>
-							<ul className="shelfUl outChatroom">
-								
-							</ul>
+						<p style={pStyle} className="text-success"><strong><u>Already here:</u></strong></p>
+							<p style={pStyle} className="text-success" id="inChatroom"></p>
+						<p style={pStyle} className="text-danger"><strong><u>Currently absent:</u></strong></p>
+							<p style={pStyle} className="text-danger" id="outChatroom"></p>
 					</div>
 					<div className="chatroomDiv container">
 						<form id="commentForm" className="textLeft clubRow2">
@@ -57,15 +58,13 @@ class Chatroom extends React.Component {
 						      				e.target.value = '';
 						      				return
 						      			}
-						      			console.log(currentComment.username + ": " + currentComment.comment);
+						      			socket.emit('messageObj', currentComment);
 						      			e.target.value = '';
 										}}}  />
 						    </FormGroup>
 					    </form>
 					    <hr/>
-					    <div className="textLeft">
-					    	<p><strong>Name-</strong> Comment blah blah blah</p>
-					    </div>
+					    <div id="chatMessageDisplay" className="textLeft"></div>
 					</div>
 				</div>
 			</div>

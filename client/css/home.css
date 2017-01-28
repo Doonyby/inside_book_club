@@ -83,8 +83,9 @@ div {
 	margin-left: 175px;
 }
 
-.chatroom {
-	
+#chatMessageDisplay {
+	height: 420px;
+	overflow: auto;
 }
 
 #goodreads-widget {

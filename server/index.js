@@ -66,20 +66,12 @@ function getUserName(id) {
         }
     }
 }  
-    
-    // socket.on('message', function(message){
-    //     var sendingUser = getUserName(socket.id);
-    //     io.emit('message', sendingUser + ": " + message);
-    // });
-    
-
-    
 
 var nsp = io.of('/insideBookClubChat');
-nsp.on('connection', function(socket){
+nsp.on('connection', (socket) => {
     let clubRoom = '';
     let userDisplay = {}
-    socket.on('room', function(room, username, totalUsers) {
+    socket.on('room', (room, username, totalUsers) => {
         socket.join(room);
         clubRoom = room;
         if (usersInChat.length == 0) {
@@ -101,10 +93,17 @@ nsp.on('connection', function(socket){
         nsp.in(clubRoom).emit('userDisplay', userDisplay);
     });
 
-    socket.on('disconnect', function() {
+    socket.on('messageObj', (currentComment) => {
+        let username = currentComment.username.toUpperCase();
+        let comment = currentComment.comment;
+        let messageDisplay = username + ": " + comment;
+        nsp.in(clubRoom).emit('message', messageDisplay);
+    })
+
+    socket.on('disconnect', () => {
         for (var i=0; i<usersInChat.length; i++) {
-            if (usersInChat[i].id == socket.id) {
-                usersInClub.push(usersInChat[i].username);
+            if (userObjInChat[i].id == socket.id) {
+                usersInClub.push(userObjInChat[i].username);
                 usersInChat.splice(i, 1);
                 userObjInChat.splice(i, 1);
             }

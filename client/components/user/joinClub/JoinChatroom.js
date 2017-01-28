@@ -4,6 +4,9 @@ import io from 'socket.io-client';
 
 class JoinChatroom extends React.Component {
 	render () {
+		let pStyle = {
+			marginBottom: 0
+		}
 		let totalUsers = this.props.club.joinClubReducer.members;
 		totalUsers.push(this.props.club.joinClubReducer.organizer);
 
@@ -11,14 +14,24 @@ class JoinChatroom extends React.Component {
 		socket.connect();
 		
 		const usersDisplayFunc = (userDisplay) => {
-			console.log('club', userDisplay.usersInClub);
-			console.log('chat', userDisplay.usersInChat);
+			let inChatroom = userDisplay.usersInChat.join(', ');
+			document.getElementById('inChatroom').innerText = inChatroom;
+			let outChatroom = userDisplay.usersInClub.join(', ');
+			document.getElementById('outChatroom').innerText = outChatroom;
+		}
+
+		const displayMessage = (messageDisplay) => {
+			let pTag = document.createElement("P");
+			pTag.innerText = messageDisplay;
+			let displayDiv = document.getElementById('chatMessageDisplay');
+			displayDiv.insertBefore(pTag, displayDiv.firstChild);
 		}
 
 		socket.on('connect', () => {
 			socket.emit('room', this.props.club.joinClubReducer.clubName, this.props.club.homeReducer.username, totalUsers);
 		});	
 		socket.on('userDisplay', usersDisplayFunc);
+		socket.on('message', displayMessage);
 
 		return (
 			<div>
@@ -26,13 +39,9 @@ class JoinChatroom extends React.Component {
 				<div className="chatroom">
 					<div className="chatStats textLeft">
 						<p className="text-success"><strong><u>Already here:</u></strong></p>
-							<ul className="shelfUl inChatroom">
-								<li>Me</li>
-							</ul>
+							<p id="inChatroom"></p>					
 						<p className="text-danger"><strong><u>Currently absent:</u></strong></p>
-							<ul className="shelfUl outChatroom">
-								<li>You</li>
-							</ul>
+							<p id="outChatroom"></p>					
 					</div>
 					<div className="chatroomDiv container">
 						<form id="commentForm" className="textLeft clubRow2">
@@ -49,15 +58,13 @@ class JoinChatroom extends React.Component {
 						      				e.target.value = '';
 						      				return
 						      			}
-						      			console.log(currentComment.username + ": " + currentComment.comment);
+						      			socket.emit('messageObj', currentComment);
 						      			e.target.value = '';
 										}}}  />
 						    </FormGroup>
 					    </form>
 					    <hr/>
-					    <div className="textLeft">
-					    	<p><strong>Name-</strong> Comment blah blah blah</p>
-					    </div>
+					    <div id="chatMessageDisplay" className="textLeft"></div>
 					</div>
 				</div>
 			</div>

@@ -2,10 +2,13 @@
   "name": "inside_book_club",
   "version": "1.0.0",
   "description": "react capstone project",
-  "main": "server/index.js",
+  "main": "server/server.js",
   "scripts": {
-    "start": "nodemon --watch server --exec babel-node -- server/index.js",
-    "test": "mocha --recursive --compilers js:babel-core/register"
+    "dev": "nodemon --watch server --exec babel-node -- server/server.js",
+    "test": "mocha --recursive --compilers js:babel-core/register",
+    "postinstall": "webpack -p",
+    "start": "node server/server.js"
+
   },
   "repository": {
     "type": "git",

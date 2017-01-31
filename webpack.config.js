@@ -20,9 +20,8 @@ module.exports = {
 	module: {
 		preLoaders: [{test: /\.json$/, loader: 'json'}],
 		loaders: [
-			{
+			{ loader: 'babel-loader',
 			  test: /\.js$/, 
-			  loaders: [ 'react-hot', 'babel', 'babel-loader' ], 
 			  exclude: path.resolve(__dirname, 'node_modules'),
 			  include: [
 				path.join(__dirname, 'client'),

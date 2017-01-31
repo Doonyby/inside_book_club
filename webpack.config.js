@@ -29,8 +29,7 @@ module.exports = {
 				path.join(__dirname, 'server/models'),
 			  ],
 			  query: {
-		        plugins: ['transform-runtime'],
-		        presets: ['es2015', 'react'],
+		        presets: ['es2015', 'react']
 		      }
 			},
 			{ test: /\.css$/, loader: "style!css" }

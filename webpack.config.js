@@ -25,7 +25,8 @@ module.exports = {
 			  exclude: path.resolve(__dirname, 'node_modules'),
 			  include: [
 				path.join(__dirname, 'client'),
-				path.join(__dirname, 'server/shared')
+				path.join(__dirname, 'server/server.js'),
+				path.join(__dirname, 'server/models'),
 			  ],
 			  query: {
 		        plugins: ['transform-runtime'],

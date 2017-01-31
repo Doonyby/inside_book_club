@@ -2,7 +2,7 @@ global.DATABASE_URL = 'mongodb://localhost/inside_book_club-test';
 
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import server from '../server/index.js';
+import server from '../server/server.js';
 
 const should = chai.should();
 const app = server.app;

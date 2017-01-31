@@ -20,13 +20,18 @@ module.exports = {
 	module: {
 		preLoaders: [{test: /\.json$/, loader: 'json'}],
 		loaders: [
-			{ test: /\.js$/, 
+			{
+			  test: /\.js$/, 
 			  loaders: [ 'react-hot', 'babel', 'babel-loader' ], 
 			  exclude: path.resolve(__dirname, 'node_modules'),
 			  include: [
 				path.join(__dirname, 'client'),
 				path.join(__dirname, 'server/shared')
-			  ]
+			  ],
+			  query: {
+		        plugins: ['transform-runtime'],
+		        presets: ['es2015', 'react'],
+		      }
 			},
 			{ test: /\.css$/, loader: "style!css" }
 		]

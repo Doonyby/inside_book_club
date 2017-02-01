@@ -24,8 +24,8 @@ module.exports = {
 			  test: /\.js$/, 
 			  exclude: path.resolve(__dirname, 'node_modules'),
 			  include: [
-				path.join(__dirname, 'client'),
-				path.join(__dirname, 'server')
+				path.resolve(__dirname, 'client'),
+				path.resolve(__dirname, 'server')
 			  ],
 			  query: {
 		        presets: ['es2015', 'react']

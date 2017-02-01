@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "nodemon --watch server --exec babel-node -- server/server.js",
     "test": "mocha --recursive --compilers js:babel-core/register",
-    "heroku-postinstall": "webpack -p",
-    "start": "node server/server.js"
+    "postinstall": "webpack -p",
+    "start": "babel-node server/server.js"
   },
   "repository": {
     "type": "git",

@@ -10,7 +10,7 @@ module.exports = {
 	],
 	output: {
 	    path: __dirname,
-	    publicPath: '/',
+	    publicPath: './client/',
 	    filename: 'bundle.js'
 	},
 	plugins: [

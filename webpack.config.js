@@ -28,10 +28,11 @@ module.exports = {
 				path.resolve(__dirname, 'server')
 			  ],
 			  query: {
-		        presets: ['es2015', 'react']
+		        presets: ['es2015', 'react', 'stage-2']
 		      }
 			},
-			{ test: /\.css$/, loader: "style!css" }
+			{ test: /\.css$/, loader: "style!css" },
+			{test: /\.json$/, loader: 'json'}
 		]
 	},
 	resolve: {

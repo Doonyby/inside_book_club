@@ -10,13 +10,13 @@ module.exports = {
 	],
 	output: {
 	    path: __dirname,
-	    publicPath: '/',
+	    publicPath: 'https://mighty-anchorage-70654.herokuapp.com/',
 	    filename: 'bundle.js'
 	},
 	plugins: [
 		new webpack.NoErrorsPlugin(),
 		new webpack.optimize.OccurenceOrderPlugin(),
-		new webpack.HotModuleReplacementPlugin()
+		new webpack.optimize.UglifyJsPlugin()
 	],
 	module: {
 		loaders: [

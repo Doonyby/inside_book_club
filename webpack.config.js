@@ -18,7 +18,7 @@ module.exports = {
 		new webpack.HotModuleReplacementPlugin()
 	],
 	module: {
-		preLoaders: [{test: /\.json$/, loader: 'json'}],
+		preLoaders: [{test: /\.json$/, loader: 'json-loader'}],
 		loaders: [
 			{ loader: 'babel-loader',
 			  test: /\.js$/, 
@@ -32,7 +32,7 @@ module.exports = {
 		      }
 			},
 			{ test: /\.css$/, loader: "style!css" },
-			{test: /\.json$/, loader: 'json'}
+			{test: /\.json$/, loader: 'json-loader'}
 		]
 	},
 	resolve: {

@@ -1,6 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
-import json from 'file.json'
+var json = require('json-loader');
 
 module.exports = {
 	devtools: 'eval-source-map',
@@ -19,7 +19,6 @@ module.exports = {
 		new webpack.HotModuleReplacementPlugin()
 	],
 	module: {
-		preLoaders: [{test: /\.json$/, loader: 'json-loader'}],
 		loaders: [
 			{ loader: 'babel-loader',
 			  test: /\.js$/, 

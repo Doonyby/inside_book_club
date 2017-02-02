@@ -5,8 +5,7 @@ var json = require('json-loader');
 module.exports = {
 	devtools: 'eval-source-map',
 	entry: [
-		'webpack-hot-middleware/client',
-		path.join(__dirname, '/client/index.js'),
+		'babel-polyfill', __dirname + "/server/server.js",
 	],
 	output: {
 	    path: path.resolve(__dirname, 'public', 'build'),

@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon --watch server --exec babel-node -- server/server.js",
     "test": "mocha --recursive --compilers js:babel-core/register",
-    "postinstall": "webpack -p",
+    "postinstall": "webpack -p --config webpack.production.config.js",
     "start": "babel-node server/server.js"
   },
   "repository": {

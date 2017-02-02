@@ -1,5 +1,4 @@
 import React from "react";
-import createFragment from 'react-addons-create-fragment';
 var htmlParser = require('htmlparser2');
 
 const Reviews = ({ reviews, getBookReview }) => {

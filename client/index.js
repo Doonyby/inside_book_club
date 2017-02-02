@@ -12,7 +12,7 @@ import Home from "./components/user/HomePage";
 import Navigation from "./components/user/Navigation";
 import MyClubEntrance from "./components/user/myClub/MyClubEntrance";
 import JoinClubEntrance from "./components/user/joinClub/JoinClubEntrance";
-import JoinChatroomContainer from "./components/user/joinCLub/JoinChatroomContainer";
+import JoinChatroomContainer from "./components/user/joinClub/JoinChatroomContainer";
 import MyClubChatroomContainer from "./components/user/myClub/ChatroomContainer";
 import Instructions from "./components/user/Instructions";
 

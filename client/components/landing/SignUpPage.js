@@ -1,6 +1,6 @@
 import React from "react";
 
-const Signup = ({ user, signup }) => {
+const Signup = ({ user, submitSignup }) => {
 	let error = "";
 	if (user.error) {
 		error = user.error;
@@ -16,7 +16,7 @@ const Signup = ({ user, signup }) => {
 					password: e.target.password.value,
 					passwordConfirm: e.target.passwordConfirm.value
 				}
-				signup(userData);
+				submitSignup(userData);
 			}} >
 				<h1>Join our community!</h1>
 				<h4 className="text-danger">{ error }</h4>

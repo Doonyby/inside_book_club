@@ -11,9 +11,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		signup: (userData) => {
-			return dispatch(signUpRequest(userData))
-		}
+		submitSignup: (userData) => { return dispatch(signUpRequest(userData)) }
 	}
 }
 

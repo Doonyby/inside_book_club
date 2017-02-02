@@ -9,8 +9,7 @@ module.exports = {
 		path.join(__dirname, '/client/index.js'),
 	],
 	output: {
-	    path: __dirname,
-	    publicPath: 'https://mighty-anchorage-70654.herokuapp.com/',
+	    path: path.resolve(__dirname, 'public', 'build'),
 	    filename: 'bundle.js'
 	},
 	plugins: [

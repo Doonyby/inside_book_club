@@ -2,9 +2,11 @@ import React from "react";
 var htmlParser = require('htmlparser2');
 
 const Reviews = ({ reviews, getBookReview }) => {
-	var dom = htmlParser.parseDOM(reviews);
-	let review = '';
 	let buildWidget = () => {
+		if (!reviews) {
+			return
+		}
+		let dom = htmlParser.parseDOM(reviews);
 		let headerTarget = dom[1].children[1].children[0].children[0].attribs.href;
 		let headerText = dom[1].children[1].children[0].children[0].children[0].data;
 		let iframeSrc = dom[1].children[3].attribs.src;
@@ -23,8 +25,11 @@ const Reviews = ({ reviews, getBookReview }) => {
 	let titleStyle = {
 		textAlign: "center"
 	}
+	let reviewStyle = {
+		height: 630
+	}
 	return (
-		<div className="textLeft">
+		<div className="textLeft" style={reviewStyle}>
 			<h4 style={titleStyle}><u>Searching for your next club book? Look up reviews here!</u></h4>
 			<p className="textLeft">Enter a book title in the line below to pull up reviews from "goodreads.com".</p>
 			<span>

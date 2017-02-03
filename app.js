@@ -1,43 +1,47 @@
 import express from "express";
 import path from "path";
 import bodyParser from "body-parser";
-import webpack from "webpack";
-import webpackMiddleware from "webpack-dev-middleware";
-import webpackHotMiddleware from "webpack-hot-middleware";
-import webpackConfig from "../webpack.config.js";
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 import passport from "passport";
 import LocalStrategy from "passport-local";
-import config from "../config";
+import configServer from "./config";
 import axios from "axios";
 import { User } from "./models/user";
 import { Club } from "./models/club";
-let app = express();
+const Serve = require('./server.js');
+const app = Serve.app();
 let router = express.Router();
 let jsonParser = bodyParser.json();
 app.use(bodyParser.json());
-const compiler = webpack(webpackConfig);
-app.use(webpackMiddleware(compiler, {
-    hot: true,
-    publicPath: webpackConfig.output.publicPath,
-    noInfo: true  //eliminates noise from webpack
-}));
-app.use(webpackHotMiddleware(compiler));
-app.use('/client', express.static(path.join(__dirname, '../client')));
-app.use('/home/client/css/home.css', express.static(path.join(__dirname, '../client/css/home.css')));
+app.use('/client', express.static(path.join(__dirname, '/client')));
+app.use('/home/client/css/home.css', express.static(path.join(__dirname, './client/css/home.css')));
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
+if (process.env.NODE_ENV !== 'production') {
+  const webpack = require('webpack')
+  const webpackDevMiddleware = require('webpack-dev-middleware')
+  const webpackHotMiddleware = require('webpack-hot-middleware')
+  const config = require('./webpack.dev.config.js')
+  const compiler = webpack(config)
+
+  app.use(webpackHotMiddleware(compiler))
+  app.use(webpackDevMiddleware(compiler, {
+    noInfo: true,
+    publicPath: config.output.publicPath
+  }))
+}
+
 var runServer = function(callback) {
-    console.log('database_url: ' + config.DATABASE_URL);
-    console.log('port: ' + config.PORT);
-    mongoose.connect(config.DATABASE_URL, function(err) {
+    console.log('database_url: ' + configServer.DATABASE_URL);
+    console.log('port: ' + configServer.PORT);
+    mongoose.connect(configServer.DATABASE_URL, function(err) {
         if (err && callback) {
             return callback(err);
         }
-        server.listen(config.PORT, function() {
-            console.log('Listening on localhost:' + config.PORT);
+        server.listen(configServer.PORT, function() {
+            console.log('Listening on localhost:' + configServer.PORT);
             if (callback) {
                 callback();
             }
@@ -589,7 +593,7 @@ app.post('/api/signup', jsonParser, function(req, res) {
 });
 
 app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/index.html'));
+    res.sendFile(path.join(__dirname, './index.html'));
 });
 
 exports.app = app;

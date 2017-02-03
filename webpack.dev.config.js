@@ -3,15 +3,15 @@ var path = require('path');
 var json = require('json-loader');
 
 module.exports = {
-	devtools: 'eval-source-map',
+	devtools: 'eval',
 	entry: [
 		'webpack-hot-middleware/client',
 		path.join(__dirname, '/client/index.js'),
 	],
 	output: {
-	    path: __dirname,
-	    publicPath: '/',
-	    filename: 'bundle.js'
+	    path: path.join(__dirname, 'public'),
+	    filename: 'bundle.js',
+	    publicPath: '/public/'
 	},
 	plugins: [
 		new webpack.NoErrorsPlugin(),
@@ -24,8 +24,7 @@ module.exports = {
 			  test: /\.js$/, 
 			  exclude: path.resolve(__dirname, 'node_modules'),
 			  include: [
-				path.resolve(__dirname, 'client'),
-				path.resolve(__dirname, 'server')
+				path.resolve(__dirname, 'client')
 			  ],
 			  query: {
 		        presets: ['es2015', 'react', 'stage-2']

@@ -3,21 +3,23 @@ var path = require('path');
 var json = require('json-loader');
 
 module.exports = {
-	devtools: 'eval-source-map',
+	devtools: 'source-map',
 	entry: [
-		'babel-polyfill', __dirname + "/server/server.js",
+		'./client/index.js',
 	],
 	output: {
-	    path: path.resolve(__dirname, 'public', 'build'),
-	    filename: 'bundle.js'
+	  path: path.join(__dirname, 'public'),
+	  filename: 'bundle.js',
+	  publicPath: '/public/'
 	},
 	plugins: [
-		new webpack.NoErrorsPlugin(),
-		new webpack.optimize.OccurenceOrderPlugin(),
-		new webpack.optimize.UglifyJsPlugin(),
-		new webpack.optimize.CommonsChunkPlugin('common.js'),
-		new webpack.optimize.DedupePlugin(),
-		new webpack.optimize.AggressiveMergingPlugin()
+	  new webpack.optimize.DedupePlugin(),
+	  new webpack.optimize.UglifyJsPlugin({
+	    minimize: true,
+	    compress: {
+	      warnings: false
+	    }
+	  })
 	],
 	module: {
 		loaders: [
@@ -25,8 +27,7 @@ module.exports = {
 			  test: /\.js$/, 
 			  exclude: path.resolve(__dirname, 'node_modules'),
 			  include: [
-				path.resolve(__dirname, 'client'),
-				path.resolve(__dirname, 'server')
+				path.resolve(__dirname, 'client')
 			  ],
 			  query: {
 		        presets: ['es2015', 'react', 'stage-2']

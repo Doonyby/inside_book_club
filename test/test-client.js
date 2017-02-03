@@ -1,7 +1,17 @@
+// import React from 'react';
+// import TestUtils from 'react-addons-test-utils';
+// import chai from 'chai';
+// import SignupPage from '../client/components/landing/SignupPage.js';
 
-describe('Inside Book Club Client', function() {
-    it('should list items on get');
-    it('should add an item on post');
-    it('should edit an item on put');
-    it('should delete an item on delete');
-});
+// const should = chai.should();
+
+// describe('SignupPage Component', function() {
+//     it('Renders a title and form',  function() {
+//         const renderer = TestUtils.createRenderer();
+//         renderer.render(<SignupPage />);
+//         const result = renderer.getRenderOutput();
+//         console.log('result.props', result.props);
+//     });
+// });
+
+

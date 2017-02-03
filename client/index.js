@@ -7,7 +7,7 @@ import App from "./components/landing/App";
 import Welcome from "./components/landing/Welcome";
 import Information from "./components/landing/Information";
 import LoginContainer from "./components/landing/LoginContainer";
-import SignupContainer from "./components/landing/SignupContainer";
+import SignupContainer from "./components/landing/SignupContainer.js";
 import Home from "./components/user/HomePage";
 import Navigation from "./components/user/Navigation";
 import MyClubEntrance from "./components/user/myClub/MyClubEntrance";

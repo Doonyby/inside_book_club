@@ -1,6 +1,6 @@
 import React from "react";
 
-const Signup = ({ user, submitSignup }) => {
+const SignupPage = ({ user, submitSignup }) => {
 	let error = "";
 	if (user.error) {
 		error = user.error;
@@ -58,7 +58,7 @@ const Signup = ({ user, submitSignup }) => {
 	);	
 }
 
-export default Signup;
+export default SignupPage;
 
 
 

@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "nodemon --watch server --exec babel-node -- app.js",
     "test": "mocha --recursive --compilers js:babel-core/register",
-    "build": "NODE_ENV=production webpack --config ./webpack.prod.config.js --progress --colors",
+    "clean": "rm -rf public/bundle.js",
+    "build": "npm run clean && npm run build-server",
+    "build-server": "NODE_ENV=production webpack --config ./webpack.prod.config.js --progress --colors",
     "start": "babel-node app.js"
   },
   "repository": {

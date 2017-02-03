@@ -11,6 +11,6 @@ const reducers = combineReducers({ homeReducer, myClubReducer, joinClubReducer }
 const store = createStore(reducers, undefined, compose (
 		applyMiddleware(thunk), autoRehydrate()
 	))
-persistStore(store).purge()
+persistStore(store)
 
 export default store;

@@ -33,8 +33,8 @@ module.exports = {
 			  exclude: path.resolve(__dirname, 'node_modules'),
 			  include: [
 				path.resolve(__dirname, 'client'),
-				path.resolve(__dirname, 'app'),
-				path.resolve(__dirname, 'server')
+				'./app.js',
+				'./server.js'
 			  ]
 			},
 			{ test: /\.css$/, loader: "style!css" },

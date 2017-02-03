@@ -24,7 +24,9 @@ module.exports = {
 			  test: /\.js$/, 
 			  exclude: path.resolve(__dirname, 'node_modules'),
 			  include: [
-				path.resolve(__dirname, 'client')
+				path.resolve(__dirname, 'client'),
+				path.resolve(__dirname, 'app'),
+				path.resolve(__dirname, 'server')
 			  ]
 			},
 			{ test: /\.css$/, loader: "style!css" },

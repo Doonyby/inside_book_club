@@ -19,6 +19,11 @@ module.exports = {
 	    compress: {
 	      warnings: false
 	    }
+	  }),
+	  new webpack.DefinePlugin({
+	      'process.env': {
+	        'NODE_ENV': JSON.stringify('production')
+	      }
 	  })
 	],
 	module: {
@@ -27,7 +32,9 @@ module.exports = {
 			  test: /\.js$/, 
 			  exclude: path.resolve(__dirname, 'node_modules'),
 			  include: [
-				path.resolve(__dirname, 'client')
+				path.resolve(__dirname, 'client'),
+				path.resolve(__dirname, 'app'),
+				path.resolve(__dirname, 'server')
 			  ]
 			},
 			{ test: /\.css$/, loader: "style!css" },

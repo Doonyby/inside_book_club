@@ -5,7 +5,7 @@ var json = require('json-loader');
 module.exports = {
 	devtools: 'source-map',
 	entry: [
-		'./client/index.js',
+		'./client/App.js',
 	],
 	output: {
 	  path: path.join(__dirname, 'public'),

@@ -1,11 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Grid, Row, Col } from "react-bootstrap";
-
-
 import Welcome from "./Welcome";
 
-class App extends React.Component {
+class Landing extends React.Component {
 	render() {
 		return (
 			<div className="appDiv container">
@@ -23,10 +21,7 @@ class App extends React.Component {
 				</Grid>	
 			</div>
 		);
-	} 
+	}
 }
 
-export default App;
-
-
-
+export default Landing;

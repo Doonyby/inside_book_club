@@ -6,12 +6,12 @@ module.exports = {
 	devtools: 'eval',
 	entry: [
 		'webpack-hot-middleware/client',
-		path.join(__dirname, '/client/index.js'),
+		path.join(__dirname, '/client/App.js'),
 	],
 	output: {
-	    path: path.join(__dirname, 'public'),
+	    path: '/',
 	    filename: 'bundle.js',
-	    publicPath: '/public/'
+	    publicPath: '/'
 	},
 	plugins: [
 		new webpack.NoErrorsPlugin(),

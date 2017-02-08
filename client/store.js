@@ -1,16 +1,12 @@
-import { redux, combineReducers, createStore, applyMiddleware, compose } from 'redux'
-import homeReducer from "./reducers/home-reducer";
-import myClubReducer from "./reducers/my-club-reducer";
-import joinClubReducer from "./reducers/join-club-reducer";
+import { redux, createStore, applyMiddleware, compose } from 'redux'
 import thunk from "redux-thunk";
-import {persistStore, autoRehydrate} from 'redux-persist';
+import { autoRehydrate } from 'redux-persist';
+import rootReducer from './reducers/index';
 
 
-const reducers = combineReducers({ homeReducer, myClubReducer, joinClubReducer })
 
-const store = createStore(reducers, undefined, compose (
-		applyMiddleware(thunk), autoRehydrate()
-	))
-persistStore(store)
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+ compose (applyMiddleware(thunk), autoRehydrate({log: true})));
+console.log('store', store);
 
 export default store;

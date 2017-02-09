@@ -17,9 +17,8 @@ export const signUpRequestError = (message) => ({
 });
 
 export const LOGIN_REQUEST_ERROR = 'LOGIN_REQUEST_ERROR';
-export const loginRequestError = (message) => ({
+export const loginRequestError = () => ({
 	type: LOGIN_REQUEST_ERROR,
-	message
 });
 
 export const SUBMIT_NEW_MYCLUB_SUCCESS = "SUBMIT_NEW_MYCLUB_SUCCESS";
@@ -110,6 +109,11 @@ export const DELETE_JOINED_CLUB_ERROR = "DELETE_JOINED_CLUB_ERROR";
 export const deleteJoinedClubError = (message) => ({
 	type: DELETE_JOINED_CLUB_ERROR,
 	message
+});
+
+export const CLEAR_ERROR_ACTION = "CLEAR_ERROR_ACTION";
+export const clearErrorAction = () => ({
+	type: CLEAR_ERROR_ACTION
 });
 
 export const deleteJoinedClub = (clubObj) => {
@@ -227,7 +231,7 @@ export const loginRequest = (userData) => {
 		    	browserHistory.push('/home');
 		    })
 		    .catch(error => {
-		    	dispatch(loginRequestError(error));
+		    	dispatch(loginRequestError());
 		    });
 	}
 }

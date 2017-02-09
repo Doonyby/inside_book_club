@@ -43,7 +43,7 @@ export default function homeReducer(state = initialState, action) {
       nextState.error = action.message;
       return nextState;
     case 'LOGIN_REQUEST_ERROR':
-      nextState.error = action.message;
+      nextState.error = 'error';
       return nextState;
     case 'SUBMIT_NEW_MYCLUB_SUCCESS':
       nextState.myClub = action.myClubName;
@@ -51,6 +51,9 @@ export default function homeReducer(state = initialState, action) {
       return nextState;
     case 'SUBMIT_NEW_MYCLUB_ERROR':
       nextState.myClubError = action.message;
+      return nextState;
+    case 'CLEAR_ERROR_ACTION':
+      nextState = initialState;
       return nextState;
     case 'DELETE_MYCLUB_SUCCESS':
       nextState.myClub = "";

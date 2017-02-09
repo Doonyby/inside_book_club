@@ -1,14 +1,47 @@
-/*body {
-	background-color: red
-}*/
+body {
+	background-color: #3A5054;
+}
 
 div {
 	text-align: center;
 }
 
+a {
+	color: #EBC98D;
+}
+
+a:hover {
+	color: #EBC98D;
+	opacity: .7;
+}
+
+a:after,
+a:active,
+a:focus {
+	color: #EBC98D;
+}
+
 .boxContainer {
 	background-color: white;
 	border: 1px solid black;
+	border-radius: -20px;
+}
+
+.quote {
+	font-family: 'Cedarville Cursive', cursive;
+	font-size: xx-large;
+}
+
+.whiteText {
+	color: white;
+}
+
+label {
+	padding-right: 8px;
+}
+
+.inputPadding {
+	padding-top: 4px;
 }
 
 .appDiv {
@@ -80,6 +113,15 @@ div {
 	border: 1px solid black;
 	height: 600px;
 	width: 600px;
+	background-color: white;
+}
+
+.textHere {
+	color: #42FF00;
+}
+
+.textAbsent {
+	color: #FF0419;
 }
 
 .chatStats {

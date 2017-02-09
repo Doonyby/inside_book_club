@@ -3,7 +3,7 @@ import React from "react";
 class Information extends React.Component {
 	render() {
 		return (
-			<div className="informationDiv">
+			<div className="informationDiv whiteText">
 				<h1>Information</h1>
 				<p className="textLeft"><strong>Inside Book Club</strong> is an app designed for you and a few friends to enjoy the
 					pleasures of sharing in books together.  The idea is not to get a huge following like other 

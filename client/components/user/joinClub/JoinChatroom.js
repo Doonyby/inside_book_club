@@ -32,13 +32,13 @@ class JoinChatroom extends React.Component {
 
 		return (
 			<div>
-				<h1>Club {this.props.club.joinClubReducer.clubName.toUpperCase()} Chatroom</h1>
+				<h1 className="whiteText">Club {this.props.club.joinClubReducer.clubName.toUpperCase()} Chatroom</h1>
 				<div className="chatroom">
 					<div className="chatStats textLeft">
-						<p style={pStyle} className="text-success"><strong><u>Already here:</u></strong></p>
-							<p style={pStyle} className="text-success" id="inChatroom"></p>					
-						<p style={pStyle} className="text-danger"><strong><u>Currently absent:</u></strong></p>
-							<p style={pStyle} className="text-danger" id="outChatroom"></p>					
+						<p style={pStyle} className="textHere"><strong><u>Already here:</u></strong></p>
+							<p style={pStyle} className="textHere" id="inChatroom"></p>					
+						<p style={pStyle} className="textAbsent"><strong><u>Currently absent:</u></strong></p>
+							<p style={pStyle} className="textAbsent" id="outChatroom"></p>					
 					</div>
 					<div className="chatroomDiv container">
 						<form id="commentForm" className="textLeft clubRow2">

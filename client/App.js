@@ -26,8 +26,7 @@ class App extends React.Component {
 			appIsReady: false
 		}
 	}
-  	componentDidMount() {
-  		console.log('didMount', store);
+  	componentWillMount() {
 	    persistStore(store, {
 	      debounce: 500
 	    }, () => this.setState({
@@ -35,7 +34,6 @@ class App extends React.Component {
     	}));
 	}
 	render() {
-		console.log('rendering App');
 	    if (!this.state.appIsReady) {
 	      return <Loading />;
 	    }		

@@ -18,6 +18,12 @@ class Landing extends React.Component {
 							{this.props.children}
 						</Col>
 					</Row>
+					<Row className="quote whiteText">
+						<Col md={6} mdOffset={3}>
+							<h3>“I find television very educating. Every time somebody turns on the set, I go into the other room and read a book.” 
+								― Groucho Marx</h3>
+						</Col>
+					</Row>
 				</Grid>	
 			</div>
 		);

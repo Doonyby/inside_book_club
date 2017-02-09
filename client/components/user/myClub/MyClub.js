@@ -13,13 +13,13 @@ class MyClub extends React.Component {
 		let clubName = this.props.club.homeReducer.myClub;
 		this.props.getMyClubData(clubName);
 	}
-	render() {
+	render() {		
 		return (
 			<div className="container">
 			<Grid>
 				<Row className="clubRow1">
 					<Col md={4} mdOffset={4}>
-						<h1>My Club: {this.props.club.myClubReducer.clubName.toUpperCase()}</h1>
+						<h1 className="whiteText">My Club: {this.props.club.myClubReducer.clubName.toUpperCase()}</h1>
 					</Col> 
 				</Row>
 				<Row className="clubRow2">
@@ -47,7 +47,7 @@ class MyClub extends React.Component {
 				<Row className="clubRow4">
 					<Col md={2} mdOffset={10} className="boxContainer controlMargin">
 						<ClubControlContainer />
-					</Col>
+					</Col>				
 				</Row>
 			</Grid>	
 			</div>

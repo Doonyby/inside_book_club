@@ -41,13 +41,15 @@ const SelectClub = ({ club, generateClubList, joinClub }) => {
 	}
 	return (
 		<div>
-			<h2>Welcome to your joined club!</h2>
-			<h3 style={titleStyle}>You have not joined a club yet. Please click the button below to generate 
+			<h2 className="whiteText">Welcome to your joined club!</h2>
+			<h3 style={titleStyle} className="whiteText">You have not joined a club yet. Please click the button below to generate 
 				a list of clubs with availability and the books they are reading.  Once you have 
 				found one that interests you, join the club and start your reading!</h3>
 			<Button className="bottomStyle" bsStyle="primary" bsSize="large" onClick={() => { generateClubList() }}>Generate List</Button>
 			<h4 className="text-danger">{joinError}</h4>
-			<ul className="shelfUl">{clubList}</ul>
+			<div className="boxContainer">
+				<ul className="shelfUl">{clubList}</ul>
+			</div>
 		</div>
 	);
 }

@@ -25,9 +25,9 @@ const Query = (props) => {
   	}
     return (
 		<div style={spaceStyle}>
-			<h3>You do not have a club set up yet. Click on the button below to create your club.</h3>
+			<h3 className="whiteText">You do not have a club set up yet. Click on the button below to create your club.</h3>
 			<Button onClick={props.onClick}>Create club</Button>
-			<h4>Or, you can use the menu to go to your "joined" club</h4>
+			<h4 className="whiteText">Or, you can use the menu to go to your "joined" club</h4>
 		</div>	
     );
 };

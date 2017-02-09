@@ -6,7 +6,6 @@ import rootReducer from './reducers/index';
 
 
 const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
- compose (applyMiddleware(thunk), autoRehydrate({log: true})));
-console.log('store', store);
+ compose (applyMiddleware(thunk), autoRehydrate()));
 
 export default store;

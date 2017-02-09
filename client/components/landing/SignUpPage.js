@@ -18,39 +18,39 @@ const SignupPage = ({ user, submitSignup }) => {
 				}
 				submitSignup(userData);
 			}} >
-				<h1>Join our community!</h1>
+				<h1 className="whiteText">Join our community!</h1>
 				<h4 className="text-danger">{ error }</h4>
-				<div>
-					<label>Name</label>
+				<div className="inputPadding">
+					<label className="whiteText">Name</label>
 					<input 
 						type="text" 
 						name="name" />
 				</div>
-				<div>
-					<label>Email</label>
+				<div className="inputPadding">
+					<label className="whiteText">Email</label>
 					<input 
 						type="text" 
 						name="email" />
 				</div>
-				<div>
-					<label>Username</label>
+				<div className="inputPadding">
+					<label className="whiteText">Username</label>
 					<input 
 						type="text" 
 						name="username" />
 				</div>	
-				<div>
-					<label>Password</label>
+				<div className="inputPadding">
+					<label className="whiteText">Password</label>
 					<input 
 						type="password" 
 						name="password" />
 				</div>
-				<div>
-					<label>Confirm Password</label>
+				<div className="inputPadding">
+					<label className="whiteText">Confirm Password</label>
 					<input 
 						type="password" 
 						name="passwordConfirm" />
 				</div>																							
-				<div>
+				<div className="inputPadding">
 					<button className="btn btn-primary btn-large">Sign up</button>
 				</div>
 			</form>

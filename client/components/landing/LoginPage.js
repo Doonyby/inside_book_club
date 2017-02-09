@@ -15,21 +15,21 @@ const Login = ({ user, login }) => {
 				}
 				login(userData);
 			}} >
-				<h1>Enter Login Info!</h1>
+				<h1 className="whiteText">Enter Login Info!</h1>
 				<h4 className="text-danger">{ error }</h4>
-				<div>
-					<label>Username</label>
+				<div className="inputPadding">
+					<label className="whiteText">Username</label>
 					<input
 						type="text" 
 						name="username" />
 				</div>
-				<div>
-					<label>Password</label>
+				<div className="inputPadding">
+					<label className="whiteText">Password</label>
 					<input 
 						type="text" 
 						name="password" />
-				</div>																							
-				<div>
+				</div>																						
+				<div className="inputPadding">
 					<button className="btn btn-primary btn-large">Login</button>
 				</div>
 			</form>

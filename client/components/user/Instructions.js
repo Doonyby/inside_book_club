@@ -4,7 +4,7 @@ import { Grid, Row, Col } from "react-bootstrap";
 class Instructions extends React.Component {
 	render() {
 		return (
-			<div className="informationDiv">
+			<div className="informationDiv whiteText">
 				<Grid>
 					<Row>
 						<Col md={6} mdOffset={3}>

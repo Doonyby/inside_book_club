@@ -2,8 +2,11 @@ import React from "react";
 
 class Loading extends React.Component {
 	render() {
+		let marginStyle = {
+			marginTop: 100
+		}
 		return (
-			<div className="loadingDiv container">
+			<div style={marginStyle} className="loadingDiv container whiteText">
 				<h1>Loading...</h1>
 			</div>
 		);

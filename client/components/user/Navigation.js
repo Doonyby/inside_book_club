@@ -20,13 +20,13 @@ class Navigation extends React.Component {
 								My Club
 					          </MenuItem>
 					        </LinkContainer>
-					        <LinkContainer to={{ pathname: '/home/joinclub' }}>
+					        <LinkContainer to={{ pathname: '/joinclub' }}>
 					          <MenuItem eventKey={1.2}>
 					            Join Club
 					          </MenuItem>
 							</LinkContainer>
 					        <MenuItem divider />
-					        <LinkContainer to={{ pathname: '/home/instruction' }}>
+					        <LinkContainer to={{ pathname: '/instruction' }}>
 					          <MenuItem eventKey={1.4}>
 					            Instructions
 					          </MenuItem>

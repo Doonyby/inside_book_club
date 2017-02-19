@@ -16,7 +16,7 @@ const Login = ({ user, login }) => {
 				login(userData);
 			}} >
 				<h1 className="whiteText">Enter Login Info!</h1>
-				<h4 className="text-danger">{ error }</h4>
+				<h4 className="errorText">{ error }</h4>
 				<div className="inputPadding">
 					<label className="whiteText">Username</label>
 					<input

@@ -19,7 +19,7 @@ const SignupPage = ({ user, submitSignup }) => {
 				submitSignup(userData);
 			}} >
 				<h1 className="whiteText">Join our community!</h1>
-				<h4 className="text-danger">{ error }</h4>
+				<h4 className="errorText">{ error }</h4>
 				<div className="inputPadding">
 					<label className="whiteText">Name</label>
 					<input 

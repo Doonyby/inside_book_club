@@ -47,10 +47,10 @@ class App extends React.Component {
 						</Route>
 						<Route path="/home" component={Home}>
 							<IndexRoute component={MyClubEntrance} />
-							<Route path="/home/joinclub" component={JoinClubEntrance} />
-							<Route path="/home/myClubChatroom" component={MyClubChatroomContainer} /> 
-							<Route path="/home/joinChatroom" component={JoinChatroomContainer} />
-							<Route path="/home/instruction" component={Instructions} />
+							<Route path="/joinclub" component={JoinClubEntrance} />
+							<Route path="/myClubChatroom" component={MyClubChatroomContainer} /> 
+							<Route path="/joinChatroom" component={JoinChatroomContainer} />
+							<Route path="/instruction" component={Instructions} />
 						</Route>
 						<Route path="*" component={Page404}/>	
 				</Router>

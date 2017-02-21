@@ -18,13 +18,13 @@ Features
 
 The landing page pulls up a sign in, login, or an information page.  Once logged in, you can either visit your created club, or your joined club.  Both of which have many features used to pass information and handle that particular club.  
 
-| <img alt="Club Control" src="./design_imgs/clubControl.png" width="350"> | <img alt="Comments" src="./design_imgs/comments.png" width="350"> | <img alt="Chatroom" src="./design_imgs/chatroom.png" width="350"> |
+| <img alt="Club Control" src="./design_imgs/clubControl.png" width="350"> | <img alt="Comments" src="./design_imgs/comments.png" width="350" height="209"> | <img alt="Chatroom" src="./design_imgs/chatroom.png" width="350"> |
 |:---:|:---:|:---:|
 | Club Control | Comments | Chatroom |
 
 These are three features that both club pages contain.  Club Control has options to view the meetup date, club members, club details, and also gives you the option to edit the club if it's yours, or leave the club if it's joined. The comment section allows for comments on club updates, or chat outside of the chatroom.  The chatroom is implemented using socket.io where members can chat about the book when the previously designed meetup date has been reached.  
 
-| <img alt="Future Book Shelf" src="./design_imgs/futureBookShelf.png" width="350"> | <img alt="Read Book Shelf" src="./design_imgs/pastBookShelf.png" width="350"> | <img alt="Book Reviews" src="./design_imgs/goodReadsBookReview.png" width="350"> |
+| <img alt="Future Book Shelf" src="./design_imgs/futureBookShelf.png" width="350"> | <img alt="Read Book Shelf" src="./design_imgs/pastBookShelf.png" width="350"> | <img alt="Book Reviews" src="./design_imgs/goodreadsBookReview.png" width="350"> |
 |:---:|:---:|:---:|
 | Future Book Shelf | Read Book Shelf | Book Reviews |
 

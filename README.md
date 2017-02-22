@@ -18,7 +18,7 @@ Features
 
 The landing page pulls up a sign in, login, or an information page.  Once logged in, you can either visit your created club, or your joined club.  Both of which have many features used to pass information and handle that particular club.  
 
-| <img alt="Club Control" src="./design_imgs/clubControl.png" width="350"> | <img alt="Comments" src="./design_imgs/comments.png" width="350" height="209"> | <img alt="Chatroom" src="./design_imgs/chatroom.png" width="350"> |
+| <img alt="Club Control" src="./design_imgs/clubControl.png" height="209" width="350"> | <img alt="Comments" src="./design_imgs/comments.png" width="350"> | <img alt="Chatroom" src="./design_imgs/chatroom.png" width="350"> |
 |:---:|:---:|:---:|
 | Club Control | Comments | Chatroom |
 

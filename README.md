@@ -4,7 +4,7 @@ This is a full MERN stack app built using react, redux, node.js, express, mongod
 
 Summary
 -------
-With Inside Book Club, a user may create an account and have access to a total of 2 clubs.  On that the user organizes, and one that the user may join.  Once a club is created, you have a number of features that allowsy you to keep up with your club's details and members.  You also have a chatroom available for club meetings after a book deadline has been met by the group.  The app also allows you to keep track of books you've read and would like to read, and gives you the option to pull up book reviews from https://www.goodreads.com/ api.    
+With Inside Book Club, a user may create an account and have access to a total of 2 clubs.  One club is a club that the user organizes, and the other is a club that the user may join.  Once a club is created, you have a number of features that allow you to keep up with your club's details and members.  You also have a chatroom available for club meetings after a book deadline has been met by the group.  The app also allows you to keep track of books you've read and would like to read, and gives you the option to pull up book reviews from https://www.goodreads.com/ api.    
 
 Live Site
 ---------

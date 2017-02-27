@@ -10,8 +10,8 @@ class Welcome extends React.Component {
 		return (
 			<div className="welcomeDiv">
 				<h1 className="whiteText">Welcome to <strong>Inside Book Club</strong></h1>
-				<p className="textLeft whiteText">This is a site where you can host and join private book clubs in order
-					to create a more intimate atmosphere in which to share reading experiences.  
+				<p className="textLeft whiteText">This is a site where you can host and join exlusive book clubs in order
+					to create a closer and smaller atmosphere in which to share reading experiences.  
 					Much like a club hosted in the comfort of your own living room, you can
 					control the amount of people in your club to make it a conversation/discussion 
 					promoting size.  Please click <Link to={"/information"}><strong>HERE</strong></Link> for 

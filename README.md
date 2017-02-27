@@ -1,6 +1,6 @@
 Inside Book Club
 ==========
-This is a full MERN stack app built using react, redux, node.js, express, mongodb, and many other frameworks that will be listed below.  This was for a capstone project to complete the thinkful.com development bootcamp. The app's purpose is to provide a private book club setting where you can share your reading experiences in a more intimate setting designed to mirror a book club you would find in your own home.  
+This is a full MERN stack app built using react, redux, node.js, express, mongodb, and many other frameworks that will be listed below.  This was for a capstone project to complete the thinkful.com development bootcamp. The app's purpose is to provide an exclusive book club setting where you can share your reading experiences in a smaller and closer setting designed to mirror a book club you would find in your own home.  
 
 Summary
 -------

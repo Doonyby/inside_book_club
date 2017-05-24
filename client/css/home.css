@@ -1,28 +1,35 @@
 body {
-	background-color: #3A5054;
+	background-image: url(./brownFence.svg);
+	background-repeat: repeat;
+	font-size: 18px;
+	line-height: 1.5;
 }
 
 div {
 	text-align: center;
 }
 
+NavBar {
+	color: #FFF1D7;
+}
+
 a {
-	color: #EBC98D;
+	color: #FFF1D7;
 }
 
 a:hover {
-	color: #EBC98D;
+	color: #FFF1D7;
 	opacity: .7;
 }
 
 a:after,
 a:active,
 a:focus {
-	color: #EBC98D;
+	color: #FFF1D7;
 }
 
 .boxContainer {
-	background-color: white;
+	background-color: #fff;
 	border: 1px solid black;
 	border-radius: -20px;
 }
@@ -33,7 +40,11 @@ a:focus {
 }
 
 .whiteText {
-	color: white;
+	color: #FFF1D7;
+}
+
+h1 {
+	color: #CEF9FF;
 }
 
 label {
@@ -138,6 +149,7 @@ label {
 	margin: 0 auto;
 }
 
+/*goodreades widget styling*/
 #goodreads-widget {
 font-family: georgia, serif;
 padding-bottom: 15px;

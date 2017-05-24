@@ -9,10 +9,6 @@ div {
 	text-align: center;
 }
 
-NavBar {
-	color: #FFF1D7;
-}
-
 a {
 	color: #FFF1D7;
 }
@@ -28,6 +24,10 @@ a:focus {
 	color: #FFF1D7;
 }
 
+/*.appDiv {
+	overflow: auto;
+}*/
+
 .boxContainer {
 	background-color: #fff;
 	border: 1px solid black;
@@ -42,6 +42,8 @@ a:focus {
 .whiteText {
 	color: #FFF1D7;
 }
+
+
 
 h1 {
 	color: #CEF9FF;

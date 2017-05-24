@@ -8,11 +8,11 @@ import { LinkContainer } from "react-router-bootstrap";
 class Navigation extends React.Component {
 	render () {
 		return (
-			<div>
+			<div className="navBar">
 			  <Navbar inverse>
 			  	  <Grid>
 				    <Row className="show-grid">
-				      <Col md={2}>
+				      <Col md={3}>
 					    <Nav>
 					      <NavDropdown title="Book Club Menu" id="menuDropdown">
 					        <LinkContainer to={{ pathname: '/home' }}>
@@ -34,12 +34,14 @@ class Navigation extends React.Component {
 					      </NavDropdown>
 					    </Nav>
 				      </Col>
-				      <Col md={2} mdOffset={3} className="navigationCol">
-					    <Navbar.Brand className="navigationTitle">
-					       Inside Book Club
-					    </Navbar.Brand>
+				      <Col md={3} mdOffset={2} className="navigationCol">
+				      	<Nav>
+						    <NavItem>
+						       <span className="whiteText">Inside Book Club</span>
+						    </NavItem>
+					    </Nav>
 				      </Col>
-				      <Col md={3} mdOffset={2}>
+				      <Col md={2} mdOffset={2}>
 					    <Nav>
 					      <NavDropdown noCaret pullRight eventKey={2} title={this.props.club.homeReducer.name.toUpperCase() + "'s Home Page"} id="menuDropdown">
 					        <LinkContainer to={{ pathname: '/' }}>

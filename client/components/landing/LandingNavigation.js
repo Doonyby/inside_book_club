@@ -9,15 +9,15 @@ import { clearErrorAction } from "../../actions/landing-actions";
 class LandingNavigation extends React.Component {
 	render () {
 		return (
-			<div>
+			<div className="navBar">
 			  <Navbar inverse>
 			  	  <Grid>
 				    <Row className="show-grid">
 				      <Col md={2}>
 					    <Nav>
 					      <LinkContainer to={{ pathname: '/information' }}>
-					        <NavItem className="whiteText">
-					          About
+					        <NavItem>
+					          <span className="whiteText">About</span>
 					        </NavItem>
 						  </LinkContainer>
 					    </Nav>
@@ -25,13 +25,13 @@ class LandingNavigation extends React.Component {
 				      <Col md={2} mdOffset={8}>
 					    <Nav>
 					        <LinkContainer to={{ pathname: '/Login' }}>
-					          <NavItem className="whiteText" onClick={ () => {this.props.clearError() }}>
-					            Login
+					          <NavItem onClick={ () => {this.props.clearError() }}>
+					            <span className="whiteText">Login</span>
 					          </NavItem>
 							</LinkContainer>
 							<LinkContainer to={{ pathname: '/Signup' }}>
-					          <NavItem className="whiteText" onClick={ () => {this.props.clearError() }}>
-					            Signup
+					          <NavItem onClick={ () => {this.props.clearError() }}>
+					            <span className="whiteText">Signup</span>
 					          </NavItem>
 							</LinkContainer>
 					    </Nav>

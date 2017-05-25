@@ -1,12 +1,58 @@
 body {
-	background-image: url(./brownFence.svg);
-	background-repeat: repeat;
 	font-size: 18px;
 	line-height: 1.5;
+	font-family: 'Ubuntu', sans-serif;
 }
 
 div {
 	text-align: center;
+}
+
+.navBar {
+	width: 100vw;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.appDiv {
+	overflow: auto;
+	top: 0;
+	left: 0;
+}
+
+.landPanel1 {
+	font-family: 'Baumans', cursive;
+	background-image: url(./brownFence.svg);
+	background-repeat: repeat;
+	height: 83vh;
+}
+
+.titleHeading {
+	font-size: 92px;
+	font-weight: bolder;
+	margin: 0 auto;
+	padding-top: 150px;
+	padding-bottom: 15px;
+}
+
+.landPanel2 {
+	font-size: 25px;
+	background-color: #fff;
+	height: 500px;
+	padding: 20px 10px 10px 10px;
+}
+
+.siteDescription {
+	display: inline-block;
+}
+
+.landPanel3 {
+	font-family: 'Cedarville Cursive', cursive;
+	font-size: 20px;	
+	background-color: #222;
+	height: 400px;
+	padding: 75px 300px 10px 300px;
 }
 
 a {
@@ -34,19 +80,12 @@ a:focus {
 	border-radius: -20px;
 }
 
-.quote {
-	font-family: 'Cedarville Cursive', cursive;
-	font-size: xx-large;
-}
-
 .whiteText {
-	color: #FFF1D7;
+	color: #fff;
 }
-
-
 
 h1 {
-	color: #CEF9FF;
+	color: #fff;
 }
 
 label {

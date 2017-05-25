@@ -8,13 +8,29 @@ import { clearErrorAction } from "../../actions/landing-actions";
 class Welcome extends React.Component {
 	render() {
 		return (
-			<div className="welcomeDiv">
-				<h1>Welcome to <strong>Inside Book Club</strong></h1>
-				<p className="textLeft whiteText">Inside Book Club allows you to host and join exlusive book clubs in order
-					to create a closer and smaller atmosphere in which to share reading experiences.  
-					Much like a club hosted in the comfort of your own living room, you can
-					control the amount of people to make it a conversation/discussion 
-					promoting size.</p> 
+			<div>
+				<div className="landPanel2">
+					<i id="toProfile" className="fa fa-chevron-down"></i>
+					<div className="siteDescription">
+						<div>
+							<img src="./client/css/bookstack.png" height="200px" width="200px"/>
+						</div>
+						<div>
+							<p className="textLeft">Inside Book Club allows you to host and join 
+							exlusive book clubs in order to create a closer and smaller atmosphere in which 
+							to share reading experiences.  Much like a club hosted in the comfort of your own 
+							living room, you can control the amount of people to make it a conversation/discussion 
+							promoting size.</p> 
+						</div>
+					</div>
+				</div>
+				<div className="landPanel3 whiteText">
+					<h3>“A book is more than a verbal structure or series of verbal structures; it is the 
+					dialogue it establishes with its reader and the intonation it imposes upon his voice 
+					and the changing and durable images it leaves in his memory. A book is not an isolated 
+					being: it is a relationship, an axis of innumerable relationships.”
+					― Jorge Luis Borges</h3>
+				</div>
 			</div>
 		);	
 	}

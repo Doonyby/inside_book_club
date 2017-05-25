@@ -37,22 +37,32 @@ div {
 }
 
 .landPanel2 {
-	font-size: 25px;
+	font-size: 22px;
 	background-color: #fff;
 	height: 500px;
-	padding: 20px 10px 10px 10px;
+	padding: 20px 250px 10px 250px;
 }
 
 .siteDescription {
+	padding-top: 75px;
 	display: inline-block;
+}
+
+.siteDescription div {
+	height: 250px;
+}
+
+.welcomePic {
+	float: left;
+	margin-right: 40px;
 }
 
 .landPanel3 {
 	font-family: 'Cedarville Cursive', cursive;
 	font-size: 20px;	
 	background-color: #222;
-	height: 400px;
-	padding: 75px 300px 10px 300px;
+	height: 300px;
+	padding: 50px 300px 10px 300px;
 }
 
 a {

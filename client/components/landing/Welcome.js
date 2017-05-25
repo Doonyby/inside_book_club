@@ -12,10 +12,10 @@ class Welcome extends React.Component {
 				<div className="landPanel2">
 					<i id="toProfile" className="fa fa-chevron-down"></i>
 					<div className="siteDescription">
-						<div>
-							<img src="./client/css/bookstack.png" height="200px" width="200px"/>
+						<div className="welcomePic">
+							<img src="./client/css/bookstack.png" height="250px" width="250px"/>
 						</div>
-						<div>
+						<div className="welcomePar">
 							<p className="textLeft">Inside Book Club allows you to host and join 
 							exlusive book clubs in order to create a closer and smaller atmosphere in which 
 							to share reading experiences.  Much like a club hosted in the comfort of your own 

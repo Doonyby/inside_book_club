@@ -7,10 +7,20 @@ import { clearErrorAction } from "../../actions/landing-actions";
 
 class Welcome extends React.Component {
 	render() {
+
 		return (
 			<div>
 				<div className="landPanel2">
-					<i id="toProfile" className="fa fa-chevron-down"></i>
+					<a onClick={ ()=>{ 
+									let x = 1;
+									let y = 1;
+									setInterval(function() {
+									    window.scrollTo(0, x);
+									    x = x + 2;
+									}, y);
+								}}>
+						<i id="toProfile" className="fa fa-chevron-down"></i>
+					</a>
 					<div className="siteDescription">
 						<div className="welcomePic">
 							<img src="./client/css/bookstack.png" height="250px" width="250px"/>
@@ -19,7 +29,7 @@ class Welcome extends React.Component {
 							<p className="textLeft">Inside Book Club allows you to host and join 
 							exlusive book clubs in order to create a closer and smaller atmosphere in which 
 							to share reading experiences.  Much like a club hosted in the comfort of your own 
-							living room, you can control the amount of people to make it a conversation/discussion 
+							home, you can control the amount of people to make it a conversation/discussion 
 							promoting size.</p> 
 						</div>
 					</div>

@@ -23,7 +23,7 @@ div {
 
 .landPanel1 {
 	font-family: 'Baumans', cursive;
-	background-image: url(./brownFence.svg);
+	background-image: url(./brownFence.jpg);
 	background-repeat: repeat;
 	height: 83vh;
 }
@@ -66,18 +66,18 @@ div {
 }
 
 a {
-	color: #FFF1D7;
+	color: #222;
 }
 
 a:hover {
-	color: #FFF1D7;
+	color: #222;
 	opacity: .7;
 }
 
 a:after,
 a:active,
 a:focus {
-	color: #FFF1D7;
+	color: #222;
 }
 
 /*.appDiv {

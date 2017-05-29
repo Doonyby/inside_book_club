@@ -9,7 +9,7 @@ const Control = ({ club, showEditClubModalControl, hideEditClubModal, submitEdit
 		date = moment(club.meetupDate).format('LLL');
 	}
 	return (
-		<div>
+		<div className="boxContainer">
 			<h4><u>Control</u></h4>
 			<p className="textLeft">Club name: <u className="clubInfo">{club.clubName.toUpperCase()}</u></p>
 			<p className="textLeft">Current book: <u className="clubInfo">{club.currentBook.toUpperCase()}</u></p>

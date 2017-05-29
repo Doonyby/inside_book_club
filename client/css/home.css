@@ -4,6 +4,11 @@ body {
 	font-family: 'Ubuntu', sans-serif;
 }
 
+/*Poppins
+word right aligned boxes justified
+admin
+stretch goal is having vote*/
+
 div {
 	text-align: center;
 }
@@ -13,12 +18,23 @@ div {
 	position: fixed;
 	top: 0;
 	left: 0;
+	z-index: 1;
 }
 
 .appDiv {
 	overflow: auto;
 	top: 0;
 	left: 0;
+}
+
+.homeDiv {
+	background-image: url(./brownFence.jpg);
+	background-repeat: repeat;
+	overflow: auto;	
+	top: 0;
+	left: 0;
+	height: 100vh;
+	padding-top: 50px;
 }
 
 .landPanel1 {
@@ -71,7 +87,6 @@ a {
 
 a:hover {
 	color: #222;
-	opacity: .7;
 }
 
 a:after,
@@ -80,14 +95,43 @@ a:focus {
 	color: #222;
 }
 
-/*.appDiv {
-	overflow: auto;
-}*/
+.myClubNav a {
+	padding: 0px 15px 0px 15px;
+}
+
+.myClubNav a:hover {
+	color: #fff;
+	opacity: .9;	
+}
+
+.myClubNav a:after,
+.myClubNav a:active,
+.myClubNav a:focus {
+	color: #fff;
+}
+
+.joinClubNav a {
+	padding: 0px 15px 0px 15px;
+}
+
+.joinClubNav a:hover {
+	color: #fff;
+	opacity: .9;	
+}
+
+.joinClubNav a:after,
+.joinClubNav a:active,
+.joinClubNav a:focus {
+	color: #fff;
+}
 
 .boxContainer {
 	background-color: #fff;
-	border: 1px solid black;
+	border: 2px solid #222;
 	border-radius: -20px;
+	padding: 10px 20px 10px 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .whiteText {
@@ -110,13 +154,12 @@ label {
 	margin-top: 50px;
 }
 
-.clubRow2,
-.clubRow3 {
+.clubRow2 {
 	margin-top: 20px;
 }
 
-.clubRow4 {
-	margin-top: 10px;
+.clubRow3 {
+	margin-top: 20px;
 }
 
 .errorText {

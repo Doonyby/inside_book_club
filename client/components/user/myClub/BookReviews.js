@@ -29,7 +29,7 @@ const Reviews = ({ reviews, getBookReview }) => {
 		height: 630
 	}
 	return (
-		<div className="textLeft" style={reviewStyle}>
+		<div className="textLeft boxContainer" style={reviewStyle}>
 			<h4 style={titleStyle}><u>Searching for your next club book? Look up reviews here!</u></h4>
 			<p className="textLeft">Enter a book title in the line below to pull up reviews from "goodreads.com".</p>
 			<span>

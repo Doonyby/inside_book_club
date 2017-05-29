@@ -9,7 +9,7 @@ const Members = ({ club }) => {
 		memberMessage = "You do not have any members that have joined your club yet.  Tell your friends!!!";
 	}
 	return (
-		<div className="bottomStyle membersClubHeight">
+		<div className="bottomStyle membersClubHeight boxContainer">
 			<h4 style={marginStyle}><u>Current club members</u></h4>
 			<p style={marginStyle} className="textLeft">{memberMessage}</p>
 			<p style={marginStyle} className="textLeft">Members: <span className="clubInfo">{club.members.join(', ')}</span></p>

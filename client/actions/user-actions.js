@@ -114,6 +114,19 @@ export const leaveJoinedClubError = (message) => ({
 	message
 });
 
+export const MYCLUB_NAV = "MYCLUB_NAV";
+export const myClubNavAction= (component) => ({
+	type: MYCLUB_NAV,
+	component
+});
+
+export const JOINCLUB_NAV = "JOINCLUB_NAV";
+export const joinClubNavAction= (component) => ({
+	type: JOINCLUB_NAV,
+	component
+});
+
+
 export const leaveJoinedClubAction = (clubObj) => {
 	return dispatch => {
 		axios.put('/api/leaveJoinedClub', clubObj)

@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 import Login from './LoginPage';
-import { loginRequest } from '../../actions/landing-actions';
+import { loginRequest, hideLoginModalAction } from '../../actions/landing-actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -11,7 +11,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		login: (userData) => { dispatch(loginRequest(userData)) }
+		login: (userData) => { dispatch(loginRequest(userData)) },
+		hideLoginModal: () => { dispatch(hideLoginModalAction()) }
 	}
 }
 

@@ -4,9 +4,6 @@ import { Router, Route, browserHistory, IndexRoute } from "react-router";
 import { Provider } from "react-redux";
 import store from "./store";
 import Welcome from "./components/landing/Welcome";
-import Information from "./components/landing/Information";
-import LoginContainer from "./components/landing/LoginContainer";
-import SignupContainer from "./components/landing/SignupContainer.js";
 import Home from "./components/user/HomePage";
 import Navigation from "./components/user/Navigation";
 import MyClubEntrance from "./components/user/myClub/MyClubEntrance";
@@ -40,11 +37,7 @@ class App extends React.Component {
 		return (
 			<Provider store={store}>
 				<Router history={browserHistory}>
-						<Route path="/" component={Landing}>
-							<Route path="/information" component={Information} />
-							<Route path="/signup" component={SignupContainer} />
-							<Route path="/login" component={LoginContainer} />
-						</Route>
+						<Route path="/" component={Landing} />
 						<Route path="/home" component={Home}>
 							<IndexRoute component={MyClubEntrance} />
 							<Route path="/joinclub" component={JoinClubEntrance} />

@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 import SignupPage from './SignupPage.js';
-import { signUpRequest } from '../../actions/landing-actions';
+import { signUpRequest, hideSignupModalAction } from '../../actions/landing-actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -11,7 +11,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		submitSignup: (userData) => { return dispatch(signUpRequest(userData)) }
+		submitSignup: (userData) => { dispatch(signUpRequest(userData)) },
+		hideSignupModal: () => { dispatch(hideSignupModalAction()) }
 	}
 }
 

@@ -3,6 +3,36 @@ import axios from "axios";
 import { browserHistory } from "react-router";
 import { createNewMyClub, updateClubMembers } from "./user-actions";
 
+export const SHOW_SIGNUP_MODAL = "SHOW_SIGNUP_MODAL";
+export const showSignupModalAction = () => ({
+	type: SHOW_SIGNUP_MODAL
+});
+
+export const HIDE_SIGNUP_MODAL = "HIDE_SIGNUP_MODAL";
+export const hideSignupModalAction = () => ({
+	type: HIDE_SIGNUP_MODAL
+});
+
+export const SHOW_LOGIN_MODAL = "SHOW_LOGIN_MODAL";
+export const showLoginModalAction = () => ({
+	type: SHOW_LOGIN_MODAL
+});
+
+export const HIDE_LOGIN_MODAL = "HIDE_LOGIN_MODAL";
+export const hideLoginModalAction = () => ({
+	type: HIDE_LOGIN_MODAL
+});
+
+export const SHOW_INFO_MODAL = "SHOW_INFO_MODAL";
+export const showInfoModalAction = () => ({
+	type: SHOW_INFO_MODAL
+});
+
+export const HIDE_INFO_MODAL = "HIDE_INFO_MODAL";
+export const hideInfoModalAction = () => ({
+	type: HIDE_INFO_MODAL
+});
+
 //add user to state upon successful sign in with login or signup
 export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS';
 export const signInSuccess = (userData) => ({

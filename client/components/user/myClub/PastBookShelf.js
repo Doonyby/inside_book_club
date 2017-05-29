@@ -25,7 +25,7 @@ const PastBookShelf = ({ club, shelfPastBook, removePastBook }) => {
 		);
 	})
 	return (
-		<div className="textLeft tallDivHeight">
+		<div className="textLeft tallDivHeight boxContainer">
 			<h4 className="textCenter"><u>Already Read Book Shelf</u></h4>
 			<p>After finishing a book, enter the title here, so you can keep track of how many books you have read.</p>
 			<input className="shelfInput bottomStyle" type="text" placeholder="type book title here" onKeyDown={(e) => {
@@ -51,3 +51,4 @@ const PastBookShelf = ({ club, shelfPastBook, removePastBook }) => {
 }
 
 export default PastBookShelf
+

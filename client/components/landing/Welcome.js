@@ -11,14 +11,7 @@ class Welcome extends React.Component {
 		return (
 			<div>
 				<div className="landPanel2">
-					<a onClick={ ()=>{ 
-									let x = 1;
-									let y = 1;
-									setInterval(function() {
-									    window.scrollTo(0, x);
-									    x = x + 2;
-									}, y);
-								}}>
+					<a> 
 						<i id="toProfile" className="fa fa-chevron-down"></i>
 					</a>
 					<div className="siteDescription">

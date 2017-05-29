@@ -13,7 +13,13 @@ let  initialState = {
 	bookReviews: '',
 	showNewClubModal: false,
 	showEditClubModal: false,
-	myClubError: null
+	myClubError: null,
+	myClubNav: {
+		home: true,
+		control: false,
+		bookshelves: false,
+		reviews: false
+	}
 }
 
 export default function myClubReducer(state = initialState, action) {
@@ -71,6 +77,9 @@ export default function myClubReducer(state = initialState, action) {
 			return nextState;
 		case 'GET_BOOK_REVIEW_SUCCESS':
 			nextState.bookReviews = action.data;
+			return nextState;
+		case 'MYCLUB_NAV':
+			nextState.myClubNav = action.component;
 			return nextState;
 		default:
 			return nextState;

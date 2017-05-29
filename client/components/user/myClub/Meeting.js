@@ -11,7 +11,7 @@ const Meeting = ({ club }) => {
 		date = moment(club.meetupDate).format('LLL');
 	}
 	return (
-		<div>
+		<div className="boxContainer">
 			<h4><u>Current book meeting date</u></h4>
 			<h4 className="clubInfo">{date}</h4>
 			<p className="textLeft">When the meeting date and time arrive, click the button below to enter your club chatroom.</p>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Row, Col } from "react-bootstrap";
+import { Grid, Row, Col, Fade } from "react-bootstrap";
 import JoinedMembersContainer from "./JoinedMembersContainer";
 import JoinedCommentContainer from "./JoinedCommentContainer";
 import JoinMeetingContainer from "./JoinMeetingContainer";
@@ -7,6 +7,7 @@ import FutureBookShelfContainer from "../myClub/FutureBookShelfContainer";
 import PastBookShelfContainer from "../myClub/PastBookShelfContainer";
 import JoinControlContainer from "./JoinControlContainer";
 import BookReviewsContainer from "../myClub/BookReviewsContainer";
+import JoinClubNavContainer from "./JoinClubNavContainer";
 
 class JoinClub extends React.Component {
 	componentWillMount() {
@@ -14,6 +15,35 @@ class JoinClub extends React.Component {
 		this.props.getJoinClubData(clubName);
 	}
 	render() {
+		let joinClubContents = ''
+		if (this.props.club.joinClubReducer.joinClubNav.home) {
+			joinClubContents = <Fade in={this.props.club.joinClubReducer.joinClubNav.home}>
+							<Col md={6} mdOffset={3}>
+								<JoinMeetingContainer />
+								<JoinedMembersContainer />
+								<JoinedCommentContainer />
+							</Col>
+						</Fade>				
+		} else if (this.props.club.joinClubReducer.joinClubNav.control) {
+			joinClubContents = <Fade in={this.props.club.joinClubReducer.joinClubNav.control}>
+							<Col md={6} mdOffset={3}>
+								<JoinControlContainer />
+							</Col>
+						</Fade>			
+		} else if (this.props.club.joinClubReducer.joinClubNav.bookshelves) {
+			joinClubContents = <Fade in={this.props.club.joinClubReducer.joinClubNav.bookshelves}>
+						<Col md={6} mdOffset={3}>
+							<FutureBookShelfContainer />
+							<PastBookShelfContainer />
+						</Col>			
+						</Fade>
+		} else if (this.props.club.joinClubReducer.joinClubNav.reviews) {
+			joinClubContents = <Fade in={this.props.club.joinClubReducer.joinClubNav.reviews}>
+							<Col md={6} mdOffset={3}>
+								<BookReviewsContainer />
+							</Col>
+						</Fade>		
+		}
 		return (
 			<div className="container">
 			<Grid>
@@ -23,31 +53,10 @@ class JoinClub extends React.Component {
 					</Col> 
 				</Row>
 				<Row className="clubRow2">
-					<Col md={3} className="boxContainer">
-						<FutureBookShelfContainer />
-					</Col>
-					<Col md={5} mdOffset={1} className="boxContainer">
-						<JoinedCommentContainer />
-					</Col>
-					<Col md={2} mdOffset={1} className="boxContainer">
-						<JoinMeetingContainer />
-					</Col>
+					<JoinClubNavContainer />
 				</Row>
 				<Row className="clubRow3">
-					<Col md={3} className="boxContainer">
-						<PastBookShelfContainer />
-					</Col>
-					<Col md={5} mdOffset={1} className="boxContainer">
-						<BookReviewsContainer />
-					</Col>
-					<Col md={2} mdOffset={1} className="boxContainer memberMargin">
-						<JoinedMembersContainer />
-					</Col>
-				</Row>
-				<Row className="clubRow4">
-					<Col md={2} mdOffset={10} className="boxContainer controlMargin">
-						<JoinControlContainer />
-					</Col>
+					{joinClubContents}
 				</Row>
 			</Grid>	
 			</div>
@@ -56,3 +65,4 @@ class JoinClub extends React.Component {
 }
 
 export default JoinClub;
+

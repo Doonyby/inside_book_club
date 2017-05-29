@@ -27,7 +27,7 @@ const JoinedComment = ({ club, enterJoinComment }) => {
 		);
 	});
 	return (
-		<div>
+		<div className="boxContainer">
 			<h4><u>Club comments</u></h4>
 			<p>(No spoilers!!!! Some people just may not be as fast as you.)</p>
 			<div className="commentDiv">{clubComment}</div>

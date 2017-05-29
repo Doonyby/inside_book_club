@@ -12,7 +12,13 @@ let  initialState = {
 	commentFeed: [],
 	bookReviews: '',
 	generateClubList: '',
-	myClubError: null
+	myClubError: null,
+	joinClubNav: {
+		home: true,
+		control: false,
+		bookshelves: false,
+		reviews: false
+	},
 }
 
 export default function joinClubReducer(state = initialState, action) {
@@ -44,6 +50,9 @@ export default function joinClubReducer(state = initialState, action) {
 			return nextState;
 		case 'LEAVE_JOINED_CLUB_SUCCESS': 
 			nextState = initialState;
+			return nextState;
+		case 'MYCLUB_NAV':
+			nextState.joinClubNav = action.component;
 			return nextState;
 		default:
 			return nextState;

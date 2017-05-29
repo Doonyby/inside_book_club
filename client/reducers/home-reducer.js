@@ -15,6 +15,9 @@ let initialState = {
   joinedClubError: null,
   futureError: null,
   pastError: null,
+  showSignupModal: false,
+  showLoginModal: false,
+  showInfoModal: false,
 }
 
 export default function homeReducer(state = initialState, action) {
@@ -38,6 +41,26 @@ export default function homeReducer(state = initialState, action) {
       nextState.joinedClubError = null;
       nextState.futureError = null;
       nextState.pastError = null;
+      nextState.showSignupModal = false;
+      nextState.showLoginModal = false;
+      return nextState;
+    case 'SHOW_SIGNUP_MODAL': 
+      nextState.showSignupModal = true;
+      return nextState;
+    case 'HIDE_SIGNUP_MODAL':
+      nextState.showSignupModal = false;
+      return nextState;
+    case 'SHOW_LOGIN_MODAL': 
+      nextState.showLoginModal = true;
+      return nextState;
+    case 'HIDE_LOGIN_MODAL':
+      nextState.showLoginModal = false;
+      return nextState;
+    case 'SHOW_INFO_MODAL': 
+      nextState.showInfoModal = true;
+      return nextState;
+    case 'HIDE_INFO_MODAL':
+      nextState.showInfoModal = false;
       return nextState;
     case 'SIGN_UP_REQUEST_ERROR':
       nextState.error = action.message;

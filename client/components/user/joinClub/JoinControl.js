@@ -8,7 +8,7 @@ const JoinControl = ({ club, leaveJoinedClub }) => {
 		date = moment(club.joinClubReducer.meetupDate).format('LLL');
 	}
 	return (
-		<div>
+		<div className="boxContainer">
 			<h4><u>Control</u></h4>
 			<p className="textLeft">Club name: <u className="clubInfo">{club.joinClubReducer.clubName.toUpperCase()}</u></p>
 			<p className="textLeft">Current book: <u className="clubInfo">{club.joinClubReducer.currentBook.toUpperCase()}</u></p>

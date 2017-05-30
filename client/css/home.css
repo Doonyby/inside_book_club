@@ -6,8 +6,7 @@ body {
 
 /*Poppins
 word right aligned boxes justified
-admin
-stretch goal is having vote*/
+*/
 
 div {
 	text-align: center;
@@ -147,7 +146,9 @@ label {
 }
 
 .inputPadding {
-	padding-top: 4px;
+	text-align: right;
+	padding-right: 20%;
+	padding-top: 7px;
 }
 
 .appDiv {

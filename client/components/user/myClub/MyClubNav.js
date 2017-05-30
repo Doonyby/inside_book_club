@@ -20,7 +20,7 @@ const MyClubNav = ({ myClubNav }) => {
 														reviews: false
 													}
 													myClubNav(component); 
-												}}>Control</a>
+												}}>Admin</a>
 			<a href="#" className="whiteText" onClick={() => {
 													let component = {
 														home: false,

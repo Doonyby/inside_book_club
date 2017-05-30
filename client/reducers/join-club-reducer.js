@@ -51,7 +51,7 @@ export default function joinClubReducer(state = initialState, action) {
 		case 'LEAVE_JOINED_CLUB_SUCCESS': 
 			nextState = initialState;
 			return nextState;
-		case 'MYCLUB_NAV':
+		case 'JOINCLUB_NAV':
 			nextState.joinClubNav = action.component;
 			return nextState;
 		default:

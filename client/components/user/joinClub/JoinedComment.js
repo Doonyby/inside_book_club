@@ -12,7 +12,7 @@ const JoinedComment = ({ club, enterJoinComment }) => {
 	let spaceStyle = {
 		paddingLeft: 30,
 		fontSize: 12,
-		color: "blue"
+		color: "#337ab7"
 	}
 	let clubComment = club.joinClubReducer.commentFeed.map((currentValue, index) => {
 		let date = moment(currentValue.date).fromNow();

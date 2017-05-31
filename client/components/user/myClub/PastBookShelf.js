@@ -6,7 +6,7 @@ import { Button } from "react-bootstrap";
 const PastBookShelf = ({ club, shelfPastBook, removePastBook }) => {
 	let dateStyle = {
 		fontSize: 11,
-		color: "blue",
+		color: "#337ab7",
 		paddingLeft: 5,
 	}
 	let xStyle = {

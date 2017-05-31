@@ -46,8 +46,8 @@ const SelectClub = ({ club, generateClubList, joinClub }) => {
 				a list of clubs with availability and the books they are reading.  Once you have 
 				found one that interests you, join the club and start your reading!</h3>
 			<Button className="bottomStyle" bsStyle="primary" bsSize="large" onClick={() => { generateClubList() }}>Generate List</Button>
-			<h4 className="errorText">{joinError}</h4>
 			<div className="boxContainer">
+				<h4 className="errorText">{joinError}</h4>
 				<ul className="shelfUl">{clubList}</ul>
 			</div>
 		</div>

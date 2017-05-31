@@ -4,7 +4,7 @@ import moment from "moment";
 const FutureBookShelf = ({ club, shelfFutureBook, removeFutureBook }) => {
 	let dateStyle = {
 		fontSize: 11,
-		color: "blue",
+		color: "#337ab7",
 		paddingLeft: 5
 	}
 	let xStyle = {

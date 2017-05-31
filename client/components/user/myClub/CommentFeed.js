@@ -12,7 +12,7 @@ const Requests = ({ club, enterComment }) => {
 	let spaceStyle = {
 		paddingLeft: 30,
 		fontSize: 12,
-		color: "blue"
+		color: '#337ab7'
 	}
 	let clubComment = club.myClubReducer.commentFeed.map((currentValue, index) => {
 		let date = moment(currentValue.date).fromNow();

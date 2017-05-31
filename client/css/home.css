@@ -4,9 +4,7 @@ body {
 	font-family: 'Ubuntu', sans-serif;
 }
 
-/*Poppins
-word right aligned boxes justified
-*/
+/*Poppins*/
 
 div {
 	text-align: center;
@@ -37,6 +35,7 @@ div {
 }
 
 .landPanel1 {
+/*	font-family: 'Poppins', sans-serif;*/
 	font-family: 'Baumans', cursive;
 	background-image: url(./brownFence.jpg);
 	background-repeat: repeat;
@@ -46,9 +45,14 @@ div {
 .titleHeading {
 	font-size: 92px;
 	font-weight: bolder;
+	text-shadow: 5px 5px 0px #337ab7;
 	margin: 0 auto;
 	padding-top: 150px;
 	padding-bottom: 15px;
+}
+
+.fa {
+	color: #337ab7;
 }
 
 .landPanel2 {
@@ -73,11 +77,10 @@ div {
 }
 
 .landPanel3 {
-	font-family: 'Cedarville Cursive', cursive;
 	font-size: 20px;	
 	background-color: #222;
 	height: 300px;
-	padding: 50px 300px 10px 300px;
+	padding: 60px 300px 10px 300px;
 }
 
 a {
@@ -168,7 +171,7 @@ label {
 }
 
 .clubInfo {
-	color: blue;
+	color: #337ab7;
 }
 
 .textLeft {
@@ -207,7 +210,7 @@ label {
 }
 
 .membersClubHeight {
-	height: 124px;
+	height: 140px;
 	overflow: auto;
 }
 
@@ -216,10 +219,10 @@ label {
 }
 
 .chatroomDiv {
-	border: 1px solid black;
+	border: 1px solid #222;
 	height: 600px;
 	width: 600px;
-	background-color: white;
+	background-color: #fff;
 }
 
 .textHere {
@@ -227,7 +230,7 @@ label {
 }
 
 .textAbsent {
-	color: #FF0419;
+	color: #00FEFF;
 }
 
 .chatStats {

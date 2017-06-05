@@ -35,8 +35,8 @@ div {
 }
 
 .landPanel1 {
-/*	font-family: 'Poppins', sans-serif;*/
-	font-family: 'Baumans', cursive;
+	font-family: 'Poppins', sans-serif;
+/*	font-family: 'Baumans', cursive;*/
 	background-image: url(./brownFence.jpg);
 	background-repeat: repeat;
 	height: 83vh;

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router";
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Grid, Col, Row } from 'react-bootstrap';
 import { LinkContainer } from "react-router-bootstrap";
-import { clearErrorAction, showLoginModalAction, showSignupModalAction, showInfoModalAction } from "../../actions/landing-actions";
+import { clearErrorAction, showLoginModalAction, showSignupModalAction, showInfoModalAction, loginRequest } from "../../actions/landing-actions";
 
 class LandingNavigation extends React.Component {
 	render () {
@@ -16,6 +16,15 @@ class LandingNavigation extends React.Component {
 					    <Nav>
 					        <NavItem onClick={ () => { this.props.showInfoModal() }}>
 					          <span className="whiteText">About</span>
+					        </NavItem>
+					        <NavItem onClick={ () => {
+								let userData = {
+									username: "jamesdean",
+									password: "rebelwithoutacause"
+								}
+								this.props.demoLogin(userData);
+							}}>
+					          <span className="whiteText">Demo</span>
 					        </NavItem>
 					    </Nav>
 				      </Col>
@@ -55,7 +64,8 @@ const mapDispatchToProps = (dispatch) => {
 		clearError: () => { dispatch(clearErrorAction()) },
 		showLoginModal: () => { dispatch(showLoginModalAction()) },
 		showSignupModal: () => { dispatch(showSignupModalAction()) },
-		showInfoModal: () => { dispatch(showInfoModalAction()) }
+		showInfoModal: () => { dispatch(showInfoModalAction()) },
+		demoLogin: (userData) => { dispatch(loginRequest(userData))}
 	}
 }
 

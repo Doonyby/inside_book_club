@@ -12,7 +12,7 @@ class Navigation extends React.Component {
 			  <Navbar inverse>
 			  	  <Grid>
 				    <Row className="show-grid">
-				      <Col md={3}>
+				      <Col md={3} className="menuDropdown">
 					    <Nav>
 					      <NavDropdown title="Book Club Menu" id="menuDropdown">
 					        <LinkContainer to={{ pathname: '/home' }}>
@@ -41,8 +41,8 @@ class Navigation extends React.Component {
 						    </NavItem>
 					    </Nav>
 				      </Col>
-				      <Col md={2} mdOffset={2}>
-					    <Nav>
+				      <Col md={4} >
+					    <Nav className="navRight">
 					      <NavDropdown noCaret pullRight eventKey={2} title={this.props.club.homeReducer.name.toUpperCase() + "'s Home Page"} id="menuDropdown">
 					        <LinkContainer to={{ pathname: '/' }}>
 					          <MenuItem eventKey={2.1}>

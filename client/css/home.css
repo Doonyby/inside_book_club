@@ -16,6 +16,18 @@ div {
 	top: 0;
 	left: 0;
 	z-index: 1;
+	margin-bottom: 0px;
+}
+
+.navRight {
+	text-align: right;
+	float: right;
+}
+
+.menuDropdown {
+	padding-left: 0px;
+	text-align: left;
+	float: left;
 }
 
 .appDiv {
@@ -28,9 +40,7 @@ div {
 	background-image: url(./brownFence.jpg);
 	background-repeat: repeat;
 	overflow: auto;	
-	top: 0;
-	left: 0;
-	height: 100vh;
+	height: 100%;
 	padding-top: 50px;
 }
 

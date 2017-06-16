@@ -230,8 +230,6 @@ label {
 
 .chatroomDiv {
 	border: 1px solid #222;
-	height: 600px;
-	width: 600px;
 	background-color: #fff;
 }
 
@@ -241,11 +239,6 @@ label {
 
 .textAbsent {
 	color: #00FEFF;
-}
-
-.chatStats {
-	float: left;
-	margin-left: 175px;
 }
 
 #chatMessageDisplay {
@@ -292,12 +285,14 @@ text-decoration: none;
 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-@media only screen and (max-width: 1050px) {
+@media only screen and (max-width: 1250px) {
+
+	.chatroom {
+
+	}
+
 	.chatroomDiv {
-		border: 1px solid #222;
-		height: 600px;
-		width: 600px;
-		background-color: #fff;
+
 	}
 
 	.textHere {
@@ -308,10 +303,6 @@ font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 		color: #00FEFF;
 	}
 
-	.chatStats {
-		float: left;
-		margin-left: 175px;
-	}
 
 	#chatMessageDisplay {
 		height: 420px;

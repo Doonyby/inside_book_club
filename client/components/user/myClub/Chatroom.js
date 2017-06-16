@@ -1,5 +1,5 @@
 import React from "react";
-import { FormGroup, FormControl } from "react-bootstrap";
+import { FormGroup, FormControl, Grid, Row, Col } from "react-bootstrap";
 import io from 'socket.io-client';
 
 class Chatroom extends React.Component {
@@ -13,9 +13,9 @@ class Chatroom extends React.Component {
 		const socket = io('/insideBookClubChat');		
 		socket.connect();
 		const usersDisplayFunc = (userDisplay) => {
-			let inChatroom = userDisplay.usersInChat.join('\n');
+			let inChatroom = userDisplay.usersInChat.join(', ');
 			document.getElementById('inChatroom').innerText = inChatroom;
-			let outChatroom = userDisplay.usersInClub.join('\n');
+			let outChatroom = userDisplay.usersInClub.join(', ');
 			document.getElementById('outChatroom').innerText = outChatroom;
 		}
 		const displayMessage = (messageDisplay) => {
@@ -33,37 +33,43 @@ class Chatroom extends React.Component {
  		return (
 			<div>
 				<h1 className="whiteText">Club {this.props.club.myClubReducer.clubName.toUpperCase()} Chatroom</h1>
-				<div className="chatroom">
-					<div className="chatStats textLeft">
-						<p style={pStyle} className="textHere"><strong><u>Already here:</u></strong></p>
+				<Grid className="chatroom">
+					<Row>
+						<Col md={3} mdOffset={3} className="chatStats textLeft">
+							<p style={pStyle} className="textHere"><strong><u>Already here:</u></strong></p>
 							<p style={pStyle} className="textHere" id="inChatroom"></p>
-						<p style={pStyle} className="textAbsent"><strong><u>Currently absent:</u></strong></p>
+						</Col>
+						<Col md={3} mdOffset={0} className="chatStats textLeft">
+							<p style={pStyle} className="textAbsent"><strong><u>Currently absent:</u></strong></p>
 							<p style={pStyle} className="textAbsent" id="outChatroom"></p>
-					</div>
-					<div className="chatroomDiv container">
-						<form id="commentForm" className="textLeft clubRow2">
-						    <FormGroup>
-						      <p className="textLeft">Press "enter" to submit comment.</p>
-						      <FormControl rows="3" name="chatArea" placeholder="add a comment" componentClass="textarea" onKeyDown={(e) => {
-						      		if (e.which==13) {
-						      			e.preventDefault();
-						      			let currentComment = {
-						      				username: this.props.club.homeReducer.username,
-						      				comment: e.target.value,
-						      			}
-						      			if (!/[^\s]/.test(currentComment.comment)) {
-						      				e.target.value = '';
-						      				return
-						      			}
-						      			socket.emit('messageObj', currentComment);
-						      			e.target.value = '';
-										}}}  />
-						    </FormGroup>
-					    </form>
-					    <hr/>
-					    <div id="chatMessageDisplay" className="textLeft"></div>
-					</div>
-				</div>
+						</Col>
+					</Row>
+					<Row>
+						<Col md={6} mdOffset={3} className="chatroomDiv container">
+							<form id="commentForm" className="textLeft clubRow2">
+							    <FormGroup>
+							      <p className="textLeft">Press "enter" to submit comment.</p>
+							      <FormControl rows="3" name="chatArea" placeholder="add a comment" componentClass="textarea" onKeyDown={(e) => {
+							      		if (e.which==13) {
+							      			e.preventDefault();
+							      			let currentComment = {
+							      				username: this.props.club.homeReducer.username,
+							      				comment: e.target.value,
+							      			}
+							      			if (!/[^\s]/.test(currentComment.comment)) {
+							      				e.target.value = '';
+							      				return
+							      			}
+							      			socket.emit('messageObj', currentComment);
+							      			e.target.value = '';
+											}}}  />
+							    </FormGroup>
+						    </form>
+						    <hr/>
+						    <div id="chatMessageDisplay" className="textLeft"></div>
+						</Col>
+					</Row>
+				</Grid>
 			</div>
 		);		
 	}

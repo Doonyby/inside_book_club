@@ -12,15 +12,40 @@ div {
 
 .navBar {
 	width: 100vw;
+	height: 60px;
+	max-height: 60px;
 	position: fixed;
 	top: 0;
 	left: 0;
 	z-index: 1;
 	margin-bottom: 0px;
+	background-color: #222;
+	color: #fff;
+	display: inline-block;
+	padding-right: 20px;
+	padding-left: 10px;
+}
+
+.navBar ul {
+	list-style-type: none;
+}
+
+.navBar li {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin-right: 30px;
+}
+
+.navBar li:hover {
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+.navLeft {
+	float: left;
 }
 
 .navRight {
-	text-align: right;
 	float: right;
 }
 
@@ -49,7 +74,8 @@ div {
 /*	font-family: 'Baumans', cursive;*/
 	background-image: url(./brownFence.jpg);
 	background-repeat: repeat;
-	height: 83vh;
+	height: 85vh;
+	padding: 0px 20px;
 }
 
 .titleHeading {
@@ -57,7 +83,7 @@ div {
 	font-weight: bolder;
 	text-shadow: 5px 5px 0px #337ab7;
 	margin: 0 auto;
-	padding-top: 150px;
+	padding-top: 15%;
 	padding-bottom: 15px;
 }
 
@@ -69,7 +95,7 @@ div {
 	font-size: 22px;
 	background-color: #fff;
 	height: 500px;
-	padding: 20px 250px 10px 250px;
+	padding: 10px 20% 10px 20%;
 }
 
 .siteDescription {
@@ -84,6 +110,11 @@ div {
 .welcomePic {
 	float: left;
 	margin-right: 40px;
+}
+
+.welcomePic img {
+	height: 250px;
+	width: 250px;
 }
 
 .landPanel3 {
@@ -192,6 +223,10 @@ label {
 	text-align: center;
 }
 
+.textRight {
+	text-align: right;
+}
+
 .bottomStyle {
 	margin-bottom: 15px;
 }
@@ -231,6 +266,7 @@ label {
 .chatroomDiv {
 	border: 1px solid #222;
 	background-color: #fff;
+
 }
 
 .textHere {
@@ -285,33 +321,95 @@ text-decoration: none;
 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-@media only screen and (max-width: 1250px) {
+@media only screen and (max-width: 1024px) {
 
-	.chatroom {
+	.landPanel2 {
+		font-size: 22px;
+		background-color: #fff;
+		height: 400px;
+		padding: 10px 60px 10px 60px;
+	}
+
+	.siteDescription {
+		padding-top: 40px;
+		display: inline-block;
 
 	}
 
-	.chatroomDiv {
-
+	.siteDescription div {
+		height: 220px;
 	}
 
-	.textHere {
-		color: #42FF00;
+	.welcomePar {
+		width: 62%;
+		float: right;
 	}
 
-	.textAbsent {
-		color: #00FEFF;
+	.welcomePic {
+		float: left;
+		margin-right: 15px;
+		padding-top: 30px;
 	}
 
+	.welcomePic img {
+		height: 200px;
+		width: 200px;
+	}
 
-	#chatMessageDisplay {
-		height: 420px;
-		overflow: auto;
+	.landPanel3 {
+		font-size: 20px;	
+		background-color: #222;
+		height: 220px;
+		padding: 40px 60px 20px 60px;
 	}
 
 }
 
 @media only screen and (max-width: 768px) {
+	.navBar li {
+		padding-top: 15px;
+		padding-bottom: 15px;
+		margin-right: 20px;
+	}
 
+	.landPanel2 {
+		font-size: 22px;
+		background-color: #fff;
+		height: 600px;
+		padding: 10px 20px 10px 20px;
+	}
 
+	.siteDescription {
+		padding-top: 15px;
+		display: block;
+
+	}
+
+	.siteDescription div {
+		height: 160px;
+	}
+
+	.welcomePar {
+		width: 100%;
+		float: none;
+	}
+
+	.welcomePic {
+		float: none;
+		margin-right: 0px;
+		padding-top: 10px;
+	}
+
+	.welcomePic img {
+		height: 150px;
+		width: 150px;
+	}
+
+	.landPanel3 {
+		font-size: 20px;	
+		background-color: #222;
+		height: 380px;
+		padding: 20px 20px 20px 20px;
+	}
+	
 }

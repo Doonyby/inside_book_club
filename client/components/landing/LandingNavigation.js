@@ -9,45 +9,33 @@ class LandingNavigation extends React.Component {
 	render () {
 		return (
 			<div className="navBar">
-			  <Navbar inverse>
-			  	  <Grid>
-				    <Row className="show-grid">
-				      <Col md={2}>
-					    <Nav>
-					        <NavItem onClick={ () => { this.props.showInfoModal() }}>
-					          <span className="whiteText">About</span>
-					        </NavItem>
-					        <NavItem onClick={ () => {
-								let userData = {
-									username: "jamesdean",
-									password: "rebelwithoutacause"
-								}
-								this.props.demoLogin(userData);
-							}}>
-					          <span className="whiteText">Demo</span>
-					        </NavItem>
-					    </Nav>
-				      </Col>
-				      <Col md={2} mdOffset={8}>
-					    <Nav>
-				          <NavItem onClick={ () => {
-				          						this.props.clearError();
-				          						this.props.showLoginModal();
-				          					 }}>
-				            <span className="whiteText">Login</span>
-				          </NavItem>
-				          <NavItem onClick={ () => {
-				          						console.log('action was called');
-				          						this.props.clearError();
-				          						this.props.showSignupModal();
-				          					 }}>
-				            <span className="whiteText">Signup</span>
-				          </NavItem>
-					    </Nav>
-				      </Col>
-				    </Row>
-				  </Grid>
-			  </Navbar>
+				<ul>
+			        <li className="navLeft" onClick={ () => { this.props.showInfoModal() }}>
+			          <span className="whiteText">About</span>
+			        </li>
+			        <li className="navLeft" onClick={ () => {
+						let userData = {
+							username: "jamesdean",
+							password: "rebelwithoutacause"
+						}
+						this.props.demoLogin(userData);
+					}}>
+			          <span className="whiteText">Demo</span>
+			        </li>
+		            <li className="navRight" onClick={ () => {
+		          						this.props.clearError();
+		          						this.props.showLoginModal();
+		          					 }}>
+		                <span className="whiteText">Login</span>
+		            </li>
+		            <li className="navRight" onClick={ () => {
+		          						console.log('action was called');
+		          						this.props.clearError();
+		          						this.props.showSignupModal();
+		          					 }}>
+		            	<span className="whiteText">Signup</span>
+		            </li>
+				</ul>
 			</div>
 		);
 	}

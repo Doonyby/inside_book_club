@@ -6,7 +6,7 @@ import Navigation from "./Navigation";
 class Home extends React.Component {
 	render () {
 		return (
-			<div className="tryThis">
+			<div>
 				<Navigation className="navigation" club={this.props.club} />
 				<div className="homeDiv">
 					{this.props.children}				

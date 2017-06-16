@@ -37,11 +37,11 @@ class Chatroom extends React.Component {
 					<Row>
 						<Col md={3} mdOffset={3} className="chatStats textLeft">
 							<p style={pStyle} className="textHere"><strong><u>Already here:</u></strong></p>
-							<p style={pStyle} className="textHere" id="inChatroom"></p>
+							<p className="textHere" id="inChatroom"></p>
 						</Col>
 						<Col md={3} mdOffset={0} className="chatStats textLeft">
 							<p style={pStyle} className="textAbsent"><strong><u>Currently absent:</u></strong></p>
-							<p style={pStyle} className="textAbsent" id="outChatroom"></p>
+							<p className="textAbsent" id="outChatroom"></p>
 						</Col>
 					</Row>
 					<Row>

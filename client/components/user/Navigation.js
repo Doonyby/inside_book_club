@@ -7,54 +7,33 @@ import { LinkContainer } from "react-router-bootstrap";
 
 class Navigation extends React.Component {
 	render () {
+		let dropdown = {
+			display: "none",
+		}
 		return (
 			<div className="navBar">
-			  <Navbar inverse>
-			  	  <Grid>
-				    <Row className="show-grid">
-				      <Col md={3} className="menuDropdown">
-					    <Nav>
-					      <NavDropdown title="Book Club Menu" id="menuDropdown">
-					        <LinkContainer to={{ pathname: '/home' }}>
-					          <MenuItem eventKey={1.1}>
-								My Club
-					          </MenuItem>
-					        </LinkContainer>
-					        <LinkContainer to={{ pathname: '/joinclub' }}>
-					          <MenuItem eventKey={1.2}>
-					            Join Club
-					          </MenuItem>
+				<ul>
+			        <li className="navLeft" id="menuDropdown">Club Menu</li>
+				        <div style={dropdown}>
+				        	<LinkContainer to={{ pathname: '/home' }}>
+				          		<MenuItem eventKey={1.1}>My Club</MenuItem>
+				        	</LinkContainer>
+				        	<LinkContainer to={{ pathname: '/joinclub' }}>
+				          		<MenuItem eventKey={1.2}>Join Club</MenuItem>
 							</LinkContainer>
-					        <MenuItem divider />
-					        <LinkContainer to={{ pathname: '/instruction' }}>
-					          <MenuItem eventKey={1.4}>
-					            Instructions
-					          </MenuItem>
+				        	<MenuItem divider />
+				        	<LinkContainer to={{ pathname: '/instruction' }}>
+				          		<MenuItem eventKey={1.4}>Instructions</MenuItem>
+							</LinkContainer>			        
+				        </div>
+				    <li className="navLeft navTitle">Inside Book Club</li>
+			        <li className="navRight">{this.props.club.homeReducer.name.toUpperCase()}</li>
+				        <div style={dropdown}>
+			        		<LinkContainer to={{ pathname: '/' }}>
+				          		<MenuItem eventKey={2.1}>Sign out</MenuItem>
 							</LinkContainer>
-					      </NavDropdown>
-					    </Nav>
-				      </Col>
-				      <Col md={3} mdOffset={2} className="navigationCol">
-				      	<Nav>
-						    <NavItem>
-						       <span className="whiteText">Inside Book Club</span>
-						    </NavItem>
-					    </Nav>
-				      </Col>
-				      <Col md={4} >
-					    <Nav className="navRight">
-					      <NavDropdown noCaret pullRight eventKey={2} title={this.props.club.homeReducer.name.toUpperCase() + "'s Home Page"} id="menuDropdown">
-					        <LinkContainer to={{ pathname: '/' }}>
-					          <MenuItem eventKey={2.1}>
-					            Sign out
-					          </MenuItem>
-							</LinkContainer>
-					      </NavDropdown>
-					    </Nav>
-				      </Col>
-				    </Row>
-				  </Grid>
-			  </Navbar>
+				        </div>
+			    </ul>
 			</div>
 		);
 	}

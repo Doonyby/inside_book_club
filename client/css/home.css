@@ -49,6 +49,10 @@ div {
 	float: right;
 }
 
+.navTitle {
+	padding-left: 32vw;
+}
+
 .menuDropdown {
 	padding-left: 0px;
 	text-align: left;
@@ -66,7 +70,8 @@ div {
 	background-repeat: repeat;
 	overflow: auto;	
 	height: 100vh;
-	padding-top: 50px;
+	padding-top: 20px;
+	margin-top: 60px;
 }
 
 .landPanel1 {
@@ -403,6 +408,10 @@ font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	.welcomePic img {
 		height: 150px;
 		width: 150px;
+	}
+
+	.navTitle {
+		display: none;
 	}
 
 	.landPanel3 {

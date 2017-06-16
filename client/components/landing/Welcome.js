@@ -16,7 +16,7 @@ class Welcome extends React.Component {
 					</a>
 					<div className="siteDescription">
 						<div className="welcomePic">
-							<img src="./client/css/bookstack.png" height="250px" width="250px"/>
+							<img src="./client/css/bookstack.png"/>
 						</div>
 						<div className="welcomePar">
 							<p className="textLeft">Inside Book Club allows you to host and join 

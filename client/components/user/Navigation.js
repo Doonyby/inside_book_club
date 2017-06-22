@@ -26,18 +26,26 @@ class Navigation extends React.Component {
 			<div className="navBar">
 				<ul>
 			        <li className="navLeft" onClick={ () => { changeDropdown(menuDropdown)} }>Club Menu</li>
-				        <div style={menuDropdown}>
-				        	<LinkContainer to={{ pathname: '/home' }}>
-				          		<MenuItem eventKey={1.1}>My Club</MenuItem>
-				        	</LinkContainer>
-				        	<LinkContainer to={{ pathname: '/joinclub' }}>
-				          		<MenuItem eventKey={1.2}>Join Club</MenuItem>
+
+					      <NavDropdown title="Book Club Menu" id="menuDropdown">
+					        <LinkContainer to={{ pathname: '/home' }}>
+					          <MenuItem eventKey={1.1}>
+								My Club
+					          </MenuItem>
+					        </LinkContainer>
+					        <LinkContainer to={{ pathname: '/joinclub' }}>
+					          <MenuItem eventKey={1.2}>
+					            Join Club
+					          </MenuItem>
 							</LinkContainer>
-				        	<MenuItem divider />
-				        	<LinkContainer to={{ pathname: '/instruction' }}>
-				          		<MenuItem eventKey={1.4}>Instructions</MenuItem>
-							</LinkContainer>			        
-				        </div>
+					        <MenuItem divider />
+					        <LinkContainer to={{ pathname: '/instruction' }}>
+					          <MenuItem eventKey={1.4}>
+					            Instructions
+					          </MenuItem>
+							</LinkContainer>
+					      </NavDropdown>
+
 				    <li className="navLeft navTitle">Inside Book Club</li>
 			        <li className="navRight" onClick={ () => { changeDropdown(exitDropdown)} }>{this.props.club.homeReducer.name.toUpperCase()}</li>
 				        <div style={exitDropdown}>

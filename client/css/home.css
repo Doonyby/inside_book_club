@@ -53,6 +53,33 @@ div {
 	padding-left: 32vw;
 }
 
+.homeNavTitle {
+	padding-left: 32vw;
+}
+
+.homeNav {
+	height: 60px;
+	border-radius: 0px;
+	padding-top: 2px;
+	margin-bottom: 0px;
+}
+
+.homeNav div {
+	margin-left: 0px;
+	margin-right: 0px;
+	width: 100vw;
+}
+
+.homeNavMenu {
+	z-index: 1;
+	background-color: #222;
+}
+
+.homeNavName {
+	z-index: 1;
+	background-color: #222;		
+}
+
 .menuDropdown {
 	padding-left: 0px;
 	text-align: left;
@@ -71,7 +98,6 @@ div {
 	overflow: auto;	
 	height: 100vh;
 	padding-top: 20px;
-	margin-top: 60px;
 }
 
 .landPanel1 {
@@ -141,36 +167,6 @@ a:after,
 a:active,
 a:focus {
 	color: #222;
-}
-
-.myClubNav a {
-	padding: 0px 15px 0px 15px;
-}
-
-.myClubNav a:hover {
-	color: #fff;
-	opacity: .9;	
-}
-
-.myClubNav a:after,
-.myClubNav a:active,
-.myClubNav a:focus {
-	color: #fff;
-}
-
-.joinClubNav a {
-	padding: 0px 15px 0px 15px;
-}
-
-.joinClubNav a:hover {
-	color: #fff;
-	opacity: .9;	
-}
-
-.joinClubNav a:after,
-.joinClubNav a:active,
-.joinClubNav a:focus {
-	color: #fff;
 }
 
 .boxContainer {
@@ -375,6 +371,34 @@ font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 		padding-top: 15px;
 		padding-bottom: 15px;
 		margin-right: 20px;
+	}
+
+	.homeNavTitleContainer {
+		display: none;
+	}
+
+	.homeNavMenuContainer {
+		float: left;
+		text-align: left;
+	}
+
+	.homeNavNameContainer {
+		float: right;
+		text-align: right;
+	}
+
+	.homeNav div {
+		display: inline-block;
+	}
+
+	.homeNavMenu {
+		z-index: 1;
+		background-color: #222;
+	}
+
+	.homeNavName {
+		z-index: 1;
+		background-color: #222;		
 	}
 
 	.landPanel2 {

@@ -7,27 +7,11 @@ import { LinkContainer } from "react-router-bootstrap";
 
 class Navigation extends React.Component {
 	render () {
-		let menuDropdown = {
-			display: "none",
-		}
-		let exitDropdown = {
-			display: "none",
-		}
-		let changeDropdown = (dropdownType) => {
-			if (dropdownType.display === "none") {
-				dropdownType.display = "block"; 
-			} else {
-				dropdownType.display = "none";	
-			}
-			
-			console.log(dropdownType);			
-		}
 		return (
-			<div className="navBar">
-				<ul>
-			        <li className="navLeft" onClick={ () => { changeDropdown(menuDropdown)} }>Club Menu</li>
-
-					      <NavDropdown title="Book Club Menu" id="menuDropdown">
+			<div>
+			  <Navbar inverse className="homeNav">
+					    <Nav className="homeNavMenuContainer">
+					      <NavDropdown className="homeNavMenu" title="Club Menu" id="menuDropdown">
 					        <LinkContainer to={{ pathname: '/home' }}>
 					          <MenuItem eventKey={1.1}>
 								My Club
@@ -45,15 +29,22 @@ class Navigation extends React.Component {
 					          </MenuItem>
 							</LinkContainer>
 					      </NavDropdown>
-
-				    <li className="navLeft navTitle">Inside Book Club</li>
-			        <li className="navRight" onClick={ () => { changeDropdown(exitDropdown)} }>{this.props.club.homeReducer.name.toUpperCase()}</li>
-				        <div style={exitDropdown}>
-			        		<LinkContainer to={{ pathname: '/' }}>
-				          		<MenuItem eventKey={2.1}>Sign out</MenuItem>
+					    </Nav>
+				      	<Nav className="homeNavTitleContainer">
+						    <NavItem className="homeNavTitle">
+						       <span className="whiteText">Inside Book Club</span>
+						    </NavItem>
+					    </Nav>
+					    <Nav className="navRight homeNavNameContainer">
+					      <NavDropdown className="homeNavName" noCaret pullRight eventKey={2} title={this.props.club.homeReducer.name.toUpperCase()} id="menuDropdown">
+					        <LinkContainer to={{ pathname: '/' }}>
+					          <MenuItem eventKey={2.1}>
+					            Sign out
+					          </MenuItem>
 							</LinkContainer>
-				        </div>
-			    </ul>
+					      </NavDropdown>
+					    </Nav>
+			  </Navbar>
 			</div>
 		);
 	}

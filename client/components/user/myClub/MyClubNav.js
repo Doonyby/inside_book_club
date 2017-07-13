@@ -3,7 +3,7 @@ import React from "react";
 const MyClubNav = ({ myClubNav }) => {
 	return (
 		<div className="myClubNav">
-			<a href="#" className="whiteText" onClick={() => {
+			<a href="#" className="whiteText clubNav" onClick={() => {
 													let component = {
 														home: true,
 														control: false,
@@ -12,7 +12,7 @@ const MyClubNav = ({ myClubNav }) => {
 													}
 													myClubNav(component); 
 												}}>Home</a>
-			<a href="#" className="whiteText" onClick={() => {
+			<a href="#" className="whiteText clubNav" onClick={() => {
 													let component = {
 														home: false,
 														control: true,
@@ -21,7 +21,7 @@ const MyClubNav = ({ myClubNav }) => {
 													}
 													myClubNav(component); 
 												}}>Admin</a>
-			<a href="#" className="whiteText" onClick={() => {
+			<a href="#" className="whiteText clubNav" onClick={() => {
 													let component = {
 														home: false,
 														control: false,
@@ -30,7 +30,7 @@ const MyClubNav = ({ myClubNav }) => {
 													}
 													myClubNav(component); 
 												}}>Bookshelves</a>
-			<a href="#" className="whiteText" onClick={() => {
+			<a href="#" className="whiteText clubNav" onClick={() => {
 													let component = {
 														home: false,
 														control: false,

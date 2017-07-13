@@ -287,6 +287,10 @@ label {
 	margin: 0 auto;
 }
 
+.clubNav {
+	padding: 0px 7px 0px 7px;
+}
+
 /*goodreades widget styling*/
 #goodreads-widget {
 font-family: georgia, serif;

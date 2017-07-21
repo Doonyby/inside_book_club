@@ -159,6 +159,7 @@ export const getJoinClubDataAction = (clubName) => {
 				dispatch(getJoinClubDataSuccess(response.data));
 			})
 			.catch(function (error) {
+				console.log(error);
 				dispatch(getJoinClubDataError(error.response.data.message));
 			});			
 	}

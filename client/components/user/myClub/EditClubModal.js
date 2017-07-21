@@ -45,7 +45,7 @@ const EditClubModal = ({club, hideEditClubModal, submitEditClubModal, deleteClub
 			    <Button bsStyle="primary" type="submit">Submit</Button>
 			    <a className="text-danger" style={deleteStyle} onClick={() => { 
 			    	if (confirm("Are you sure you want to delete this Club? Any club info and members you have will be lost.") == true) {
-            		deleteClubModal({clubName: club.clubName}) }}} >Delete club</a>
+            		deleteClubModal({clubName: club.clubName}) }}}>Delete club</a>
             </form>
           </Modal.Body>
           <Modal.Footer>

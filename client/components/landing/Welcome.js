@@ -19,11 +19,12 @@ class Welcome extends React.Component {
 							<img src="./client/css/bookstack.png"/>
 						</div>
 						<div className="welcomePar">
-							<p className="textLeft">Inside Book Club allows you to host and join 
-							exlusive book clubs in order to create a closer and smaller atmosphere in which 
-							to share reading experiences.  Much like a club hosted in the comfort of your own 
-							home, you can control the amount of people to make it a conversation/discussion 
-							promoting size.</p> 
+							<p className="textLeft">Inside Book Club allows you to host or join 
+							exlusive online book clubs similar to one you might host in your own home. 
+							Limiting group size helps foster a comfortable atmosphere that facilitates
+							open, authentic dialogue. Join us, and come share in your next reading 
+							adventure with friends who want to share it with you!
+							with friends</p> 
 						</div>
 					</div>
 				</div>

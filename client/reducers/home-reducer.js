@@ -44,19 +44,19 @@ export default function homeReducer(state = initialState, action) {
       nextState.showSignupModal = false;
       nextState.showLoginModal = false;
       return nextState;
-    case 'SHOW_SIGNUP_MODAL': 
+    case 'SHOW_SIGNUP_MODAL':
       nextState.showSignupModal = true;
       return nextState;
     case 'HIDE_SIGNUP_MODAL':
       nextState.showSignupModal = false;
       return nextState;
-    case 'SHOW_LOGIN_MODAL': 
+    case 'SHOW_LOGIN_MODAL':
       nextState.showLoginModal = true;
       return nextState;
     case 'HIDE_LOGIN_MODAL':
       nextState.showLoginModal = false;
       return nextState;
-    case 'SHOW_INFO_MODAL': 
+    case 'SHOW_INFO_MODAL':
       nextState.showInfoModal = true;
       return nextState;
     case 'HIDE_INFO_MODAL':
@@ -93,7 +93,7 @@ export default function homeReducer(state = initialState, action) {
     case 'REMOVE_PAST_BOOK_SUCCESS':
       nextState.pastBookShelf = action.bookData;
       return nextState;
-    case 'JOIN_CLUB_SUCCESS': 
+    case 'JOIN_CLUB_SUCCESS':
       nextState.joinedClub = action.joinedClub;
       nextState.joinedClubError = '';
       return nextState;

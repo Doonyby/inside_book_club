@@ -67,7 +67,7 @@ function getUserName(id) {
             return users[i].name;
         }
     }
-}  
+}
 
 var nsp = io.of('/insideBookClubChat');
 nsp.on('connection', (socket) => {
@@ -163,7 +163,7 @@ app.put('/api/shelfFutureBook', function(req,res) {
                 });
             }
             return res.status(201).json(item);
-        });       
+        });
     });
 });
 
@@ -184,7 +184,7 @@ app.put('/api/shelfPastBook', function(req,res) {
                 });
             }
             return res.status(201).json(item);
-        });       
+        });
     });
 });
 
@@ -249,7 +249,7 @@ app.get('/api/getBookReview/:bookTitle', function(req, res) {
             console.log('error', error);
             return res.status(500).json({
                 message: 'Internal Server Error'
-            });            
+            });
         });
 })
 
@@ -269,8 +269,8 @@ app.put('/api/removeFutureBook', function(req, res) {
                 });
             }
             return res.status(201).json(item);
-        });       
-                
+        });
+
     })
 })
 
@@ -290,7 +290,7 @@ app.put('/api/removePastBook', function(req, res) {
                 });
             }
             return res.status(201).json(item);
-        });                
+        });
     });
 });
 
@@ -325,7 +325,7 @@ app.put('/api/enterComment', function(req, res) {
                 });
             }
             return res.status(201).json(item);
-        });       
+        });
     })
 })
 
@@ -384,8 +384,8 @@ app.put('/api/deleteJoinedClub', function(req, res) {
                     message: 'Internal Server Error'
                 });
             }
-            return res.status(201).json(item);           
-        });          
+            return res.status(201).json(item);
+        });
     });
 });
 
@@ -403,8 +403,8 @@ app.put('/api/leaveJoinedClub', function(req, res) {
                     message: 'Internal Server Error'
                 });
             }
-            return res.status(201).json(item);           
-        });          
+            return res.status(201).json(item);
+        });
     });
 });
 
@@ -422,8 +422,8 @@ app.put('/api/updateClubMembers', function(req, res) {
                     message: 'Internal Server Error'
                 });
             }
-            return res.status(201).json(item);           
-        });          
+            return res.status(201).json(item);
+        });
     });
 });
 
@@ -446,7 +446,7 @@ app.put('/api/joinClub', function(req, res) {
                     message: 'Internal Server Error'
                 });
             }
-            return res.status(201).json(item);           
+            return res.status(201).json(item);
         });
     });
 });
@@ -593,7 +593,7 @@ app.post('/api/signup', jsonParser, function(req, res) {
 });
 
 app.get('/home/*', (req, res) => {
-     res.sendFile(path.join(__dirname, './index.html'));   
+     res.sendFile(path.join(__dirname, './index.html'));
 });
 
 app.get('/*', (req, res) => {
@@ -602,8 +602,3 @@ app.get('/*', (req, res) => {
 
 exports.app = app;
 exports.runServer = runServer;
-
-
-
-
-

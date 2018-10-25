@@ -29,7 +29,6 @@ class LandingNavigation extends React.Component {
 		                <span className="whiteText">Login</span>
 		            </li>
 		            <li className="navRight" onClick={ () => {
-		          						console.log('action was called');
 		          						this.props.clearError();
 		          						this.props.showSignupModal();
 		          					 }}>
